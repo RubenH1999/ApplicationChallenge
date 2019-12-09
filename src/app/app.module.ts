@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MakerModule } from './maker/maker.module';
+import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,7 +16,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     AppRoutingModule,
     BrowserAnimationsModule,
+    SharedModule,
     MakerModule
   ],
   providers: [],
