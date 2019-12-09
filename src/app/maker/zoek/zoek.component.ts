@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Assignment } from 'src/app/models/assignment.model';
+import { Bedrijf } from 'src/app/models/bedrijf.model';
 
 @Component({
   selector: 'app-zoek',
@@ -9,17 +11,19 @@ export class ZoekComponent implements OnInit {
 
   autoComplete: string[] = new Array<string>(); 
   tags: string[] = new Array<string>(); 
-  //assignments: Assignment[] = new Array<Assignment>();
-  //bedrijven: Bedrijf[] = new Array<Bedrijf>();
+  assignments: Assignment[] = new Array<Assignment>();
+  bedrijven: Bedrijf[] = new Array<Bedrijf>();
 
   constructor() { }
 
   ngOnInit() {
     this.autoComplete = ['Item1', 'item2', 'ok'];
+    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3));
+    this.bedrijven.push(new Bedrijf(1, "geel", "tag", "ok", "045923"));   
   }
 
   zoeken(){
-    
+
     this.ngOnInit();
   }
 

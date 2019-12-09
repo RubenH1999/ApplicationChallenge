@@ -20,17 +20,49 @@ import { HomeComponent } from './home/home.component';
 import { BedrijvenModule } from './bedrijven/bedrijven.module';
 import { BedrijvenComponent } from './bedrijven/bedrijven/bedrijven.component';
 import { AssignmentComponent } from './assignment/assignment.component';
+<<<<<<< Updated upstream
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'bedrijven', component: BedrijvenComponent}
+=======
+import { LoginComponent } from './auth/login/login.component';
+import { environment } from 'src/environments/environment';
+import { RegistrationComponent } from './auth/registration/registration.component';
+import { FormsModule } from '@angular/forms';
+
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'adminMaker', component: AdminMakerComponent },
+  { path: 'adminBedrijf', component: AdminBedrijvenComponent },
+  { path: 'voegMakerToe', component: MakerToevoegenComponent },
+  { path: 'bedrijven', component: BedrijvenComponent},
+  { path: 'voegBedrijfToe', component: BedrijfToevoegenComponent },
+>>>>>>> Stashed changes
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+<<<<<<< Updated upstream
     AssignmentComponent
     
+=======
+    AssignmentComponent,
+    AdminComponent,
+    AdminMakerComponent,
+    AdminBedrijvenComponent,
+    MakerToevoegenComponent,
+    BedrijfToevoegenComponent,
+    HomeComponent,
+    LoginComponent,
+    RegistrationComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -42,7 +74,14 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     SharedModule,
     MakerModule,
+<<<<<<< Updated upstream
     BedrijvenModule
+=======
+    BedrijvenModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FormsModule
+>>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]
