@@ -1,2 +1,14 @@
 
+
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <p>Application Challenge</p>
+      <button mat-button *ngIf="!login" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</button>
+      <button mat-button *ngIf="!login" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inloggen</button>
+      <button mat-button *ngIf="!login" routerLink="/registratie" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Registreren</button>  
+      <button mat-button *ngIf="login" (click)="uitloggen()">Uitloggen</button>  
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
