@@ -15,34 +15,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { MakerModule } from './maker/maker.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login/login.component';
-import { environment } from 'src/environments/environment';
-import { RegistrationComponent } from './auth/registration/registration.component';
-import { FormsModule } from '@angular/forms';
-
+import { BedrijvenModule } from './bedrijven/bedrijven.module';
+import { BedrijvenComponent } from './bedrijven/bedrijven/bedrijven.component';
+import { AssignmentComponent } from './assignment/assignment.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'adminMaker', component: AdminMakerComponent },
-  { path: 'adminBedrijf', component: AdminBedrijvenComponent },
-  { path: 'voegMakerToe', component: MakerToevoegenComponent },
-  { path: 'voegBedrijfToe', component: BedrijfToevoegenComponent },
+  { path: 'bedrijven', component: BedrijvenComponent}
 ];
 @NgModule({
   declarations: [
     AppComponent,
-  AdminComponent,
-    AdminMakerComponent,
-    AdminBedrijvenComponent,
-    MakerToevoegenComponent,
-    BedrijfToevoegenComponent,
     HomeComponent,
-    LoginComponent,
-    RegistrationComponent
-
+    AssignmentComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -53,10 +39,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     SharedModule,
     MakerModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    FormsModule
-
+    BedrijvenModule
   ],
   providers: [],
   bootstrap: [AppComponent]
