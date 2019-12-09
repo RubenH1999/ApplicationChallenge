@@ -1,0 +1,16 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title><b>{{assignment.titel}}</b></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p><b>Omschrijving: </b></p>
+        <p>{{assignment.omschrijving}}</p>
+        <p><b>Artists: </b></p>
+        <ul>
+            <li *ngFor="let a of album.artists">
+                {{a.name}}  
+                <button mat-button color="primary" (click)="toonDetailsArtist(a.id)">Details</button>
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>
