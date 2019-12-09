@@ -1,20 +1,28 @@
 <form #makerForm="ngForm"  (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
-   
+        <p>{{ model | json }}</p>
+        <p>{{ modelAccount | json }}</p>
     <p class="h4 mb-4">Voeg Maker toe:</p>
             <div class="col">
-                <p>Titel:
-                <input type="text"  name="title" /></p>
-                <p>Artiest:
-                <input type="text"  name="artist" /></p>
-                <p>Cover:
-                <input type="text"  name="cover" /></p>
-                <p>Album:
-                <input type="text"  name="album" /></p>
-                <p>Tijdsduur:
-                <input type="text"  name="duration" /></p>
+                <p>naam:
+                <input type="text" required [(ngModel)]="modelAccount.naam"  name="naam" /></p>
+                <p>Email:
+                <input type="text" required [(ngModel)]="modelAccount.naam"  name="email" /></p>
+                <p>geboortedatum:
+                <input type="text"  required [(ngModel)]="model.geboorteDatum"  name="geboorteDatum" /></p>
+                <p>Biografie:
+                <input type="text"  required [(ngModel)]="model.biografie" name="biografie" /></p>
+                <p>Is het een student?:
+                <input type="radio" name="ja" [(ngModel)]="model.student" [value]="true"> Ja
+                <input type="radio" name="nee" [(ngModel)]="model.student" [value]="false"> Nee
+                <p>Linkdin:
+                <input type="text" [(ngModel)]="model.linkdin"  name="linkdin" /></p>
+                <p>Ervaring:
+                <input type="text" [(ngModel)]="model.ervaring"  name="ervaring" /></p>
+                <p>telefoonnummer:
+                <input type="tel" [(ngModel)]="model.telefoon"  name="telefoon" /></p>
             </div>
        
-            <button mdbBtn color="info"  block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
+    <button   block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
             
     
 </form>
