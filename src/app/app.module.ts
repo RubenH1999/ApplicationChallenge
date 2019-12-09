@@ -22,6 +22,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { environment } from 'src/environments/environment';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 const appRoutes: Routes = [
@@ -34,7 +35,6 @@ const appRoutes: Routes = [
   { path: 'voegMakerToe', component: MakerToevoegenComponent },
   { path: 'bedrijven', component: BedrijvenComponent},
   { path: 'voegBedrijfToe', component: BedrijfToevoegenComponent },
-
 ];
 
 @NgModule({
@@ -49,7 +49,8 @@ const appRoutes: Routes = [
     BedrijfToevoegenComponent,
     HomeComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RegisterComponent
 
   ],
   imports: [
@@ -65,7 +66,6 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

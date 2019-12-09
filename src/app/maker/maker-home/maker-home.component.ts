@@ -16,8 +16,8 @@ export class MakerHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3));
-    this.verzoeken.push(new Assignment(2,"Taak 2", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3));
+    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3, null, null, null));
+    this.verzoeken.push(new Assignment(2,"Taak 2", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3, null, null, null));
   }
 
 }
