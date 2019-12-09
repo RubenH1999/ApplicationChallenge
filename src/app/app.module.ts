@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MakerModule } from './maker/maker.module';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     AppRoutingModule,
     BrowserAnimationsModule,
+    MakerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
