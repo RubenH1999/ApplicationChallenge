@@ -11,8 +11,6 @@ import { AdminMakerComponent } from './admin/admin-maker/admin-maker.component';
 import { AdminBedrijvenComponent } from './admin/admin-bedrijven/admin-bedrijven.component';
 import { MakerToevoegenComponent } from './admin/maker-toevoegen/maker-toevoegen.component';
 import { BedrijfToevoegenComponent } from './admin/bedrijf-toevoegen/bedrijf-toevoegen.component';
-
-
 import { RouterModule, Routes } from '@angular/router';
 import { MakerModule } from './maker/maker.module';
 import { SharedModule } from './shared/shared.module';
@@ -67,7 +65,6 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     HttpClientModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     AppRoutingModule,
