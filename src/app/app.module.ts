@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { environment } from 'src/environments/environment';
-import { RegistrationComponent } from './auth/registration/registration.component';
+
 import { FormsModule } from '@angular/forms';
 
 import { RegisterComponent } from './auth/register/register.component';
@@ -23,15 +23,14 @@ import { BedrijvenModule } from './bedrijven/bedrijven.module';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent }
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    RegistrationComponent,
+    LoginComponent,    
     RegisterComponent
 
   ],

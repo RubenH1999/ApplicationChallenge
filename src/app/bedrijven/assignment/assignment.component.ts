@@ -12,7 +12,7 @@ export class AssignmentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3));
+    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "taak", "geel",1,2,3));
   }
 
 }
