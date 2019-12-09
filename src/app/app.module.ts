@@ -9,15 +9,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { MakerModule } from './maker/maker.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
+import { BedrijvenModule } from './bedrijven/bedrijven.module';
+import { BedrijvenComponent } from './bedrijven/bedrijven/bedrijven.component';
+import { AssignmentComponent } from './assignment/assignment.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'bedrijven', component: BedrijvenComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AssignmentComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    MakerModule
+    MakerModule,
+    BedrijvenModule
   ],
   providers: [],
   bootstrap: [AppComponent]
