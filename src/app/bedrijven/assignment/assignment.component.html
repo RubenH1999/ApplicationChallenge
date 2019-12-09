@@ -1,0 +1,26 @@
+
+
+<mat-card class="card">
+    <mat-card-header>
+      <mat-card-title><b>Assignments/bedrijven zoeken op tags</b></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+            <form>
+                    <p>Titel:
+                    <input type="text" [(ngModel)]="assignments.titel" name="titel" /></p>
+                    <p>Omschrijving:
+                    <input type="text" [(ngModel)]="assignments.omschrijving" name="omschrijving" /></p>
+                    <p>Tags:</p>
+
+                    <p>Locatie: 
+                    <input type="text" [(ngModel)]="assignments.locatie" name="locatie"></p>
+                    <p>Type:
+                    <select name="gameId" id="gameId">
+                        <option *ngFor="let type of types" [value]="type">{{type}}</option></select></p>
+
+                </form>
+              
+    </mat-card-content>
+</mat-card>
+
+
