@@ -1,1 +1,17 @@
-<p>register works!</p>
+<div class="row">
+    <div class="col m6 offset-m3 center-align">
+        <h3>Registreren</h3>
+        <form (ngSubmit) = "register()">
+        <div class="form-field">
+            <input [(ngModel)] = "user.naam" placeholder="Naam" name="naam"/> 
+        </div>
+        <div class="form-field">
+            <input  [(ngModel)] = "user.email" type="email" placeholder="Email" name="email"/>
+        </div>
+        <div class="form-field">    
+             <input  type="password" [(ngModel)] = "password" placeholder="Password" name="password"/>
+        </div> 
+        <button class="btn-large green">Register</button>  
+    </form>
+    </div>
+</div>

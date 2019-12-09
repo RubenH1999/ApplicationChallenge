@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {AngularFireModule} from '@angular/fire';
+import {AngularFireModule, FirebaseApp} from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,12 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
 
 import { BedrijvenModule } from './bedrijven/bedrijven.module';
+import { AdminComponent } from './admin/admin/admin.component';
+import { AdminBedrijvenComponent } from './admin/admin-bedrijven/admin-bedrijven.component';
+import { AdminMakerComponent } from './admin/admin-maker/admin-maker.component';
+import { BedrijfToevoegenComponent } from './admin/bedrijf-toevoegen/bedrijf-toevoegen.component';
+import { MakerToevoegenComponent } from './admin/maker-toevoegen/maker-toevoegen.component';
+import { AuthService } from './auth/auth.service';
 
 
 const appRoutes: Routes = [
@@ -31,7 +37,12 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,    
-    RegisterComponent
+    RegisterComponent,
+    AdminComponent,
+    AdminBedrijvenComponent,
+    AdminMakerComponent,
+    BedrijfToevoegenComponent,
+    MakerToevoegenComponent
 
   ],
   imports: [
@@ -48,7 +59,7 @@ const appRoutes: Routes = [
     FormsModule,
     BedrijvenModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
