@@ -20,8 +20,8 @@ export class ZoekComponent implements OnInit {
 
   ngOnInit() {
     this.autoComplete = ['Item1', 'item2', 'ok'];
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3, null, null, null));
-    this.bedrijven.push(new Bedrijf(1, "geel", "tag", "ok", "045923", new Gebruiker(1, "ok", "thomas more", 1 , null)));   
+    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "geel", "opdracht", 1, 2, 3));
+    this.bedrijven.push(new Bedrijf(1, "geel", "ok", "045923", new Gebruiker(1, "ok", "thomas more", 1)));   
   }
 
   zoeken(){
