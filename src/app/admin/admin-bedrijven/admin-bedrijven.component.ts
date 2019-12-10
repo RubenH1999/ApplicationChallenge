@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BedrijfService } from '../bedrijf.service';
+import { Bedrijf } from 'src/app/models/bedrijf.model';
 
 @Component({
   selector: 'app-admin-bedrijven',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-bedrijven.component.css']
 })
 export class AdminBedrijvenComponent implements OnInit {
+bedrijven:Bedrijf[];
 
-  constructor() { }
+
+
+  constructor(private _bedrijvenService:BedrijfService) { }
 
   ngOnInit() {
+    this.getBedrijven()
   }
+
+  getBedrijven()
+  {
+    this._bedrijvenService.getBedrijven().subscribe(
+      result => {
+      this.bedrijven=result
+      
+     
+      console.log("bedrijven: " + this.bedrijven);
+      }
+    );
+  }
+  
 
 }

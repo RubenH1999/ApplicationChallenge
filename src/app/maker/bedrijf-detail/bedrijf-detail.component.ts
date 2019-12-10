@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Bedrijf } from 'src/app/models/bedrijf.model';
+import { BedrijfService } from 'src/app/services/bedrijf.service';
 
 @Component({
   selector: 'app-bedrijf-detail',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BedrijfDetailComponent implements OnInit {
 
-  constructor() { }
+  bedrijf: Bedrijf;
+
+  constructor(private _bedrijfService: BedrijfService) { }
 
   ngOnInit() {
+    this._bedrijfService.getBedrijf(Number(localStorage.getItem("bedrijfId"))).subscribe(
+      result => {  
+        this.bedrijf = result;  
+      }
+    );
   }
 
 }

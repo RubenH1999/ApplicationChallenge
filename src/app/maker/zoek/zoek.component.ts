@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from 'src/app/models/assignment.model';
 import { Bedrijf } from 'src/app/models/bedrijf.model';
-import { Gebruiker } from 'src/app/models/gebruiker.model';
 import { Router } from '@angular/router';
+import { AssignmentService } from 'src/app/services/assignment.service';
+import { TagService } from 'src/app/services/tag.service';
+import { BedrijfService } from 'src/app/services/bedrijf.service';
 
 @Component({
   selector: 'app-zoek',
@@ -15,25 +17,62 @@ export class ZoekComponent implements OnInit {
   tags: string[] = new Array<string>(); 
   assignments: Assignment[] = new Array<Assignment>();
   bedrijven: Bedrijf[] = new Array<Bedrijf>();
+  teller: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private _assignmentService: AssignmentService, private _bedrijfService: BedrijfService, private _tagService: TagService, private router: Router) { }
 
   ngOnInit() {
-    this.autoComplete = ['Item1', 'item2', 'ok'];
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "geel", "opdracht", 1, 2, 3));
-    this.bedrijven.push(new Bedrijf(1, "geel", "ok", "045923", new Gebruiker(1, "ok", "thomas more", 1)));   
+    this._tagService.getAllTags().subscribe(
+      result => {  
+        result.forEach(tag => {    
+          this.autoComplete.push(tag.beschrijving);
+        }); 
+      }  
+    );
+
+    if(this.tags.length != 0) {
+      this._assignmentService.getAssignments().subscribe(
+        result => {  
+          result.forEach(assignment => {    
+            assignment.tagAssignments.forEach(tagAssignment => {
+              if (this.tags.includes(tagAssignment.tag.beschrijving)) {
+                this.teller++;
+              }
+            });
+            if (this.teller == this.tags.length) {
+              this.assignments.push(assignment);
+            }
+          });     
+        }
+      );
+      this._bedrijfService.getBedrijven().subscribe(
+        result => {  
+          result.forEach(bedrijf => {    
+            bedrijf.tagBedrijven.forEach(tagBedrijf => {
+              if (this.tags.includes(tagBedrijf.tag.beschrijving)) {
+                this.teller++;
+              }
+            });
+            if (this.teller == this.tags.length) {
+              this.bedrijven.push(bedrijf);
+            }
+          });      
+        }
+      );
+    }
   }
 
   zoeken(){
-
     this.ngOnInit();
   }
 
   assignmentDetails(assignmentID: number){
+    localStorage.setItem("assignmentId", assignmentID + "")
     this.router.navigate(['/assignmentDetail']);
   }
 
   bedrijfDetails(bedrijfID: number){
+    localStorage.setItem("bedrijfId", bedrijfID + "")
     this.router.navigate(['/bedrijfDetail']);
   }
 

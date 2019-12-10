@@ -1,12 +1,12 @@
 <form #makerForm="ngForm"  (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
         <p>{{ model | json }}</p>
-        <p>{{ modelAccount | json }}</p>
+        <p>{{ modelGebruiker | json }}</p>
     <p class="h4 mb-4">Voeg Maker toe:</p>
             <div class="col">
                 <p>naam:
-                <input type="text" required [(ngModel)]="modelAccount.naam"  name="naam" /></p>
+                <input type="text" required [(ngModel)]="modelGebruiker.naam"  name="naam" /></p>
                 <p>Email:
-                <input type="text" required [(ngModel)]="modelAccount.naam"  name="email" /></p>
+                <input type="text" required [(ngModel)]="modelGebruiker.naam"  name="email" /></p>
                 <p>geboortedatum:
                 <input type="text"  required [(ngModel)]="model.geboorteDatum"  name="geboorteDatum" /></p>
                 <p>Biografie:
@@ -15,14 +15,14 @@
                 <input type="radio" name="ja" [(ngModel)]="model.student" [value]="true"> Ja
                 <input type="radio" name="nee" [(ngModel)]="model.student" [value]="false"> Nee
                 <p>Linkdin:
-                <input type="text" [(ngModel)]="model.linkdin"  name="linkdin" /></p>
+                <input type="text" [(ngModel)]="model.linkedIn"  name="linkdin" /></p>
                 <p>Ervaring:
                 <input type="text" [(ngModel)]="model.ervaring"  name="ervaring" /></p>
                 <p>telefoonnummer:
                 <input type="tel" [(ngModel)]="model.telefoon"  name="telefoon" /></p>
             </div>
        
-    <button   block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
+    <button block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
             
     
 </form>
