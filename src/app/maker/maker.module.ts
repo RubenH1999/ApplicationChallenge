@@ -7,17 +7,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { AssignmentDetailComponent } from './assignment-detail/assignment-detail.component';
 import { BedrijfDetailComponent } from './bedrijf-detail/bedrijf-detail.component';
+import { ReviewListComponent } from './review-list/review-list.component';
+import { ReviewSchrijvenComponent } from './review-schrijven/review-schrijven.component';
 
 const appRoutes: Routes = [
   { path: 'makerHome', component: MakerHomeComponent },
   { path: 'zoeken', component: ZoekComponent },
   { path: 'bedrijfDetail', component: BedrijfDetailComponent },
   { path: 'assignmentDetail', component: AssignmentDetailComponent },
+  { path: 'reviews', component: ReviewListComponent },
+  { path: 'reviewSchrijven', component: ReviewSchrijvenComponent },
 ];
 
 
 @NgModule({
-  declarations: [MakerHomeComponent, ZoekComponent, AssignmentDetailComponent, BedrijfDetailComponent],
+  declarations: [MakerHomeComponent, ZoekComponent, AssignmentDetailComponent, BedrijfDetailComponent, ReviewListComponent, ReviewSchrijvenComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
