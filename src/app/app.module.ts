@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,    
+    LoginComponent,
     RegisterComponent,
     AdminComponent,
     
