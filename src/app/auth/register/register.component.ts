@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
 import { AuthService } from '../auth.service';
+import { Rol } from 'src/app/models/rol.model';
 
 @Component({
   selector: 'app-register',
@@ -8,14 +9,26 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  authError: any;
+  rollen: Rol[];
+  constructor(private auth:AuthService) { 
+    this.auth.getRollen().subscribe(result => {
+      this.rollen = result
+    })
 
-  constructor(private auth:AuthService) { }
+  }
 
   ngOnInit() {
+    this.auth.eventAuthError$.subscribe( data => {
+      this.authError = data;
+    })
   }
-  register(){
-    this.auth.register(this.user.email,this.password);
+  onChange(rolValue){
+    console.log(rolValue);
   }
-  user:Gebruiker=new Gebruiker(0,"","",0)
-  password: string;
+
+  
+  createUser(frm) {
+    this.auth.createUser(frm.value);
+  }
 }

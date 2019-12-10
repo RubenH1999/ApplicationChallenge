@@ -1,17 +1,60 @@
-<div class="row">
-    <div class="col m6 offset-m3 center-align">
-        <h3>Registreren</h3>
-        <form (ngSubmit) = "register()">
-        <div class="form-field">
-            <input [(ngModel)] = "user.naam" placeholder="Naam" name="naam"/> 
-        </div>
-        <div class="form-field">
-            <input  [(ngModel)] = "user.email" type="email" placeholder="Email" name="email"/>
-        </div>
-        <div class="form-field">    
-             <input  type="password" [(ngModel)] = "password" placeholder="Password" name="password"/>
-        </div> 
-        <button class="btn-large green">Register</button>  
-    </form>
+<div class="row mt-4">
+    <div class="col-12">
+      <h4>Register</h4>
     </div>
-</div>
+  
+    <div class="col-12">
+      <div class="row" *ngIf="authError">
+        <div class="col-12 alert alert-danger">
+          {{ authError?.message }}
+        </div>
+      </div>
+    </div>
+      <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <label for="naam">Naam</label>
+            <input ngModel #naam="ngModel" name="naam" type="text" class="form-control" id="naam">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <label for="email">Email</label>
+            <input ngModel #email="ngModel" name="email" type="email" class="form-control">
+          </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <div class="input-field col s12">
+              <select class="browser-default" (change)="onChange($event.target.value)">
+                  <option disabled>Selecteer uw rol</option>
+                <option value=2>Maker</option>
+                <option value=3>Bedrijf</option>
+                
+              </select> 
+              
+            </div>
+          </div>
+        </div>
+        
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="password">Password</label>
+              <input ngModel #password="ngModel" name="password" type="password" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label>Confirm Password</label>
+              <input name="password" type="password" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </div>
+        
+      </form>
+   
+  </div>
