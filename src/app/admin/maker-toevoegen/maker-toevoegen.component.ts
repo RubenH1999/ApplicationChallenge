@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from 'src/app/models/account.model';
+
 import { Maker } from 'src/app/models/maker.model';
+import { Gebruiker } from 'src/app/models/gebruiker.model';
+import { Rol } from 'src/app/models/rol.model';
 
 @Component({
   selector: 'app-maker-toevoegen',
@@ -9,7 +11,7 @@ import { Maker } from 'src/app/models/maker.model';
 })
 export class MakerToevoegenComponent implements OnInit {
   model:Maker=new Maker(0,"","",false,"","","")
-  modelAccount:Account=new Account(0,"","")
+  modelGebruiker:Gebruiker=new Gebruiker(0,"","",1)
   submitted : boolean = false;
 
   constructor() { }
