@@ -3,6 +3,8 @@ import { Assignment } from 'src/app/models/assignment.model';
 import { Bedrijf } from 'src/app/models/bedrijf.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
 import { Router } from '@angular/router';
+import { AssignmentService } from 'src/app/assignment.service';
+import { Tag } from 'src/app/models/tag.model';
 
 @Component({
   selector: 'app-zoek',
@@ -16,24 +18,39 @@ export class ZoekComponent implements OnInit {
   assignments: Assignment[] = new Array<Assignment>();
   bedrijven: Bedrijf[] = new Array<Bedrijf>();
 
-  constructor(private router: Router) { }
+  constructor(private _assignmentService: AssignmentService, private router: Router) { }
 
   ngOnInit() {
-    this.autoComplete = ['Item1', 'item2', 'ok'];
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "geel", "opdracht", 1, 2, 3));
-    this.bedrijven.push(new Bedrijf(1, "geel", "ok", "045923", new Gebruiker(1, "ok", "thomas more", 1)));   
+    this._assignmentService.getAllTags().subscribe(
+      result => {  
+        result.forEach(tag => {    
+          this.autoComplete.push(tag.beschrijving);
+        }); 
+      }  
+    );
   }
 
   zoeken(){
-
+    this._assignmentService.getAssignmentsWithTags(this.tags).subscribe(
+      result => {  
+        this.assignments = result;
+      }
+    );
+    this._assignmentService.getBedrijvenWithTags(this.tags).subscribe(
+      result => {  
+        this.bedrijven = result;  
+      }
+    );
     this.ngOnInit();
   }
 
   assignmentDetails(assignmentID: number){
+    localStorage.setItem("assignmentId", assignmentID + "")
     this.router.navigate(['/assignmentDetail']);
   }
 
   bedrijfDetails(bedrijfID: number){
+    localStorage.setItem("bedrijfId", bedrijfID + "")
     this.router.navigate(['/bedrijfDetail']);
   }
 

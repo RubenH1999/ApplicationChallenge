@@ -6,27 +6,19 @@
             <p><b>Overzicht assignments</b></p>
             <ul>
                     <li *ngFor="let a of assignments">
-                        {{a.titel}}  
+                        {{a.titel}}
                         <button mat-button color="primary" (click)="details(a.assignmentID)">Details</button>
+                        {{a.status.beschrijving}}
                     </li>
             </ul>
-            <p>{{messageAssignment}}</p>
-            <p><b>Assignment Uitnodigingen</b></p>
-            <ul>
-                    <li *ngFor="let v of verzoeken">
-                        {{v.titel}}  
-                        <button mat-button color="primary" (click)="details(a.assignmentID)">Details</button>
-                        <button mat-button class="accept" (click)="accepteerAssignment(v.assignmentID)">Accepteren</button>
-                        <button mat-button class="weiger" (click)="weigerAssignment(v.assignmentID)">Weigeren</button>
-                    </li>
-            </ul>
-            <p>{{messageVerzoek}}</p>    
+            <p *ngIf="messageAssignment">Geen assignments beschikbaar.</p> 
             <p><b>Aanbevolen assignments</b></p>
             <ul>
-                    <li *ngFor="let aa of aanbelingen">
+                    <li *ngFor="let aa of aanbevelingen">
                         {{aa.titel}}  
                         <button mat-button color="primary" (click)="details(aa.assignmentID)">Details</button>
                     </li>
             </ul>
+            <button mat-raised-button color="primary" routerLink="/reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Reviews bekijken</button>             
     </mat-card-content>
 </mat-card>
