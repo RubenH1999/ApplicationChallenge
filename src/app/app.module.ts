@@ -16,10 +16,10 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
 import { BedrijvenModule } from './bedrijven/bedrijven.module';
 import { AdminComponent } from './admin/admin/admin.component';
-
-
 import { AuthService } from './auth/auth.service';
 import { AdminModule } from './admin/admin.module';
+import { AssignmentService } from './assignment.service';
+
 
 
 const appRoutes: Routes = [
@@ -54,7 +54,7 @@ const appRoutes: Routes = [
     BedrijvenModule,
     AdminModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AssignmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
