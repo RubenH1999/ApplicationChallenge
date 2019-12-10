@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Assignment } from 'src/app/models/assignment.model';
 import { Router } from '@angular/router';
 import { Status } from 'src/app/models/status.model';
-import { AssignmentService } from 'src/app/assignment.service';
+import { AssignmentService } from 'src/app/services/assignment.service';
 
 @Component({
   selector: 'app-maker-home',
@@ -20,9 +20,9 @@ export class MakerHomeComponent implements OnInit {
     this._assignmentService.getAssignmentsWhereGebruikerID(Number(localStorage.getItem("gebruikerId"))).subscribe(
       result => {  
         this.assignments = result;
-        if (this.assignments.length == 0) {
-          this.messageAssignment = true;
-        }
+      },
+      (err) => {
+        this.messageAssignment = true;
       }
     );
   }
