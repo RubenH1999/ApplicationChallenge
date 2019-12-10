@@ -22,7 +22,7 @@ export class BedrijfToevoegenComponent implements OnInit {
   }
 
   onSubmit() {
-    //voeg hier een bedrijf en een bedrijf account toe
+    
     this.submitted = true;
 
     console.log(this.model)
