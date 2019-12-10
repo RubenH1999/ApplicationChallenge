@@ -8,6 +8,7 @@ import { AssignmentComponent} from './assignment/assignment.component'
 const appRoutes: Routes = [
   { path: 'bedrijven', component: BedrijvenComponent },
   { path: 'assignment', component: AssignmentComponent },
+  
 ];
 @NgModule({
   declarations: [BedrijvenComponent, AssignmentComponent],
