@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="row">
+    <div class="col m6 offset-m3 center-align">
+        <h3>Login</h3>
+        <form (ngSubmit) = "login()">
+        
+        <div class="form-field">
+            <input  [(ngModel)] = "user.email" type="email" placeholder="Email" name="email"/>
+        </div>
+        <div class="form-field">    
+             <input  type="password" [(ngModel)] = "password" placeholder="Password" name="password"/>
+        </div> 
+        <button class="btn-large green">Login</button>  
+    </form>
+    </div>
+</div>

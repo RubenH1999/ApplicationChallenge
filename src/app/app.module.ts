@@ -2,55 +2,47 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {AngularFireModule} from '@angular/fire';
+import {AngularFireModule, FirebaseApp} from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminComponent } from './admin/admin/admin.component';
-import { AdminMakerComponent } from './admin/admin-maker/admin-maker.component';
-import { AdminBedrijvenComponent } from './admin/admin-bedrijven/admin-bedrijven.component';
-import { MakerToevoegenComponent } from './admin/maker-toevoegen/maker-toevoegen.component';
-import { BedrijfToevoegenComponent } from './admin/bedrijf-toevoegen/bedrijf-toevoegen.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MakerModule } from './maker/maker.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
-import { BedrijvenModule } from './bedrijven/bedrijven.module';
-import { BedrijvenComponent } from './bedrijven/bedrijven/bedrijven.component';
-import { AssignmentComponent } from './assignment/assignment.component';
 import { LoginComponent } from './auth/login/login.component';
 import { environment } from 'src/environments/environment';
-import { RegistrationComponent } from './auth/registration/registration.component';
+
 import { FormsModule } from '@angular/forms';
+
 import { RegisterComponent } from './auth/register/register.component';
+
+import { BedrijvenModule } from './bedrijven/bedrijven.module';
+import { AdminComponent } from './admin/admin/admin.component';
+import { AdminBedrijvenComponent } from './admin/admin-bedrijven/admin-bedrijven.component';
+import { AdminMakerComponent } from './admin/admin-maker/admin-maker.component';
+import { BedrijfToevoegenComponent } from './admin/bedrijf-toevoegen/bedrijf-toevoegen.component';
+import { MakerToevoegenComponent } from './admin/maker-toevoegen/maker-toevoegen.component';
+import { AuthService } from './auth/auth.service';
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'adminMaker', component: AdminMakerComponent },
-  { path: 'adminBedrijf', component: AdminBedrijvenComponent },
-  { path: 'voegMakerToe', component: MakerToevoegenComponent },
-  { path: 'bedrijven', component: BedrijvenComponent},
-  { path: 'voegBedrijfToe', component: BedrijfToevoegenComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AssignmentComponent,
+    LoginComponent,    
+    RegisterComponent,
     AdminComponent,
-    AdminMakerComponent,
     AdminBedrijvenComponent,
-    MakerToevoegenComponent,
+    AdminMakerComponent,
     BedrijfToevoegenComponent,
-    HomeComponent,
-    LoginComponent,
-    RegistrationComponent,
-    RegisterComponent
+    MakerToevoegenComponent
 
   ],
   imports: [
@@ -62,12 +54,12 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     SharedModule,
     MakerModule,
-    BedrijvenModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    BedrijvenModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

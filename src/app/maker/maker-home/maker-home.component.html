@@ -20,6 +20,13 @@
                         <button mat-button class="weiger" (click)="weigerAssignment(v.assignmentID)">Weigeren</button>
                     </li>
             </ul>
-            <p>{{messageVerzoek}}</p>            
+            <p>{{messageVerzoek}}</p>    
+            <p><b>Aanbevolen assignments</b></p>
+            <ul>
+                    <li *ngFor="let aa of aanbelingen">
+                        {{aa.titel}}  
+                        <button mat-button color="primary" (click)="details(aa.assignmentID)">Details</button>
+                    </li>
+            </ul>
     </mat-card-content>
 </mat-card>

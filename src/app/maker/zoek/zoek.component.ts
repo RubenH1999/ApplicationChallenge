@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Assignment } from 'src/app/models/assignment.model';
 import { Bedrijf } from 'src/app/models/bedrijf.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-zoek',
@@ -15,17 +16,25 @@ export class ZoekComponent implements OnInit {
   assignments: Assignment[] = new Array<Assignment>();
   bedrijven: Bedrijf[] = new Array<Bedrijf>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.autoComplete = ['Item1', 'item2', 'ok'];
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "taak", "geel", "opdracht", 1, 2, 3, null, null, null));
-    this.bedrijven.push(new Bedrijf(1, "geel", "tag", "ok", "045923", new Gebruiker(1, "ok", "thomas more", 1 , null)));   
+    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "geel", "opdracht", 1, 2, 3));
+    this.bedrijven.push(new Bedrijf(1, "geel", "ok", "045923", new Gebruiker(1, "ok", "thomas more", 1)));   
   }
 
   zoeken(){
 
     this.ngOnInit();
+  }
+
+  assignmentDetails(assignmentID: number){
+    this.router.navigate(['/assignmentDetail']);
+  }
+
+  bedrijfDetails(bedrijfID: number){
+    this.router.navigate(['/bedrijfDetail']);
   }
 
 }

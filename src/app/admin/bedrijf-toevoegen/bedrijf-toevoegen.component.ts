@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Bedrijf } from 'src/app/models/bedrijf.model';
-
 import { Gebruiker } from 'src/app/models/gebruiker.model';
 
 @Component({
@@ -9,8 +8,10 @@ import { Gebruiker } from 'src/app/models/gebruiker.model';
   styleUrls: ['./bedrijf-toevoegen.component.css']
 })
 export class BedrijfToevoegenComponent implements OnInit {
-  model:Bedrijf=new Bedrijf(0,"","","","")
-  modelGebruiker:Gebruiker=new Gebruiker(0,"","",2)
+
+  model:Bedrijf=new Bedrijf(0,"","","")
+  modelAccount:Gebruiker=new Gebruiker(0,"","",0)
+
   submitted : boolean = false;
 
   constructor() { }

@@ -11,7 +11,9 @@ export const environment = {
     projectId: "applicationchallenge-b3b70",
     storageBucket: "applicationchallenge-b3b70.appspot.com",
     messagingSenderId: "775540808669",
-    appId: "1:775540808669:web:3c36768c91600b7fc3f434"
+    appId: "1:775540808669:web:13fd2e64ff51744ac3f434"
+
+
     } 
 
 };

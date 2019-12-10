@@ -1,0 +1,19 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title><b>{{assignment.titel}}</b></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p><b>Omschrijving: </b></p>
+        <p>{{assignment.omschrijving}}</p>
+        <p><b>Bedrijf: </b>{{assignment.bedrijf.gebruiker.naam}}</p>            
+        <p><b>Locatie: </b>{{assignment.omschrijving}}</p>
+        <p><b>Type: </b>{{assignment.type}}</p>
+        <p><b>Status: </b>{{assignment.status.beschrijving}}</p>
+        <p><b>Tags: </b></p>
+        <ul>
+            <li *ngFor="let a of assignment.tagAssignments">
+                {{a.tag.beschrijving}}  
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>

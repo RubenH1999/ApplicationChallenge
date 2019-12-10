@@ -17,7 +17,7 @@
                     <ul>
                         <li *ngFor="let a of assignments">
                             {{a.titel}}  
-                            <button mat-button color="primary" (click)="details(a.assignmentID)">Details</button>
+                            <button mat-button color="primary" (click)="assignmentDetails(a.assignmentID)">Details</button>
                         </li>
                     </ul>
                 </mat-tab>
@@ -25,7 +25,7 @@
                     <ul>
                         <li *ngFor="let b of bedrijven">
                             {{b.gebruiker.naam}}  
-                            <button mat-button color="primary" (click)="details(a.assignmentID)">Details</button>
+                            <button mat-button color="primary" (click)="bedrijfDetails(b.bedrijfID)">Details</button>
                         </li>
                     </ul>
                 </mat-tab>
