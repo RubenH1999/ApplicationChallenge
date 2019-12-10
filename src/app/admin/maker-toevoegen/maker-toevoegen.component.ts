@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Maker } from 'src/app/models/maker.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
-import { Rol } from 'src/app/models/rol.model';
+
+import { MakerService } from '../services/maker.service';
+
 
 @Component({
   selector: 'app-maker-toevoegen',
@@ -14,13 +16,21 @@ export class MakerToevoegenComponent implements OnInit {
   modelAccount:Gebruiker=new Gebruiker(0,"","",0)
   submitted : boolean = false;
 
-  constructor() { }
+  constructor(private _makerService:MakerService) { }
 
   ngOnInit() {
   }
   onSubmit() {
-    //voeg hier een maker en een maker account toe
-    //Waardeloze commentaar in een poging github te laten werken
+   
+
+    this.submitted = true;
+
+    console.log(this.model)
+    console.log(this.modelGebruiker)
+    this._makerService.addMaker(this.model).subscribe();
+   
+    
+
   }
 
 }
