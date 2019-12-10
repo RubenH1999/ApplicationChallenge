@@ -11,7 +11,7 @@ import { BedrijfService } from '../bedrijf.service';
 export class BedrijfToevoegenComponent implements OnInit {
 
 
-  modelGebruiker:Gebruiker=new Gebruiker(0,"","",0)
+  modelGebruiker:Gebruiker=new Gebruiker(0,"","","",0)
   model:Bedrijf=new Bedrijf(0,"","","",this.modelGebruiker)
 
   submitted : boolean = false;

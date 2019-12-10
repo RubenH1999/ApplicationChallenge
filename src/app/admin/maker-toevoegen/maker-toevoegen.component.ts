@@ -12,8 +12,8 @@ import { MakerService } from '../services/maker.service';
 })
 export class MakerToevoegenComponent implements OnInit {
   model:Maker=new Maker(0,"","",false,"","","")
-  modelGebruiker:Gebruiker=new Gebruiker(0,"","",1)
-  modelAccount:Gebruiker=new Gebruiker(0,"","",0)
+  modelGebruiker:Gebruiker=new Gebruiker(0,"","","",1)
+  modelAccount:Gebruiker=new Gebruiker(0,"","","",0)
   submitted : boolean = false;
 
   constructor(private _makerService:MakerService) { }

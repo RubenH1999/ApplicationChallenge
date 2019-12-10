@@ -12,10 +12,7 @@ export class RegisterComponent implements OnInit {
   authError: any;
   rollen: Rol[];
   constructor(private auth:AuthService) { 
-    this.auth.getRollen().subscribe(result => {
-      this.rollen = result
-    })
-
+    
   }
 
   ngOnInit() {
