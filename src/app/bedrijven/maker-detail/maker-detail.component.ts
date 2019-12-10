@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MakerDetailComponent implements OnInit {
 
+  messageAssignment: string = "Geen geïnteresseerde makers gevonden.";
   assignments: Assignment[] = new Array<Assignment>();
   makers: Maker[] = new Array<Maker>();
   gebruikers: Gebruiker[] = new Array<Gebruiker>();
