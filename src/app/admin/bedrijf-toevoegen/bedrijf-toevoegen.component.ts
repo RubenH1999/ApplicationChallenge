@@ -8,8 +8,10 @@ import { Gebruiker } from 'src/app/models/gebruiker.model';
   styleUrls: ['./bedrijf-toevoegen.component.css']
 })
 export class BedrijfToevoegenComponent implements OnInit {
-  model:Bedrijf=new Bedrijf(0,"","","",)
+
+  model:Bedrijf=new Bedrijf(0,"","","")
   modelAccount:Gebruiker=new Gebruiker(0,"","",0)
+
   submitted : boolean = false;
 
   constructor() { }
