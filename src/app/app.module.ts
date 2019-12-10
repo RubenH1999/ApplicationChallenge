@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {AngularFireModule, FirebaseApp} from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth'
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +18,7 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { AuthService } from './auth/auth.service';
 import { AdminModule } from './admin/admin.module';
 import { AssignmentService } from './assignment.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
