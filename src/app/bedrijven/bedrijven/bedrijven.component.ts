@@ -23,7 +23,7 @@ export class BedrijvenComponent implements OnInit {
     this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[1]));
   }
   makerDetails(makerID: number){
-    this.router.navigate(['/makerDetail']);
+    this.router.navigate(['/makerdetail']);
   }
 
 }

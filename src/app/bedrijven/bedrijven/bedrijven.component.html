@@ -6,7 +6,10 @@
         <mat-card-content>
                 <ul>
                     <li></li>
-                    <li *ngFor="let m of makers">{{m.gebruiker.naam}}<button mat-button color="primary" (click)="makerDetails(m.makerID)">Details</button></li>
+                    <li *ngFor="let m of makers">{{m.gebruiker.naam}}
+                      <button mat-button color="primary" (click)="makerDetails(m.makerID)">Details</button>
+                      <button mat-button class="accept" (click)="accepteerMaker(m.makerID)">Accepteren</button>
+                      <button mat-button class="weiger" (click)="weigerAssignment(m.makerID)">Weigeren</button></li>
                     
                 </ul>
             </mat-card-content>
