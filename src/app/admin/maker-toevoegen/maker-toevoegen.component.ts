@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Maker } from 'src/app/models/maker.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
-import { Rol } from 'src/app/models/rol.model';
 
 
 @Component({
@@ -13,7 +11,8 @@ import { Rol } from 'src/app/models/rol.model';
 export class MakerToevoegenComponent implements OnInit {
   model:Maker=new Maker(0,"","",false,"","","")
   modelGebruiker:Gebruiker=new Gebruiker(0,"","",1)
-  modelAccount:Gebruiker=new Gebruiker(0,"","",0)
+
+
   submitted : boolean = false;
 
   constructor() { }

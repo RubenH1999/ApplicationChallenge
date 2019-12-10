@@ -1,6 +1,6 @@
 <form #makerForm="ngForm"  (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
         <p>{{ model | json }}</p>
-        <p>{{ modelAccount | json }}</p>
+        <p>{{ modelGebruiker | json }}</p>
     <p class="h4 mb-4">Voeg Maker toe:</p>
             <div class="col">
                 <p>naam:
@@ -15,7 +15,7 @@
                 <input type="radio" name="ja" [(ngModel)]="model.student" [value]="true"> Ja
                 <input type="radio" name="nee" [(ngModel)]="model.student" [value]="false"> Nee
                 <p>Linkdin:
-                <input type="text" [(ngModel)]="model.linkdin"  name="linkdin" /></p>
+                <input type="text" [(ngModel)]="model.linkedIn"  name="linkdin" /></p>
                 <p>Ervaring:
                 <input type="text" [(ngModel)]="model.ervaring"  name="ervaring" /></p>
                 <p>telefoonnummer:

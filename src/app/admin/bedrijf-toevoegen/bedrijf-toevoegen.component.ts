@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bedrijf } from 'src/app/models/bedrijf.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
+import { BedrijfService } from '../bedrijf.service';
 
 @Component({
   selector: 'app-bedrijf-toevoegen',
@@ -9,19 +10,24 @@ import { Gebruiker } from 'src/app/models/gebruiker.model';
 })
 export class BedrijfToevoegenComponent implements OnInit {
 
-  model:Bedrijf=new Bedrijf(0,"","","")
-  modelAccount:Gebruiker=new Gebruiker(0,"","",0)
+
+  modelGebruiker:Gebruiker=new Gebruiker(0,"","",0)
+  model:Bedrijf=new Bedrijf(0,"","","",this.modelGebruiker)
 
   submitted : boolean = false;
 
-  constructor() { }
+  constructor(private _bedrijfservice:BedrijfService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     //voeg hier een bedrijf en een bedrijf account toe
+    this.submitted = true;
 
+    console.log(this.model)
+    console.log(this.modelGebruiker)
+    this._bedrijfservice.addBedrijf(this.model).subscribe();
    
     
   }
