@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Maker } from 'src/app/models/maker.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
 
+
 @Component({
   selector: 'app-maker-toevoegen',
   templateUrl: './maker-toevoegen.component.html',

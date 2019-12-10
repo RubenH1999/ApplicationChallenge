@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from 'src/app/models/assignment.model';
 import { Router } from '@angular/router';
+import { Status } from 'src/app/models/status.model';
+import { AssignmentService } from 'src/app/assignment.service';
 
 @Component({
   selector: 'app-maker-home',
@@ -9,31 +11,25 @@ import { Router } from '@angular/router';
 })
 export class MakerHomeComponent implements OnInit {
 
-  assignments: Assignment[] = new Array<Assignment>();
-  verzoeken: Assignment[] = new Array<Assignment>();
-  messageAssignment: string = "Geen assignments beschikbaar.";
-  messageVerzoek: string = "Geen uitnodigingen.";
+  assignments: Assignment[];
+  messageAssignment: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private _assignmentService: AssignmentService, private router: Router) { }
 
   ngOnInit() {
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "geel", "opdracht", 1, 2, 3));
-    this.verzoeken.push(new Assignment(2,"Taak 2", "eertse taak", "geel", "opdracht", 1, 2, 3));
+    this._assignmentService.getAssignmentsWhereGebruikerID(Number(localStorage.getItem("gebruikerId"))).subscribe(
+      result => {  
+        this.assignments = result;
+        if (this.assignments.length == 0) {
+          this.messageAssignment = true;
+        }
+      }
+    );
   }
 
   details(assignmentID: number){
-
+    localStorage.setItem("assignmentId", assignmentID + "")
     this.router.navigate(['/assignmentDetail']);
-  }
-
-  accepteerAssignment(assignmentID: number){
-
-    this.ngOnInit();
-  }
-
-  weigerAssignment(assignmentID: number){
-
-    this.ngOnInit();
   }
 
 }

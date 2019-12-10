@@ -15,5 +15,7 @@
                 {{a.tag.beschrijving}}  
             </li>
         </ul>
+        <button *ngIf="open" mat-raised-button color="primary" (click)="stuurMail()">Interesse tonen</button> 
+        <button *ngIf="closed" mat-raised-button color="primary" (click)="review()">Schrijf review</button> 
     </mat-card-content>
 </mat-card>
