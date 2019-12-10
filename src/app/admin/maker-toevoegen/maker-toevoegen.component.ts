@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Maker } from 'src/app/models/maker.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
+
 import { MakerService } from '../services/maker.service';
 
 
@@ -12,8 +13,7 @@ import { MakerService } from '../services/maker.service';
 export class MakerToevoegenComponent implements OnInit {
   model:Maker=new Maker(0,"","",false,"","","")
   modelGebruiker:Gebruiker=new Gebruiker(0,"","",1)
-
-
+  modelAccount:Gebruiker=new Gebruiker(0,"","",0)
   submitted : boolean = false;
 
   constructor(private _makerService:MakerService) { }
@@ -21,7 +21,8 @@ export class MakerToevoegenComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit() {
-    //voeg hier een maker en een maker account toe
+   
+
     this.submitted = true;
 
     console.log(this.model)
@@ -29,6 +30,7 @@ export class MakerToevoegenComponent implements OnInit {
     this._makerService.addMaker(this.model).subscribe();
    
     
+
   }
 
 }

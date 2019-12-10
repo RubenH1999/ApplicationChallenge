@@ -17,8 +17,18 @@ import { BedrijvenModule } from './bedrijven/bedrijven.module';
 import { AdminComponent } from './admin/admin/admin.component';
 import { AuthService } from './auth/auth.service';
 import { AdminModule } from './admin/admin.module';
-import { AssignmentService } from './assignment.service';
+import { AssignmentService } from './services/assignment.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountService } from './services/account.service';
+import { BedrijfService } from './services/bedrijf.service';
+import { MakerService } from './services/maker.service';
+import { ReviewService } from './services/review.service';
+import { RolService } from './services/rol.service';
+import { StatusService } from './services/status.service';
+import { TagService } from './services/tag.service';
+import { TagassignmentService } from './services/tagassignment.service';
+import { TagbedrijfService } from './services/tagbedrijf.service';
+import { TagmakerService } from './services/tagmaker.service';
 
 
 
@@ -54,7 +64,20 @@ const appRoutes: Routes = [
     BedrijvenModule,
     AdminModule
   ],
-  providers: [AuthService, AssignmentService],
+  providers: [
+    AuthService, 
+    AccountService, 
+    AssignmentService, 
+    BedrijfService, 
+    MakerService, 
+    ReviewService, 
+    RolService, 
+    StatusService, 
+    TagService, 
+    TagassignmentService, 
+    TagbedrijfService, 
+    TagmakerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
