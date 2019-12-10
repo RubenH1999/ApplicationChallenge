@@ -13,11 +13,11 @@ export class BedrijfService {
 
   addBedrijf(bedrijf: Bedrijf) {
    
-    return this.http.post<Bedrijf>("https://localhost:44383/api/bedrijfs/", bedrijf);
+    return this.http.post<Bedrijf>("https://localhost:44383/api/bedrijf/", bedrijf);
     }
 
   getBedrijven(): Observable<Bedrijf[]> {
-    return this.http.get<Bedrijf[]>("https://localhost:44383/api/Bedrijfs");
+    return this.http.get<Bedrijf[]>("https://localhost:44383/api/Bedrijf");
   }
   
 }
