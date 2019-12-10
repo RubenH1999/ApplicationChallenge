@@ -3,9 +3,8 @@ import { Assignment } from 'src/app/models/assignment.model';
 import { Bedrijf } from 'src/app/models/bedrijf.model';
 import { Router } from '@angular/router';
 import { AssignmentService } from 'src/app/services/assignment.service';
-import { BedrijfService } from 'src/app/admin/bedrijf.service';
 import { TagService } from 'src/app/services/tag.service';
-import { TagAssignment } from 'src/app/models/tag-assignment.model';
+import { BedrijfService } from 'src/app/services/bedrijf.service';
 
 @Component({
   selector: 'app-zoek',
