@@ -12,24 +12,21 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { environment } from 'src/environments/environment';
-
 import { FormsModule } from '@angular/forms';
-
 import { RegisterComponent } from './auth/register/register.component';
-
 import { BedrijvenModule } from './bedrijven/bedrijven.module';
 import { AdminComponent } from './admin/admin/admin.component';
-import { AdminBedrijvenComponent } from './admin/admin-bedrijven/admin-bedrijven.component';
-import { AdminMakerComponent } from './admin/admin-maker/admin-maker.component';
-import { BedrijfToevoegenComponent } from './admin/bedrijf-toevoegen/bedrijf-toevoegen.component';
-import { MakerToevoegenComponent } from './admin/maker-toevoegen/maker-toevoegen.component';
+
+
 import { AuthService } from './auth/auth.service';
+import { AdminModule } from './admin/admin.module';
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'admin', component: AdminComponent },
 ];
 
 @NgModule({
@@ -39,10 +36,7 @@ const appRoutes: Routes = [
     LoginComponent,    
     RegisterComponent,
     AdminComponent,
-    AdminBedrijvenComponent,
-    AdminMakerComponent,
-    BedrijfToevoegenComponent,
-    MakerToevoegenComponent
+    
 
   ],
   imports: [
@@ -57,7 +51,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FormsModule,
-    BedrijvenModule
+    BedrijvenModule,
+    AdminModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
