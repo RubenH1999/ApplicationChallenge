@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
 import { AuthService } from '../auth.service';
 import { Rol } from 'src/app/models/rol.model';
+import { Maker } from 'src/app/models/maker.model';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,9 @@ export class RegisterComponent implements OnInit {
   authError: any;
   rollen: Rol[];
   sRole = null;
+  password: string;
+  gebruiker = new Gebruiker(0,"","","",0);
+  maker = new Maker(0,"","",false,"","","");
   constructor(private auth:AuthService) { 
     this.auth.getRollen().subscribe(result => {
       this.rollen = result
@@ -32,8 +36,9 @@ export class RegisterComponent implements OnInit {
   }
 
   
-  createUser(frm) {
-    console.log(frm)
-    this.auth.createUser(frm.value);
+  createUser() {
+    //user hier aanmaken na subscribe 
+    console.log(this.gebruiker)
+    this.auth.createUser(this.gebruiker, this.password, this.maker);
   }
 }

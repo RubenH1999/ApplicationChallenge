@@ -10,17 +10,17 @@
       </div>
     </div>
   </div>
-  <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+  <form (ngSubmit)="createUser()">
     <div class="row">
       <div class="col-md-6 mb-2">
         <label for="naam">Naam</label>
-        <input ngModel #naam="ngModel" name="naam" type="text" class="form-control" id="naam">
+        <input [(ngModel)]="gebruiker.naam" name="naam" type="text" class="form-control" id="naam">
       </div>
     </div>
     <div class="row">
       <div class="col-md-12 mb-2">
         <label for="email">Email</label>
-        <input ngModel #email="ngModel" name="email" type="email" class="form-control">
+        <input [(ngModel)]="gebruiker.email" name="email" type="email" class="form-control">
       </div>
     </div>
 
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-md-12 mb-2">
         <label for="password">Password</label>
-        <input ngModel #password="ngModel" name="password" type="password" class="form-control">
+        <input [(ngModel)]="password" name="password" type="password" class="form-control">
       </div>
     </div>
     <div class="row">
@@ -40,7 +40,7 @@
     <div class="row">
       <div class="col-md-12 mb-2">
         <div class="input-field col s12">
-          <select class="browser-default" ngModel #rol="ngModel" name="rol"
+          <select class="browser-default" [(ngModel)]="gebruiker.rolID" name="rol"
             (change)="selectedRole($event.target.value)">
             <option disabled>Selecteer uw rol</option>
             <option value=2>Maker</option>
@@ -55,33 +55,33 @@
     <div class="row" >
       <div class="col-md-12 mb-2">
         <label>Geboortedatum</label>
-        <input name="gDatum" type="date" class="form-control">
+        <input type="date" class="form-control" [(ngModel)]="maker.geboorteDatum" name="geboorteDatum">
         
       </div>
       <div class="col-md-12 mb-2">
           <label>Nummer</label>
-          <input name="nummer" type="tel" class="form-control">
+          <input name="nummer" type="tel" class="form-control" [(ngModel)]="maker.telefoonNummer" >
           
         </div>
         <div class="col-md-12 mb-2">
             <label>LinkedIn</label>
-            <input name="linkedIn" type="url" class="form-control">
+            <input name="linkedIn" type="url" class="form-control" [(ngModel)]="maker.linkedIn">
             
           </div>
       <div class="col-md-12 mb-2">
           <label>Biografie</label>
           
-          <textarea name="biografie" cols="40" rows="5" id="textarea1" class="materialize-textarea"></textarea>
+          <textarea name="biografie" cols="40" rows="5" id="textarea1" class="materialize-textarea" [(ngModel)]="maker.biografie"></textarea>
         </div>
         <div class="col-md-12 mb-2">
             <label>Ervaring</label>
             
-            <textarea name="ervaring" cols="40" rows="5" id="textarea2" class="materialize-textarea"></textarea>
+            <textarea name="ervaring" cols="40" rows="5" id="textarea2" class="materialize-textarea" [(ngModel)]="maker.ervaring"></textarea>
           </div>
         <div class="col-md-12 mb-2">
             
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" [(ngModel)]="maker.student" name="student" />
                 <span>Student?</span>
               </label>
             
