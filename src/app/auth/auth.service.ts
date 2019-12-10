@@ -28,7 +28,7 @@ export class AuthService {
           displayName: user.firstName + ' ' + user.lastName
         });
         console.log(user);
-        this.gebruiker = new Gebruiker(0,userCredential.user.uid,user.email, user.naam, 1);
+        this.gebruiker = new Gebruiker(0,userCredential.user.uid,user.email, user.naam, user.rol);
         console.log(this.gebruiker);
         this.postUserData(this.gebruiker);
        
@@ -39,7 +39,7 @@ export class AuthService {
   }
   postUserData(gebruiker){
     console.log(gebruiker)
-    return this.http.post("https://localhost:44383/api/account", gebruiker).subscribe(result => {
+    return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
       console.log("account made");
       this.router.navigate(['']);
     });
@@ -50,7 +50,7 @@ export class AuthService {
   }
 
   getRollen(): Observable<Rol[]>{
-    return this.http.get<Rol[]>("https://localhost:44383/api/acount")
+    return this.http.get<Rol[]>("https://localhost:44383/api/accounts")
   }
 
   login( email: string, password: string) {

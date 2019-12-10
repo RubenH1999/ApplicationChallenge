@@ -11,8 +11,14 @@ import { Rol } from 'src/app/models/rol.model';
 export class RegisterComponent implements OnInit {
   authError: any;
   rollen: Rol[];
+  sRole = null;
   constructor(private auth:AuthService) { 
-    
+    this.auth.getRollen().subscribe(result => {
+      this.rollen = result
+      this.rollen.splice(0, 1);
+      console.log(this.rollen);
+    })
+
   }
 
   ngOnInit() {
@@ -20,12 +26,14 @@ export class RegisterComponent implements OnInit {
       this.authError = data;
     })
   }
-  onChange(rolValue){
+  selectedRole(rolValue){
     console.log(rolValue);
+    this.sRole = rolValue;
   }
 
   
   createUser(frm) {
+    console.log(frm)
     this.auth.createUser(frm.value);
   }
 }
