@@ -24,6 +24,7 @@ import { AdminMakerComponent } from './admin/admin-maker/admin-maker.component';
 import { BedrijfToevoegenComponent } from './admin/bedrijf-toevoegen/bedrijf-toevoegen.component';
 import { MakerToevoegenComponent } from './admin/maker-toevoegen/maker-toevoegen.component';
 import { AuthService } from './auth/auth.service';
+import { AssignmentService } from './assignment.service';
 
 
 const appRoutes: Routes = [
@@ -59,7 +60,7 @@ const appRoutes: Routes = [
     FormsModule,
     BedrijvenModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AssignmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
