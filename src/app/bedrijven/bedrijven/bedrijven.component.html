@@ -6,8 +6,8 @@
         <mat-card-content>
                 <ul>
                     <li></li>
-                    <li *ngFor="let m of makers">{{m.gebruiker.naam}}<button mat-button color="primary" (click)="bedrijfDetails(b.bedrijfID)">Details</button></li>
-                    <li><button mat-button color="primary" (click)="bedrijfDetails(b.bedrijfID)">Details</button></li>
+                    <li *ngFor="let m of makers">{{m.gebruiker.naam}}<button mat-button color="primary" (click)="makerDetails(m.makerID)">Details</button></li>
+                    
                 </ul>
             </mat-card-content>
             </mat-card>
