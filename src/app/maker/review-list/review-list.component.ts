@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Review} from 'src/app/models/review.model';
-import {AssignmentService} from 'src/app/assignment.service';
+import {ReviewService} from 'src/app/services/review.service';
+
 
 @Component({
   selector: 'app-review-list',
@@ -12,16 +13,16 @@ export class ReviewListComponent implements OnInit {
   reviews: Review[];
   messageReview: boolean = false;
 
-  constructor(private _assignmentService: AssignmentService) {
+  constructor(private _reviewService: ReviewService) {
   }
 
   ngOnInit() {
-    this._assignmentService.getReviewsWhereGebruikerID(Number(localStorage.getItem('gebruikerId'))).subscribe(
+    this._reviewService.getReviewsWhereGebruikerID(Number(localStorage.getItem('gebruikerId'))).subscribe(
       result => {
         this.reviews = result;
-        if (this.reviews.length == 0) {
-          this.messageReview = true;
-        }
+      },
+      (err) => {
+        this.messageReview = true;
       }
     );
   }

@@ -11,6 +11,7 @@ export class AdminBedrijvenComponent implements OnInit {
 bedrijven:Bedrijf[];
 
 
+
   constructor(private _bedrijvenService:BedrijfService) { }
 
   ngOnInit() {
@@ -24,7 +25,7 @@ bedrijven:Bedrijf[];
       this.bedrijven=result
       
      
-      console.log(this.bedrijven);
+      console.log("bedrijven: " + this.bedrijven);
       }
     );
   }

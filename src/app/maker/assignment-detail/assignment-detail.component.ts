@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from 'src/app/models/assignment.model';
-import { Status } from 'src/app/models/status.model';
-import { Bedrijf } from 'src/app/models/bedrijf.model';
-import { Gebruiker } from 'src/app/models/gebruiker.model';
-import { TagAssignment } from 'src/app/models/tag-assignment.model';
-import { Tag } from 'src/app/models/tag.model';
-import { AssignmentService } from 'src/app/assignment.service';
+import { AssignmentService } from 'src/app/services/assignment.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,10 +20,10 @@ export class AssignmentDetailComponent implements OnInit {
     this._assignmentService.getAssignment(Number(localStorage.getItem("assignmentId"))).subscribe(
       result => {  
         this.assignment = result; 
-        if (this.assignment.status.beschrijving == "open") {
+        if (this.assignment.status.beschrijving == "Open") {
           this.open = true;
         }
-        if (this.assignment.status.beschrijving == "closed") {
+        if (this.assignment.status.beschrijving == "Gesloten") {
           this.closed = true;
         }      
       }
