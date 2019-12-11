@@ -9,6 +9,7 @@ import { AssignmentDetailComponent } from './assignment-detail/assignment-detail
 import { BedrijfDetailComponent } from './bedrijf-detail/bedrijf-detail.component';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { ReviewSchrijvenComponent } from './review-schrijven/review-schrijven.component';
+import {MatInputModule, MatSelectModule} from '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'makerHome', component: MakerHomeComponent },
@@ -16,7 +17,7 @@ const appRoutes: Routes = [
   { path: 'bedrijfDetail', component: BedrijfDetailComponent },
   { path: 'assignmentDetail', component: AssignmentDetailComponent },
   { path: 'reviews', component: ReviewListComponent },
-  { path: 'reviewSchrijven', component: ReviewSchrijvenComponent },
+  { path: 'schrijf-review', component: ReviewSchrijvenComponent },
 ];
 
 
@@ -25,8 +26,10 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
-    SharedModule
+    MatInputModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    SharedModule,
+    MatSelectModule
   ]
 })
 export class MakerModule { }

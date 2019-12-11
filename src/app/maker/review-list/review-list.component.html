@@ -1,16 +1,18 @@
-<mat-card class="card" *ngIf="messageReview">
-    <mat-card-header>
-      <mat-card-title><b>Geen reviews gevonden.</b></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-            <p>Maak assignments zodat bedrijven je kunnen reviewen.</p>          
-    </mat-card-content>
-</mat-card>
-<mat-card class="card" *ngFor="let r of reviews">
-    <mat-card-header>
-        <mat-card-title><b>Van: </b> {{r.verzender.naam}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-            <p>{{r.beschrijving}}</p>          
-    </mat-card-content>
-</mat-card>
+<button class="btn btn-primary" routerLink="/schrijf-review">Schrijf een review</button>
+
+<!--<mat-card class="card" *ngIf="messageReview">-->
+<!--    <mat-card-header>-->
+<!--      <mat-card-title><b>Geen reviews gevonden.</b></mat-card-title>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--            <p>Maak assignments zodat bedrijven je kunnen reviewen.</p>          -->
+<!--    </mat-card-content>-->
+<!--</mat-card>-->
+<!--<mat-card class="card" *ngFor="let r of reviews">-->
+<!--    <mat-card-header>-->
+<!--        <mat-card-title><b>Van: </b> {{r.verzender.naam}}</mat-card-title>-->
+<!--    </mat-card-header>-->
+<!--    <mat-card-content>-->
+<!--            <p>{{r.beschrijving}}</p>          -->
+<!--    </mat-card-content>-->
+<!--</mat-card>-->

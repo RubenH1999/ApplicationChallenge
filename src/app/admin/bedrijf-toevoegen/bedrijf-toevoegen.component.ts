@@ -12,7 +12,7 @@ export class BedrijfToevoegenComponent implements OnInit {
 
 
   modelGebruiker:Gebruiker=new Gebruiker(0,"","",0)
-  model:Bedrijf=new Bedrijf(0,"","","",this.modelGebruiker)
+  model:Bedrijf=new Bedrijf(0,"","",0, 0,this.modelGebruiker)
 
   submitted : boolean = false;
 
@@ -28,8 +28,8 @@ export class BedrijfToevoegenComponent implements OnInit {
     console.log(this.model)
     console.log(this.modelGebruiker)
     this._bedrijfservice.addBedrijf(this.model).subscribe();
-   
-    
+
+
   }
 
 }

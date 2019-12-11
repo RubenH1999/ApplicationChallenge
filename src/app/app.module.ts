@@ -19,6 +19,7 @@ import { AuthService } from './auth/auth.service';
 import { AdminModule } from './admin/admin.module';
 import { AssignmentService } from './assignment.service';
 import { HttpClientModule } from '@angular/common/http';
+import {ReviewSchrijvenComponent} from './maker/review-schrijven/review-schrijven.component';
 
 
 
@@ -36,8 +37,6 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     AdminComponent,
-    
-
   ],
   imports: [
     BrowserModule,
