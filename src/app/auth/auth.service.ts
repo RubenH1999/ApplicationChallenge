@@ -12,8 +12,7 @@ import { Maker } from '../models/maker.model';
   providedIn: 'root'
 })
 export class AuthService {
-  newUser: any;
-  gebruiker: any;
+  newUser: any;  
   gebAuth: any;
   
   private eventAuthError = new BehaviorSubject<string>("");
@@ -31,22 +30,26 @@ export class AuthService {
           displayName: user.firstName + ' ' + user.lastName
         });
         console.log(user);
-        this.gebruiker = new Gebruiker(0,user.email,user.naam,userCredential.user.uid,user.rolID);
-        console.log(this.gebruiker);
-        this.postUserData(this.gebruiker, maker);
+        
+        this.postUserData(user,maker);
        
       })
       .catch( error => {
         this.eventAuthError.next(error);
       });
   }
-  postUserData(gebruiker,maker){
+  postUserData(gebruiker, maker){
     console.log(gebruiker)
     
     return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
-      this.http.post("https://localhost:44383/api/maker", maker).subscribe();
-      console.log("account made");
-      this.router.navigate(['']);
+          console.log(result);
+          maker.gebruikerID = result['accountID'];
+          
+          console.log(maker);
+           
+          this.router.navigate(['']);
+          console.log("account made");
+      
     });
   }
 
@@ -54,9 +57,6 @@ export class AuthService {
     return this.auth.authState;
   }
 
-  getRollen(): Observable<Rol[]>{
-    return this.http.get<Rol[]>("https://localhost:44383/api/accounts")
-  }
 
   login( email: string, password: string) {
     this.auth.auth.signInWithEmailAndPassword(email, password)

@@ -15,13 +15,10 @@ export class RegisterComponent implements OnInit {
   sRole = null;
   password: string;
   gebruiker = new Gebruiker(0,"","","",0);
-  maker = new Maker(0,"","",false,"","","");
+  maker = new Maker(0,"","",false,"","",0,0);
+  
   constructor(private auth:AuthService) { 
-    this.auth.getRollen().subscribe(result => {
-      this.rollen = result
-      this.rollen.splice(0, 1);
-      console.log(this.rollen);
-    })
+    
 
   }
 
@@ -39,6 +36,7 @@ export class RegisterComponent implements OnInit {
   createUser() {
     //user hier aanmaken na subscribe 
     console.log(this.gebruiker)
-    this.auth.createUser(this.gebruiker, this.password, this.maker);
+    console.log(this.maker)
+    this.auth.createUser(this.gebruiker, this.password,this.maker);
   }
 }

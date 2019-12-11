@@ -22,8 +22,8 @@ export class MakerDetailComponent implements OnInit {
     this.gebruikers.push(new Gebruiker(1, "email", "Henry","", 1));
     this.gebruikers.push(new Gebruiker(2, "email", "Kaat","", 1))
 
-    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[0]));
-    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[1]));
+    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[0].gebruikerID));
+    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[1].gebruikerID));
     
   }
 
