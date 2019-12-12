@@ -12,9 +12,9 @@ import { MakerService } from 'src/app/services/maker.service';
   styleUrls: ['./maker-toevoegen.component.css']
 })
 export class MakerToevoegenComponent implements OnInit {
-  model:Maker=new Maker(0,"","",false,"","","")
-  modelGebruiker:Gebruiker=new Gebruiker(0,"","",1)
-  modelAccount:Gebruiker=new Gebruiker(0,"","",0)
+  model:Maker=new Maker(0,"","",false,"","","",0)
+  modelGebruiker:Gebruiker=new Gebruiker(0,"","","",1)
+  modelAccount:Gebruiker=new Gebruiker(0,"","","",0)
   submitted : boolean = false;
 
   constructor(private _makerService:MakerService) { }

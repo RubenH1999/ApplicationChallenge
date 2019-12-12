@@ -8,14 +8,16 @@ import { Gebruiker } from 'src/app/models/gebruiker.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  authError: any;
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.eventAuthError$.subscribe( data => {
+      this.authError = data;
+    });
   }
-  login(){
-    this.auth.login(this.user.email,this.password);
+  login(frm) {
+    this.auth.login(frm.value.email, frm.value.password);
   }
-  user:Gebruiker=new Gebruiker(0,"","",0)
-  password: string;
+  
 }

@@ -15,10 +15,10 @@ export class AssignmentOverzichtComponent implements OnInit {
   constructor(private router: Router) { }
   ngOnInit() {
     this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "geel", "opdracht", 1, 2, 3));
-    this.gebruikers.push(new Gebruiker(1, "email", "Henry", 1));
-    this.gebruikers.push(new Gebruiker(2, "email", "Kaat", 1))
-    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[0]));
-    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[1]));
+    this.gebruikers.push(new Gebruiker(1, "email", "Henry","", 1));
+    this.gebruikers.push(new Gebruiker(2, "email", "Kaat","", 1))
+    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[0].gebruikerID));
+    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", "1987456", this.gebruikers[1].gebruikerID));
   
   }
   makerDetails(makerID: number){

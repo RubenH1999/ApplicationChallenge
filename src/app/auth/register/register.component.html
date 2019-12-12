@@ -1,17 +1,118 @@
-<div class="row">
-    <div class="col m6 offset-m3 center-align">
-        <h3>Registreren</h3>
-        <form (ngSubmit) = "register()">
-        <div class="form-field">
-            <input [(ngModel)] = "user.naam" placeholder="Naam" name="naam"/> 
-        </div>
-        <div class="form-field">
-            <input  [(ngModel)] = "user.email" type="email" placeholder="Email" name="email"/>
-        </div>
-        <div class="form-field">    
-             <input  type="password" [(ngModel)] = "password" placeholder="Password" name="password"/>
-        </div> 
-        <button class="btn-large green">Register</button>  
-    </form>
+<div class="row mt-4">
+  <div class="col-12">
+    <h4>Register</h4>
+  </div>
+
+  <div class="col-12">
+    <div class="row" *ngIf="authError">
+      <div class="col-12 alert alert-danger">
+        {{ authError?.message }}
+      </div>
     </div>
+  </div>
+  <form (ngSubmit)="createUser()">
+    <div class="row">
+      <div class="col-md-6 mb-2">
+        <label for="naam">Naam</label>
+        <input [(ngModel)]="gebruiker.naam" name="naam" type="text" class="form-control" id="naam">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-2">
+        <label for="email">Email</label>
+        <input [(ngModel)]="gebruiker.email" name="email" type="email" class="form-control">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12 mb-2">
+        <label for="password">Password</label>
+        <input [(ngModel)]="password" name="password" type="password" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-2">
+        <label>Confirm Password</label>
+        <input name="password" type="password" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-2">
+        <div class="input-field col s12">
+          <select class="browser-default" [(ngModel)]="gebruiker.rolID" name="rol"
+            (change)="selectedRole($event.target.value)">
+            <option disabled>Selecteer uw rol</option>
+            <option value=2>Maker</option>
+            <option value=3>Bedrijf</option>
+
+          </select>
+
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="sRole == 2">
+    <div class="row" >
+      <div class="col-md-12 mb-2">
+        <label>Geboortedatum</label>
+        <input type="text" class="form-control" [(ngModel)]="maker.geboorteDatum" name="geboorteDatum">
+        
+      </div>
+      <div class="col-md-12 mb-2">
+          <label>Nummer</label>
+          <input name="nummer" type="number" class="form-control" [(ngModel)]="maker.telefoonNummer" >
+          
+        </div>
+        <div class="col-md-12 mb-2">
+            <label>LinkedIn</label>
+            <input name="linkedIn" type="url" class="form-control" [(ngModel)]="maker.linkedIn">
+            
+          </div>
+      <div class="col-md-12 mb-2">
+          <label>Biografie</label>
+          
+          <textarea name="biografie" cols="40" rows="5" id="textarea1" class="materialize-textarea" [(ngModel)]="maker.biografie"></textarea>
+        </div>
+        <div class="col-md-12 mb-2">
+            <label>Ervaring</label>
+            
+            <textarea name="ervaring" cols="40" rows="5" id="textarea2" class="materialize-textarea" [(ngModel)]="maker.ervaring"></textarea>
+          </div>
+        <div class="col-md-12 mb-2">
+            
+            <label>
+                <input type="checkbox" [(ngModel)]="maker.student" name="student" />
+                <span>Student?</span>
+              </label>
+            
+          </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="sRole == 3">
+    <div class="row" >
+      <div class="col-md-12 mb-2">
+        <label>Locatie</label>
+        <input type="text" class="form-control" [(ngModel)]="bedrijf.locatie" name="locatie">
+        
+      </div>
+      <div class="col-md-12 mb-2">
+        <label>Biografie</label>
+        <textarea name="biografieBedrijf" cols="40" rows="5" id="textarea3" class="materialize-textarea" [(ngModel)]="bedrijf.biografie"></textarea>
+        
+      </div>
+      <div class="col-md-12 mb-2">
+        <label>Telefoon nummer</label>
+        <input type="tel" class="form-control" [(ngModel)]="bedrijf.telefoon" name="bedrijfTelefoonNummer">
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </div>
+
+
+  </form>
+
 </div>
