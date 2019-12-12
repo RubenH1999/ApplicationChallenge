@@ -18,7 +18,6 @@ export class MakerToevoegenComponent implements OnInit {
   model: Maker = new Maker(0, '', '', false, '', '', 0, 0);
   modelGebruiker: Gebruiker = new Gebruiker(0, '', '', '', 1);
   modelAccount: Gebruiker = new Gebruiker(0, '', '', '', 0);
-  submitted: boolean = false;
 
 
   constructor(private _makerService: MakerService) {

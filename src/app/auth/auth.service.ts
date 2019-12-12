@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Gebruiker } from '../models/gebruiker.model';
 import { Rol } from '../models/rol.model';
 import { Maker } from '../models/maker.model';
+import { Bedrijf } from '../models/bedrijf.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class AuthService {
   constructor(private auth: AngularFireAuth, private router: Router, private http: HttpClient) {     
   }
   
-  createUser(user,password,maker) {
+  createUser(user,password,maker, bedrijf) {
     console.log(user);
     this.auth.auth.createUserWithEmailAndPassword( user.email, password)
       .then( userCredential => {
@@ -31,25 +32,33 @@ export class AuthService {
         });
         console.log(user);
         
-        this.postUserData(user,maker);
+        this.postUserData(user, maker ,bedrijf);
        
       })
       .catch( error => {
         this.eventAuthError.next(error);
       });
   }
-  postUserData(gebruiker, maker){
+  postUserData(gebruiker, maker,bedrijf){
     console.log(gebruiker)
-    
+    console.log(maker);
+    console.log(bedrijf);
     return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
-          console.log(result);
-          maker.gebruikerID = result['accountID'];
-          
-          console.log(maker);
-           
-          this.router.navigate(['']);
-          console.log("account made");
       
+      console.log(result['accountID']);
+      bedrijf.accountID = result['accountID'];
+      
+      console.log(bedrijf);
+      if(result['rolID'] == 3){
+        console.log("bedrijf word gepost");
+        return this.postBedrijf(bedrijf).subscribe(result => {
+          console.log(bedrijf);
+        });
+      }
+      if(result['rolID'] == 2){
+        return this.http.post("https://localhost:44383/api/maker", maker);
+      }
+
     });
   }
 
@@ -57,7 +66,10 @@ export class AuthService {
     return this.auth.authState;
   }
 
-
+  postBedrijf(bedrijf){
+    console.log(bedrijf)
+    return this.http.post("https://localhost:44383/api/bedrijf", bedrijf);
+  }
   login( email: string, password: string) {
     this.auth.auth.signInWithEmailAndPassword(email, password)
       .catch(error => {
