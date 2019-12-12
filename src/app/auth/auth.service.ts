@@ -50,7 +50,7 @@ export class AuthService {
       console.log(bedrijf);
       if(result['rolID'] == 3){
         console.log("bedrijf word gepost");
-        return this.http.post("https://localhost:44383/api/bedrijf/", bedrijf).subscribe(result => {
+        this.http.post("https://localhost:44383/api/bedrijf", bedrijf).subscribe(result => {
           console.log("should work");
         });
       }
