@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Gebruiker } from 'src/app/models/gebruiker.model';
-import { AuthService } from '../auth.service';
-import { Rol } from 'src/app/models/rol.model';
-import { Maker } from 'src/app/models/maker.model';
+import {Component, OnInit} from '@angular/core';
+import {Gebruiker} from 'src/app/models/gebruiker.model';
+import {AuthService} from '../auth.service';
+import {Rol} from 'src/app/models/rol.model';
+import {Maker} from 'src/app/models/maker.model';
 
 @Component({
   selector: 'app-register',
@@ -14,29 +14,30 @@ export class RegisterComponent implements OnInit {
   rollen: Rol[];
   sRole = null;
   password: string;
-  gebruiker = new Gebruiker(0,"","","",0);
-  maker = new Maker(0,"","",false,"","",0,0);
-  
-  constructor(private auth:AuthService) { 
-    
+  gebruiker = new Gebruiker(0, '', '', '', 0);
+  maker = new Maker(0, '', '', false, '', '', 0, 0);
+
+  constructor(private auth: AuthService) {
+
 
   }
 
   ngOnInit() {
-    this.auth.eventAuthError$.subscribe( data => {
+    this.auth.eventAuthError$.subscribe(data => {
       this.authError = data;
-    })
+    });
   }
-  selectedRole(rolValue){
+
+  selectedRole(rolValue) {
     console.log(rolValue);
     this.sRole = rolValue;
   }
 
-  
+
   createUser() {
     //user hier aanmaken na subscribe 
-    console.log(this.gebruiker)
-    console.log(this.maker)
-    this.auth.createUser(this.gebruiker, this.password,this.maker);
+    console.log(this.gebruiker);
+    console.log(this.maker);
+    this.auth.createUser(this.gebruiker, this.password, this.maker);
   }
 }

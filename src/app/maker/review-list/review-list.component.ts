@@ -9,21 +9,31 @@ import {ReviewService} from 'src/app/services/review.service';
 })
 export class ReviewListComponent implements OnInit {
 
-  reviews: Review[];
-  messageReview: boolean = false;
+  geschrevenReviews: Review[];
+  ontvangenReviews: Review[];
+  geschrevenMSG: boolean = false;
+  verzondenMSG: boolean = false;
 
-  constructor(private _reviewService: ReviewService) {
+  constructor(private reviewService: ReviewService) {
   }
 
   ngOnInit() {
-    this._reviewService.getReviewsWhereGebruikerID(Number(localStorage.getItem('gebruikerId'))).subscribe(
+    this.reviewService.getReviewsWhereVerzenderID(1).subscribe(
       result => {
-        this.reviews = result;
-      },
-      (err) => {
-        this.messageReview = true;
+        this.geschrevenReviews = result;
+        console.log(result);
+        if (!result) {
+          this.geschrevenMSG = true;
+        }
+      });
+
+    this.reviewService.getReviewsWhereOntvangerID(1).subscribe(result => {
+      this.ontvangenReviews = result;
+      console.log(result);
+      if (result.length === 0) {
+        this.verzondenMSG = true;
       }
-    );
+    });
   }
 
 }

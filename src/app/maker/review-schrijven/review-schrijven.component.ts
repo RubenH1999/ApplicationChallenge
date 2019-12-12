@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Bedrijf} from '../../models/bedrijf.model';
 import {BedrijfService} from '../../services/bedrijf.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ReviewService} from '../../services/review.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-review-schrijven',
@@ -18,7 +20,7 @@ export class ReviewSchrijvenComponent implements OnInit {
     verzenderID: new FormControl('')
   });
 
-  constructor(private bedrijfService: BedrijfService) { }
+  constructor(private router: Router, private bedrijfService: BedrijfService, private reviewService: ReviewService) { }
 
   ngOnInit() {
     this.bedrijfService.getBedrijvenMetGebruiker().subscribe(result => {
@@ -28,6 +30,13 @@ export class ReviewSchrijvenComponent implements OnInit {
   }
   onSubmit() {
     this.reviewForm.controls.verzenderID.setValue(1);
-    console.log(this.reviewForm.value);
+
+    this.reviewService.addReview(this.reviewForm.value).subscribe( result => {
+      console.log('review wegschrijven gelukt');
+      if (result.reviewID) {
+        this.router.navigate(['reviews']);
+      }
+    });
   }
+  // review over een bedrijf maken is klaar: Fatih
 }

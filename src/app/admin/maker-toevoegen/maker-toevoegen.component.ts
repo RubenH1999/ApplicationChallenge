@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Maker } from 'src/app/models/maker.model';
-import { Gebruiker } from 'src/app/models/gebruiker.model';
-import { MakerService } from 'src/app/services/maker.service';
-
-
+import {Component, OnInit} from '@angular/core';
+import {Maker} from 'src/app/models/maker.model';
+import {Gebruiker} from 'src/app/models/gebruiker.model';
+import {MakerService} from 'src/app/services/maker.service';
 
 
 @Component({
@@ -15,19 +13,19 @@ export class MakerToevoegenComponent implements OnInit {
   // model:Maker=new Maker(0,"","",false,"","",0,0)
   // modelGebruiker:Gebruiker=new Gebruiker(0,"","", '',"",1)
   // modelAccount:Gebruiker=new Gebruiker(0,"","","", '',0)
-  submitted: boolean = false;
 
-  model:Maker=new Maker(0,"","",false,"","",0,0)
-  modelGebruiker:Gebruiker=new Gebruiker(0,"","","",1)
-  modelAccount:Gebruiker=new Gebruiker(0,"","","",0)
-  submitted : boolean = false;
+
+  model: Maker = new Maker(0, '', '', false, '', '', 0, 0);
+  modelGebruiker: Gebruiker = new Gebruiker(0, '', '', '', 1);
+  modelAccount: Gebruiker = new Gebruiker(0, '', '', '', 0);
+  submitted: boolean = false;
 
 
   constructor(private _makerService: MakerService) {
   }
 
   ngOnInit() {
-    
+
   }
 
   onSubmit() {
