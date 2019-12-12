@@ -44,14 +44,15 @@ export class AuthService {
     console.log(maker);
     console.log(bedrijf);
     return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
-      console.log(result['rolID']);
+      
+      console.log(result['accountID']);
       bedrijf.gebruikerID = result['accountID'];
       
       console.log(bedrijf);
       if(result['rolID'] == 3){
         console.log("bedrijf word gepost");
-        this.http.post("https://localhost:44383/api/bedrijf", bedrijf).subscribe(result => {
-          console.log("should work");
+        return this.postBedrijf(bedrijf).subscribe(result => {
+          console.log(bedrijf);
         });
       }
       if(result['rolID'] == 2){
@@ -65,7 +66,10 @@ export class AuthService {
     return this.auth.authState;
   }
 
-
+  postBedrijf(bedrijf){
+    console.log(bedrijf)
+    return this.http.post("https://localhost:44383/api/bedrijfs", bedrijf);
+  }
   login( email: string, password: string) {
     this.auth.auth.signInWithEmailAndPassword(email, password)
       .catch(error => {

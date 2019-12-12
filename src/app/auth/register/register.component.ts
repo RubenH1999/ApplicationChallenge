@@ -5,6 +5,7 @@ import { Rol } from 'src/app/models/rol.model';
 import { Maker } from 'src/app/models/maker.model';
 import { Bedrijf } from 'src/app/models/bedrijf.model';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
