@@ -19,7 +19,6 @@ import {AuthService} from './auth/auth.service';
 import {AdminModule} from './admin/admin.module';
 import {AssignmentService} from './services/assignment.service';
 import {HttpClientModule} from '@angular/common/http';
-import {ReviewSchrijvenComponent} from './maker/review-schrijven/review-schrijven.component';
 import {AccountService} from './services/account.service';
 import {BedrijfService} from './services/bedrijf.service';
 import {MakerService} from './services/maker.service';
@@ -45,8 +44,7 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent,
-    ReviewSchrijvenComponent
+    AdminComponent
   ],
   imports: [
     BrowserModule,

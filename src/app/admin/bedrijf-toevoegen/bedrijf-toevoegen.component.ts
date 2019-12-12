@@ -11,8 +11,8 @@ import {BedrijfService} from '../bedrijf.service';
 export class BedrijfToevoegenComponent implements OnInit {
 
 
-  modelGebruiker: Gebruiker = new Gebruiker(0, '', '', 0);
-  model: Bedrijf = new Bedrijf(0, '', '', 0, 0, this.modelGebruiker);
+  // modelGebruiker: Gebruiker = new Gebruiker(0, '', '' , '', 0);
+  // model: Bedrijf = new Bedrijf(0, '','', '', 0, 0, this.modelGebruiker);
 
   submitted: boolean = false;
 
@@ -26,9 +26,9 @@ export class BedrijfToevoegenComponent implements OnInit {
 
     this.submitted = true;
 
-    console.log(this.model);
-    console.log(this.modelGebruiker);
-    this._bedrijfservice.addBedrijf(this.model).subscribe();
+    // console.log(this.model);
+    // console.log(this.modelGebruiker);
+    // this._bedrijfservice.addBedrijf(this.model).subscribe();
 
 
   }

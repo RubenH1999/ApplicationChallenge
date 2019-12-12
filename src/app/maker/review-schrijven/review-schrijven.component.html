@@ -1,17 +1,17 @@
-<form (ngSubmit)="onSubmit()">
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
   <div>
     <mat-form-field class="full-width">
       <mat-label>Kies een bedrijf</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let bedrijf of bedrijven" [value]="bedrijf.gebruiker.naam">
-          {{bedrijf.gebruiker.naam}}
+      <mat-select formControlName="ontvangerID">
+        <mat-option *ngFor="let bedrijf of bedrijven" [value]="bedrijf.account.accountID">
+          {{bedrijf.naam}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field class="full-width">
-      <textarea matInput placeholder="Beschrijving"></textarea>
+      <textarea matInput placeholder="Beschrijving" formControlName="beschrijving"></textarea>
     </mat-form-field>
   </div>
   <div>
