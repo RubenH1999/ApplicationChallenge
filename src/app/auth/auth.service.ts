@@ -46,7 +46,7 @@ export class AuthService {
     return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
       
       console.log(result['accountID']);
-      bedrijf.gebruikerID = result['accountID'];
+      bedrijf.accountID = result['accountID'];
       
       console.log(bedrijf);
       if(result['rolID'] == 3){
@@ -68,7 +68,7 @@ export class AuthService {
 
   postBedrijf(bedrijf){
     console.log(bedrijf)
-    return this.http.post("https://localhost:44383/api/bedrijfs", bedrijf);
+    return this.http.post("https://localhost:44383/api/bedrijf", bedrijf);
   }
   login( email: string, password: string) {
     this.auth.auth.signInWithEmailAndPassword(email, password)
