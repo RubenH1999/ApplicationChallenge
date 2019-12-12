@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Maker } from 'src/app/models/maker.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
+import { MakerService } from 'src/app/services/maker.service';
 
-import { MakerService } from '../services/maker.service';
+
 
 
 @Component({

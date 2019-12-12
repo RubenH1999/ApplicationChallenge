@@ -20,8 +20,6 @@ import { AdminModule } from './admin/admin.module';
 import { AssignmentService } from './services/assignment.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from './services/account.service';
-import { BedrijfService } from './services/bedrijf.service';
-import { MakerService } from './services/maker.service';
 import { ReviewService } from './services/review.service';
 import { RolService } from './services/rol.service';
 import { StatusService } from './services/status.service';
@@ -29,6 +27,8 @@ import { TagService } from './services/tag.service';
 import { TagassignmentService } from './services/tagassignment.service';
 import { TagbedrijfService } from './services/tagbedrijf.service';
 import { TagmakerService } from './services/tagmaker.service';
+import { MakerService } from './services/maker.service';
+import { BedrijfService } from './services/bedrijf.service';
 
 
 
