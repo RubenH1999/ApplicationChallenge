@@ -82,41 +82,39 @@
         </div>
         <div class="col-md-12 mb-2">
 
-            <label>
-                <input type="checkbox" [(ngModel)]="maker.student" name="student" />
-                <span>Student?</span>
-              </label>
+          <label>
+            <input type="checkbox" [(ngModel)]="maker.student" name="student"/>
+            <span>Student?</span>
+          </label>
 
-          </div>
-    </div>
-  </div>
-  <div class="row" *ngIf="sRole == 3">
-    <div class="row" >
-
-      <div class="col-md-12 mb-2">
-        <label>Locatie</label>
-        <input type="text" class="form-control" [(ngModel)]="bedrijf.locatie" name="locatie">
-
-      </div>
-      <div class="col-md-12 mb-2">
-        <label>Biografie</label>
-
-        <input type="text" class="form-control" [(ngModel)]="bedrijf.biografie" name="biografieBedrijf">
-      </div>
-      <div class="col-md-12 mb-2">
-        <label>Telefoon nummer</label>
-        <input type="number" class="form-control" [(ngModel)]="bedrijf.telefoon" name="bedrijfTelefoonNummer">
-
+        </div>
       </div>
     </div>
+    <div class="row" *ngIf="sRole == 3">
+      <div class="row">
+
+        <div class="col-md-12 mb-2">
+          <label>Locatie</label>
+          <input type="text" class="form-control" [(ngModel)]="bedrijf.locatie" name="locatie">
+
+        </div>
+        <div class="col-md-12 mb-2">
+          <label>Biografie</label>
+
+          <input type="text" class="form-control" [(ngModel)]="bedrijf.biografie" name="biografieBedrijf">
+        </div>
+        <div class="col-md-12 mb-2">
+          <label>Telefoon nummer</label>
+          <input type="number" class="form-control" [(ngModel)]="bedrijf.telefoon" name="bedrijfTelefoonNummer">
+
+        </div>
+      </div>
 
     </div>
     <div class="row">
       <div class="col-md-12">
         <button class="btn btn-primary" type="submit">Submit</button>
       </div>
-  </div>
-
     </div>
   </form>
 

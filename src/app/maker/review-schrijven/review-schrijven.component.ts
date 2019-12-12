@@ -34,7 +34,7 @@ export class ReviewSchrijvenComponent implements OnInit {
     this.reviewService.addReview(this.reviewForm.value).subscribe( result => {
       console.log('review wegschrijven gelukt');
       if (result.reviewID) {
-        this.router.navigate(['reviews']);
+        this.router.navigate(['reviews-maker']);
       }
     });
   }

@@ -28,10 +28,6 @@ export class MakerToevoegenComponent implements OnInit {
   }
 
   onSubmit() {
-
-
-    this.submitted = true;
-
     // console.log(this.model)
     // console.log(this.modelGebruiker)
     // this._makerService.addMaker(this.model).subscribe();

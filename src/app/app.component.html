@@ -7,7 +7,6 @@
       <button mat-button *ngIf="!login" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</button>
       <button mat-button *ngIf="!login" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inloggen</button>
       <button mat-button *ngIf="!login" routerLink="/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Registreren</button>
-      <button mat-button *ngIf="!login" routerLink="/reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Review</button>
       <button mat-button *ngIf="login" (click)="uitloggen()">Uitloggen</button>
   </mat-toolbar-row>
 </mat-toolbar>

@@ -1,1 +1,21 @@
-<p>review-schrijven works!</p>
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field class="full-width">
+      <mat-label>Kies een bedrijf</mat-label>
+      <mat-select formControlName="ontvangerID">
+        <mat-option *ngFor="let maker of makers" [value]="maker.account.accountID">
+          {{maker.account.naam}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Beschrijving" formControlName="beschrijving"></textarea>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </div>
+</form>
+

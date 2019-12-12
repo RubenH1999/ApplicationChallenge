@@ -22,7 +22,7 @@ export class ReviewListComponent implements OnInit {
       result => {
         this.geschrevenReviews = result;
         console.log(result);
-        if (!result) {
+        if (result.length === 0) {
           this.geschrevenMSG = true;
         }
       });
