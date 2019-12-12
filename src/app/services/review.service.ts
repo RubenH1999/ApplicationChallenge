@@ -10,11 +10,16 @@ export class ReviewService {
 
   constructor(private http: HttpClient) { }
 
-  getReviewsWhereGebruikerID(gebruikerID: number): Observable<Review[]> {
-    return this.http.get<Review[]>("https://localhost:44383/api/review/account/" + gebruikerID);
+  // get reviews die gemaakt zijn door gebruiker
+  getReviewsWhereVerzenderID(gebruikerID: number): Observable<Review[]> {
+    return this.http.get<Review[]>('https://localhost:44383/api/Review/GetReviewsWhereVerzenderId/' + gebruikerID);
+  }
+  // get reviews die gemaakt zijn voor gebruiker
+  getReviewsWhereOntvangerID(gebruikerID: number): Observable<Review[]> {
+    return this.http.get<Review[]>('https://localhost:44383/api/Review/GetReviewsWhereOntvangerId/' + gebruikerID);
   }
 
   addReview(review: Review) {
-    return this.http.post<Review>("https://localhost:44383/api/review", review);
+    return this.http.post<Review>('https://localhost:44383/api/review', review);
   }
 }

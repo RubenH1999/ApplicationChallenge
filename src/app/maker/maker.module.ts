@@ -10,16 +10,15 @@ import {BedrijfDetailComponent} from './bedrijf-detail/bedrijf-detail.component'
 import {ReviewListComponent} from './review-list/review-list.component';
 import {ReviewSchrijvenComponent} from './review-schrijven/review-schrijven.component';
 import {MatInputModule, MatSelectModule} from '@angular/material';
-import {AppModule} from '../app.module';
 import {ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
-  {path: 'makerHome', component: MakerHomeComponent},
+  {path: 'maker-home', component: MakerHomeComponent},
   {path: 'zoeken', component: ZoekComponent},
   {path: 'bedrijfDetail', component: BedrijfDetailComponent},
   {path: 'assignmentDetail', component: AssignmentDetailComponent},
-  {path: 'reviews', component: ReviewListComponent},
-  {path: 'schrijf-review', component: ReviewSchrijvenComponent},
+  {path: 'reviews-maker', component: ReviewListComponent},
+  {path: 'schrijf-review-maker', component: ReviewSchrijvenComponent},
 ];
 
 
@@ -28,10 +27,10 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     AppRoutingModule,
-    MatInputModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
     SharedModule,
     MatSelectModule,
+    MatInputModule,
     ReactiveFormsModule
   ]
 })
