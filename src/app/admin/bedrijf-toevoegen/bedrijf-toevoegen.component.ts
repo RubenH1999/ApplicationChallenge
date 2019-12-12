@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Bedrijf} from 'src/app/models/bedrijf.model';
-import {Gebruiker} from 'src/app/models/gebruiker.model';
-import {BedrijfService} from '../bedrijf.service';
+import { Component, OnInit } from '@angular/core';
+import { Bedrijf } from 'src/app/models/bedrijf.model';
+import { Gebruiker } from 'src/app/models/gebruiker.model';
+import { BedrijfService } from 'src/app/services/bedrijf.service';
+
 
 @Component({
   selector: 'app-bedrijf-toevoegen',

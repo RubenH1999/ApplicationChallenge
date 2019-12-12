@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MakerService } from '../services/maker.service';
+
 import { Maker } from 'src/app/models/maker.model';
+import { MakerService } from 'src/app/services/maker.service';
 
 @Component({
   selector: 'app-admin-maker',

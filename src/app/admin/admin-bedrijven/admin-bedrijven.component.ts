@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BedrijfService } from '../bedrijf.service';
+
 import { Bedrijf } from 'src/app/models/bedrijf.model';
+import { BedrijfService } from 'src/app/services/bedrijf.service';
 
 @Component({
   selector: 'app-admin-bedrijven',
