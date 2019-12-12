@@ -6,7 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { AssignmentComponent} from './assignment/assignment.component';
 import { MakerDetailComponent } from './maker-detail/maker-detail.component';
-import { AssignmentOverzichtComponent } from './assignment-overzicht/assignment-overzicht.component'
+import { AssignmentOverzichtComponent } from './assignment-overzicht/assignment-overzicht.component';
+import { ReviewSchrijvenComponent } from './review-schrijven/review-schrijven.component';
+import { ReviewListComponent } from './review-list/review-list.component'
 
 const appRoutes: Routes = [
   { path: 'bedrijven', component: BedrijvenComponent },
@@ -16,7 +18,7 @@ const appRoutes: Routes = [
   
 ];
 @NgModule({
-  declarations: [BedrijvenComponent, AssignmentComponent, MakerDetailComponent, AssignmentOverzichtComponent],
+  declarations: [BedrijvenComponent, AssignmentComponent, MakerDetailComponent, AssignmentOverzichtComponent, ReviewSchrijvenComponent, ReviewListComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
