@@ -25,7 +25,7 @@
                 <mat-tab label="Bedrijven">
                     <ul>
                         <li *ngFor="let b of bedrijven">
-                            {{b.account.naam}}  
+                            {{b.naam}}  
                             <button mat-button color="primary" (click)="bedrijfDetails(b.bedrijfID)">Details</button>
                         </li>
                     </ul>
