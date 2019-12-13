@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
+import { AccountService } from 'src/app/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,9 @@ import { Gebruiker } from 'src/app/models/gebruiker.model';
 })
 export class LoginComponent implements OnInit {
   authError: any;
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private account : AccountService, private router : Router) {
+    
+   }
 
   ngOnInit() {
     this.auth.eventAuthError$.subscribe( data => {
@@ -18,6 +22,11 @@ export class LoginComponent implements OnInit {
   }
   login(frm) {
     this.auth.login(frm.value.email, frm.value.password);
+    
+    
   }
+  
+   
+  
   
 }

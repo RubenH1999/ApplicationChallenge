@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Assignment } from 'src/app/models/assignment.model';
 import { AssignmentService } from 'src/app/services/assignment.service';
 import { Router } from '@angular/router';
+import { GeintereseerdAssignmentService } from 'src/app/services/geintereseerd-assignment.service';
+import { GeintereseerdAssignment } from 'src/app/models/geintereseerd-assignment.model';
 
 @Component({
   selector: 'app-assignment-detail',
@@ -11,10 +13,9 @@ import { Router } from '@angular/router';
 export class AssignmentDetailComponent implements OnInit {
 
   open: boolean = false;
-  closed: boolean = false;
   assignment: Assignment;
 
-  constructor(private _assignmentService: AssignmentService, private router: Router) { }
+  constructor(private _assignmentService: AssignmentService, private _geinteresseerdassignmentService: GeintereseerdAssignmentService, private router: Router) { }
 
   ngOnInit() {
     this._assignmentService.getAssignment(Number(localStorage.getItem("assignmentId"))).subscribe(
@@ -23,20 +24,19 @@ export class AssignmentDetailComponent implements OnInit {
         if (this.assignment.status.beschrijving == "Open") {
           this.open = true;
         }
-        if (this.assignment.status.beschrijving == "Gesloten") {
-          this.closed = true;
-        }      
       }
     );
   }
 
-  stuurMail(){
-
+  addInteresse(){
+    if (confirm("Bevestig je interesse en het bedrijf zal op de hoogte gebracht worden.")) {
+      this._geinteresseerdassignmentService.addGeintereseerdAssignment(new GeintereseerdAssignment(0, 1, this.assignment.assignmentID));
+    }
   }
 
-  review(){
-    localStorage.setItem("reviewId", this.assignment.bedrijfID + "")
-    this.router.navigate(['/reviewSchrijven']);
+  bedrijfDetails(bedrijfID: number){
+    localStorage.setItem("bedrijfId", bedrijfID + "")
+    this.router.navigate(['/bedrijfDetail']);
   }
 
 }

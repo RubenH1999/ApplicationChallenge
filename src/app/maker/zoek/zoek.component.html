@@ -6,7 +6,8 @@
             <div>
                 <tag-input [(ngModel)]="tags"
                            [addOnBlur]="true"
-                           [clearOnBlur]="true">
+                           [clearOnBlur]="true"
+                           [modelAsStrings]="true">
                     <tag-input-dropdown [autocompleteItems]="autoComplete">
                     </tag-input-dropdown>
                 </tag-input>
@@ -24,7 +25,7 @@
                 <mat-tab label="Bedrijven">
                     <ul>
                         <li *ngFor="let b of bedrijven">
-                            {{b.gebruiker.naam}}  
+                            {{b.naam}}  
                             <button mat-button color="primary" (click)="bedrijfDetails(b.bedrijfID)">Details</button>
                         </li>
                     </ul>

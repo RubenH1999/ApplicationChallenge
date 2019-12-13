@@ -32,7 +32,7 @@ export class ZoekComponent implements OnInit {
 
     if(this.tags.length != 0) {
       this._assignmentService.getAssignments().subscribe(
-        result => {  
+        result => {       
           result.forEach(assignment => {    
             assignment.tagAssignments.forEach(tagAssignment => {
               if (this.tags.includes(tagAssignment.tag.beschrijving)) {
@@ -42,12 +42,13 @@ export class ZoekComponent implements OnInit {
             if (this.teller == this.tags.length) {
               this.assignments.push(assignment);
             }
-          });     
+          });  
+          this.teller = 0;   
         }
       );
       this._bedrijfService.getBedrijven().subscribe(
         result => {  
-          result.forEach(bedrijf => {    
+          result.forEach(bedrijf => {  
             bedrijf.tagBedrijven.forEach(tagBedrijf => {
               if (this.tags.includes(tagBedrijf.tag.beschrijving)) {
                 this.teller++;
@@ -57,6 +58,7 @@ export class ZoekComponent implements OnInit {
               this.bedrijven.push(bedrijf);
             }
           });      
+          this.teller = 0;
         }
       );
     }
