@@ -94,6 +94,12 @@
       <div class="row">
 
         <div class="col-md-12 mb-2">
+          <label>Naam bedrijf</label>
+
+          <input type="text" class="form-control" [(ngModel)]="bedrijf.naam" name="naamBedrijf">
+        </div>
+
+        <div class="col-md-12 mb-2">
           <label>Locatie</label>
           <input type="text" class="form-control" [(ngModel)]="bedrijf.locatie" name="locatie">
 
@@ -105,7 +111,7 @@
         </div>
         <div class="col-md-12 mb-2">
           <label>Telefoon nummer</label>
-          <input type="number" class="form-control" [(ngModel)]="bedrijf.telefoon" name="bedrijfTelefoonNummer">
+          <input type="number" class="form-control" [(ngModel)]="bedrijf.telefoonNummer" name="bedrijfTelefoonNummer">
 
         </div>
       </div>
