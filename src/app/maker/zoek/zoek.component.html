@@ -5,10 +5,13 @@
     <mat-card-content>
             <div>
                 <tag-input [(ngModel)]="tags"
-                           [addOnBlur]="true"
-                           [clearOnBlur]="true"
+                           [onlyFromAutocomplete]="true"
                            [modelAsStrings]="true">
-                    <tag-input-dropdown [autocompleteItems]="autoComplete">
+                    <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                        [focusFirstElement]="true"
+                                        [displayBy]="'value'"
+                                        [identifyBy]="'id'"
+                                        [autocompleteItems]="autoComplete">
                     </tag-input-dropdown>
                 </tag-input>
             </div>     

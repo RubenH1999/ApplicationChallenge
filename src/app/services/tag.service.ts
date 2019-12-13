@@ -13,4 +13,12 @@ export class TagService {
   getAllTags(): Observable<Tag[]> {
     return this.http.get<Tag[]>("https://localhost:44383/api/tag");
   }
+
+  getTagWhereBeschrijving(beschrijving: string): Observable<Tag> {
+    return this.http.get<Tag>("https://localhost:44383/api/tag/beschrijving/" + beschrijving);
+  }
+
+  addTag(tag: Tag) {
+    return this.http.post<Tag>('https://localhost:44383/api/tag', tag);
+  }
 }

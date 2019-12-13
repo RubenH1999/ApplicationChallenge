@@ -13,15 +13,18 @@ import { BedrijfService } from 'src/app/services/bedrijf.service';
 })
 export class ZoekComponent implements OnInit {
 
-  autoComplete: string[] = new Array<string>(); 
-  tags: string[] = new Array<string>(); 
-  assignments: Assignment[] = new Array<Assignment>();
-  bedrijven: Bedrijf[] = new Array<Bedrijf>();
+  autoComplete: string[]; 
+  tags: string[]; 
+  assignments: Assignment[];
+  bedrijven: Bedrijf[];
   teller: number = 0;
 
   constructor(private _assignmentService: AssignmentService, private _bedrijfService: BedrijfService, private _tagService: TagService, private router: Router) { }
 
   ngOnInit() {
+    this.autoComplete = new Array<string>();
+    this.assignments = new Array<Assignment>();
+    this.bedrijven = new Array<Bedrijf>();
     this._tagService.getAllTags().subscribe(
       result => {  
         result.forEach(tag => {    

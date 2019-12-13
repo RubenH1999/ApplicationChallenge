@@ -11,7 +11,6 @@ export class GeintereseerdAssignmentService {
   }
 
   addGeintereseerdAssignment(geintereseerdAssignment: GeintereseerdAssignment) {
-
     return this.http.post<GeintereseerdAssignment>('https://localhost:44383/api/geintereseerdassignment', geintereseerdAssignment);
   }
 }
