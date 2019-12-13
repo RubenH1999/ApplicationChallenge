@@ -132,6 +132,12 @@ export class AuthService {
       })
      
   }
+
+  resetPassword(email: string){
+    this.auth.auth.sendPasswordResetEmail(email).then(()=> console.log("email sent"))
+    .catch((error) => console.log(error))
+  }
+
   logout() {
     return this.auth.auth.signOut();
   }

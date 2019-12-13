@@ -29,6 +29,7 @@ import { TagbedrijfService } from './services/tagbedrijf.service';
 import { TagmakerService } from './services/tagmaker.service';
 import { MakerService } from './services/maker.service';
 import { BedrijfService } from './services/bedrijf.service';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'resetpw', component: ResetPasswordComponent},
 ];
 
 @NgModule({
@@ -44,7 +46,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

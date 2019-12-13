@@ -36,6 +36,8 @@ export class GegevensAanpassenComponent implements OnInit {
     this._maker.updateMaker(this.maker);
     this.router.navigate(['']);
   }
+
+  
   
   account : Gebruiker;
   
