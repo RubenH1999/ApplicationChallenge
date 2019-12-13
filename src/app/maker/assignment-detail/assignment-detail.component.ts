@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class AssignmentDetailComponent implements OnInit {
 
   open: boolean = false;
-  closed: boolean = false;
   assignment: Assignment;
 
   constructor(private _assignmentService: AssignmentService, private router: Router) { }
@@ -23,20 +22,17 @@ export class AssignmentDetailComponent implements OnInit {
         if (this.assignment.status.beschrijving == "Open") {
           this.open = true;
         }
-        if (this.assignment.status.beschrijving == "Gesloten") {
-          this.closed = true;
-        }      
       }
     );
   }
 
-  stuurMail(){
+  addInteresse(){
 
   }
 
-  review(){
-    localStorage.setItem("reviewId", this.assignment.bedrijfID + "")
-    this.router.navigate(['/reviewSchrijven']);
+  bedrijfDetails(bedrijfID: number){
+    localStorage.setItem("bedrijfId", bedrijfID + "")
+    this.router.navigate(['/bedrijfDetail']);
   }
 
 }

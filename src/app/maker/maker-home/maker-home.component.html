@@ -1,5 +1,3 @@
-<button mat-button class="btn btn-primary" routerLink="/reviews-maker" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Reviews</button>
-
 <mat-card class="card">
     <mat-card-header>
         <mat-card-title><b>Maker</b></mat-card-title>
@@ -21,6 +19,7 @@
                         <button mat-button color="primary" (click)="details(aa.assignmentID)">Details</button>
                     </li>
             </ul>
-            <button mat-raised-button color="primary" routerLink="/reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Reviews bekijken</button>             
+            <button mat-raised-button color="primary" routerLink="/reviews-maker" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Reviews bekijken</button> 
+            <button mat-raised-button color="primary"  routerLink="/zoeken" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Zoeken</button>            
     </mat-card-content>
 </mat-card>

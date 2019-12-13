@@ -48,17 +48,12 @@ export class ZoekComponent implements OnInit {
       );
       this._bedrijfService.getBedrijven().subscribe(
         result => {  
-          result.forEach(bedrijf => {
-            console.log(bedrijf);    
+          result.forEach(bedrijf => {  
             bedrijf.tagBedrijven.forEach(tagBedrijf => {
-              console.log(tagBedrijf.tag.beschrijving);
-              console.log(this.tags);
               if (this.tags.includes(tagBedrijf.tag.beschrijving)) {
                 this.teller++;
               }
             });
-            console.log(this.teller);
-            console.log(this.tags.length);
             if (this.teller == this.tags.length) {
               this.bedrijven.push(bedrijf);
             }

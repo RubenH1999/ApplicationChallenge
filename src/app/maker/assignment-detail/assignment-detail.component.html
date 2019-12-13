@@ -5,7 +5,9 @@
     <mat-card-content>
         <p><b>Omschrijving: </b></p>
         <p>{{assignment.omschrijving}}</p>
-        <p><b>Bedrijf: </b>{{assignment.bedrijf.gebruiker.naam}}</p>            
+        <p>
+            <b>Bedrijf: </b>{{assignment.bedrijf.naam}} <button mat-button color="primary" (click)="bedrijfDetails(assignment.bedrijf.bedrijfID)">Details</button>
+        </p>            
         <p><b>Locatie: </b>{{assignment.omschrijving}}</p>
         <p><b>Type: </b>{{assignment.type}}</p>
         <p><b>Status: </b>{{assignment.status.beschrijving}}</p>
@@ -15,7 +17,6 @@
                 {{a.tag.beschrijving}}  
             </li>
         </ul>
-        <button *ngIf="open" mat-raised-button color="primary" (click)="stuurMail()">Interesse tonen</button> 
-        <button *ngIf="closed" mat-raised-button color="primary" (click)="review()">Schrijf review</button> 
+        <button *ngIf="open" mat-raised-button color="primary" (click)="addInteresse()">Interesse tonen</button> 
     </mat-card-content>
 </mat-card>
