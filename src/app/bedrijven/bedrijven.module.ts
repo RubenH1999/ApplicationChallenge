@@ -16,7 +16,7 @@ import { BedrijfHomeComponent } from './bedrijf-home/bedrijf-home.component';
 const appRoutes: Routes = [
   {path: 'bedrijf-home', component: BedrijfHomeComponent},
   {path: 'bedrijven', component: BedrijvenComponent},
-  {path: 'assignment', component: AssignmentComponent},
+  {path: 'bedrijf-assignment-aanmaken', component: AssignmentComponent},
   {path: 'makerdetail', component: MakerDetailComponent},
   {path: 'assignmentoverzicht', component: AssignmentOverzichtComponent},
   {path: 'reviews-bedrijf', component: ReviewListComponent},
