@@ -18,11 +18,12 @@ export class BedrijfToevoegenComponent implements OnInit {
   rollen: Rol[];
   sRole = null;
   password: string;
+  maker:any
  
 
 
   gebruiker = new Gebruiker(0, '', '', '', 3);
-  bedrijf = new Bedrijf(0, '', '', 0, this.gebruiker.gebruikerID);
+  bedrijf = new Bedrijf(0, '', '',"", 0, this.gebruiker.gebruikerID);
 
   submitted: boolean = false;
 
@@ -41,9 +42,9 @@ export class BedrijfToevoegenComponent implements OnInit {
 
     console.log(this.gebruiker);
     console.log(this.bedrijf);
-    //this.auth.postBedrijf(this.bedrijf).subscribe()
-    this.auth.createUser(this.gebruiker, this.password, this.gebruiker, this.bedrijf);
 
+    this.auth.createUser(this.gebruiker, this.password, this.maker, this.bedrijf);
+    this.auth.postUserData(this.gebruiker,this.maker,this.bedrijf)
 
   }
 
