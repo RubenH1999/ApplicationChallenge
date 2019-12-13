@@ -1,5 +1,8 @@
 <p>Makers</p>
-<ul *ngFor="let m of maker">
-    <li>{{m.account.naam}}</li>
+<ul *ngFor="let g of gebruiker">
+    <li>
+        <a [routerLink] ="['/detailMaker/'+(g.accountID)]"> {{g.naam}}</a>
+    <input type="button" value="Verwijderen" (click)="deleteAccount((g.accountID))"/>
+    </li>
 </ul>
 

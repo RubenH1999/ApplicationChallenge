@@ -2,25 +2,56 @@
         <p>{{ model | json }}</p>
         <p>{{ modelGebruiker | json }}</p>
     <p class="h4 mb-4">Voeg Maker toe:</p>
-            <div class="col">
-                <p>naam:
-                <input type="text" required [(ngModel)]="modelGebruiker.naam"  name="naam" /></p>
-                <p>Email:
-                <input type="text" required [(ngModel)]="modelGebruiker.naam"  name="email" /></p>
-                <p>geboortedatum:
-                <input type="text"  required [(ngModel)]="model.geboorteDatum"  name="geboorteDatum" /></p>
-                <p>Biografie:
-                <input type="text"  required [(ngModel)]="model.biografie" name="biografie" /></p>
-                <p>Is het een student?:
-                <input type="radio" name="ja" [(ngModel)]="model.student" [value]="true"> Ja
-                <input type="radio" name="nee" [(ngModel)]="model.student" [value]="false"> Nee
-                <p>Linkdin:
-                <input type="text" [(ngModel)]="model.linkedIn"  name="linkdin" /></p>
-                <p>Ervaring:
-                <input type="text" [(ngModel)]="model.ervaring"  name="ervaring" /></p>
-                <p>telefoonnummer:
-                <input type="tel" [(ngModel)]="model.telefoon"  name="telefoon" /></p>
-            </div>
+   
+    <div class="row"> 
+        <div class="col-md-12 mb-2">
+        <p>Naam:
+        <input type="text"  class="form-control" required [(ngModel)]="gebruiker.naam"  name="naam" /></p>
+        
+          <div class="col-md-12 mb-2">
+            <label for="password">Password</label>
+            <input [(ngModel)]="password" name="password" type="password" class="form-control">
+          </div>
+       
+        </div>
+        <div class="col-md-12 mb-2">
+          <p>Email:
+          <input type="text"  class="form-control"  required [(ngModel)]="gebruiker.email"  name="email" /></p>
+        <div class="col-md-12 mb-2">
+          <label>Geboortedatum</label>
+          <input type="date" class="form-control" [(ngModel)]="maker.geboorteDatum" name="geboorteDatum">
+        </div>
+        </div>
+        <div class="col-md-12 mb-2">
+        <p>telefoonnummer:
+            <input type="tel"  class="form-control" required [(ngModel)]="maker.telefoon"  name="telefoon" /></p>
+        </div>
+        <div class="col-md-12 mb-2">
+          <label>LinkedIn</label>
+          <input name="linkedIn" type="url" class="form-control" [(ngModel)]="maker.linkdIn">
+
+        </div>
+        <div class="col-md-12 mb-2">
+          <label>Biografie</label>
+
+          <textarea name="biografie" cols="40" rows="5" id="textarea1" class="materialize-textarea"
+                    [(ngModel)]="maker.biografie"></textarea>
+        </div>
+        <div class="col-md-12 mb-2">
+          <label>Ervaring</label>
+
+          <textarea name="ervaring" cols="40" rows="5" id="textarea2" class="materialize-textarea"
+                    [(ngModel)]="maker.ervaring"></textarea>
+        </div>
+        <div class="col-md-12 mb-2">
+
+          <label>
+            <input type="checkbox" [(ngModel)]="maker.studentCheck" name="student"/>
+            <span>Student?</span>
+          </label>
+
+        </div>
+      </div>
        
     <button block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
             
