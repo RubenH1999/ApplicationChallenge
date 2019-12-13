@@ -59,6 +59,8 @@ export class AuthService {
       localStorage.setItem('accountID', result['accountID']);
       console.log(this.ingebruiker);
       console.log(bedrijf);
+      console.log("test");
+      console.log(maker);
       if(result['rolID'] == 3){
         
         console.log("bedrijf word gepost");

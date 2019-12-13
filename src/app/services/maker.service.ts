@@ -29,7 +29,7 @@ export class MakerService {
   }
 
   getMakerByID(id){
-    return this.http.get<Maker>("https://localhost:44383/api/maker/" + id);
+    return this.http.get<Maker>("https://localhost:44383/api/Maker/getMakerByAccountID/" + id);
   }
 
   
