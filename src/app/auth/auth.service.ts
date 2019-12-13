@@ -15,7 +15,7 @@ import { Bedrijf } from '../models/bedrijf.model';
 })
 export class AuthService {
   newUser: any;  
-  gebAuth: any;
+  currentUser: any;
   ingebruiker: any;
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
@@ -51,15 +51,23 @@ export class AuthService {
       
       console.log(result['accountID']);
       bedrijf.accountID = result['accountID'];
-      
+      maker.accountID = result['accountID'];
       console.log(this.ingebruiker);
       console.log(bedrijf);
       if(result['rolID'] == 3){
+        
         console.log("bedrijf word gepost");
-        return this.http.post("https://localhost:44383/api/bedrijf", bedrijf);
+        return this.http.post("https://localhost:44383/api/bedrijf", bedrijf).subscribe(result => {
+          console.log("bedrijf posten success");
+        });
       }
       if(result['rolID'] == 2){
-        return this.http.post("https://localhost:44383/api/maker", maker);
+        console.log("maker word gepost");
+        
+        console.log(maker);
+        return this.http.post("https://localhost:44383/api/maker", maker).subscribe(result => {
+          console.log("maker posten success");
+        });
       }
 
     });
@@ -87,9 +95,9 @@ export class AuthService {
       .then(userCredential => {
         if(userCredential) {
           this.router.navigate(['']);
-          this.gebAuth = userCredential.user.uid;
+          this.currentUser = userCredential.user.uid;
           
-          console.log(this.gebAuth)
+          console.log(this.currentUser)
         }
       })
   }

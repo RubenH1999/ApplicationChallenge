@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
-    //zo current user opvragen
-    console.log(this.auth.gebAuth);
+    //zo current user authUID opvragen
+    console.log(this.auth.currentUser);
   }
 
   login(){
