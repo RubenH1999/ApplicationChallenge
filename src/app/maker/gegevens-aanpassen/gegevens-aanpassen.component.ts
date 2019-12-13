@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/auth/auth.service';
-
+import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-gegevens-aanpassen',
   templateUrl: './gegevens-aanpassen.component.html',
@@ -10,8 +10,9 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class GegevensAanpassenComponent implements OnInit {
   maker: any;
   constructor(private account: AccountService, private auth: AuthService) { 
-    console.log(this.auth.currentUser);
-    this.maker = this.auth.getUserState();
+    
+this.auth.getUserState();
+    
   }
   
 
