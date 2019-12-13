@@ -4,6 +4,7 @@ import {AuthService} from '../auth.service';
 import {Rol} from 'src/app/models/rol.model';
 import {Maker} from 'src/app/models/maker.model';
 import {Bedrijf} from 'src/app/models/bedrijf.model';
+import { AccountService } from 'src/app/services/account.service';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class RegisterComponent implements OnInit {
     this.auth.eventAuthError$.subscribe(data => {
       this.authError = data;
     });
+    
   }
 
   selectedRole(rolValue) {
@@ -43,5 +45,6 @@ export class RegisterComponent implements OnInit {
     console.log(this.gebruiker);
     console.log(this.maker);
     this.auth.createUser(this.gebruiker, this.password, this.maker, this.bedrijf);
+    //account servvice opvrage
   }
 }

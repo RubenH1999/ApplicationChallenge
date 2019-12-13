@@ -8,6 +8,7 @@ import { Gebruiker } from '../models/gebruiker.model';
 import { Rol } from '../models/rol.model';
 import { Maker } from '../models/maker.model';
 import { Bedrijf } from '../models/bedrijf.model';
+import { AccountService } from '../services/account.service';
 
 
 @Injectable({
@@ -21,6 +22,7 @@ export class AuthService {
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
   constructor(private auth: AngularFireAuth, private router: Router, private http: HttpClient) {     
+    
   }
   
   createUser(user,password,maker, bedrijf) {
@@ -54,6 +56,7 @@ export class AuthService {
       console.log(result['accountID']);
       bedrijf.accountID = result['accountID'];
       maker.accountID = result['accountID'];
+      localStorage.setItem('accountID', result['accountID']);
       console.log(this.ingebruiker);
       console.log(bedrijf);
       if(result['rolID'] == 3){
@@ -84,6 +87,7 @@ export class AuthService {
         this.currentUser = user.uid;
         console.log(this.currentUser);
         localStorage.setItem("authUID" , this.currentUser)
+        
         return(this.currentUser);
         
       }else{
@@ -97,7 +101,14 @@ export class AuthService {
     
   }
  
-
+  getMakerByUID(authUID){
+    console.log();
+    return this.http.get<Account>("https://localhost:44383/api/account/getbyauthuid/" + authUID).subscribe(result => {
+      localStorage.setItem('accountID', result['accountID']);
+      this.router.navigate(['']);
+    });
+    
+  }
   
   login( email: string, password: string) {
     this.auth.auth.signInWithEmailAndPassword(email, password)
@@ -106,12 +117,15 @@ export class AuthService {
       })
       .then(userCredential => {
         if(userCredential) {
-          this.router.navigate(['']);
-          this.currentUser = userCredential.user.uid;
           
+          this.currentUser = userCredential.user.uid;
+          localStorage.setItem("authUID" , this.currentUser)
+          this.getMakerByUID(this.currentUser);
           console.log(this.currentUser)
         }
+        
       })
+     
   }
   logout() {
     return this.auth.auth.signOut();
