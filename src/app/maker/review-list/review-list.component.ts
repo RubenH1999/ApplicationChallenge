@@ -27,7 +27,7 @@ export class ReviewListComponent implements OnInit {
         }
       });
 
-    this.reviewService.getReviewsWhereOntvangerID(1).subscribe(result => {
+    this.reviewService.getReviewsWhereOntvangerID(+localStorage.getItem('accountID')).subscribe(result => {
       this.ontvangenReviews = result;
       console.log(result);
       if (result.length === 0) {

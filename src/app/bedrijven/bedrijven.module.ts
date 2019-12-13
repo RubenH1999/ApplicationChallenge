@@ -11,7 +11,8 @@ import {ReviewSchrijvenComponent} from './review-schrijven/review-schrijven.comp
 import {ReviewListComponent} from './review-list/review-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule, MatSelectModule} from '@angular/material';
-import { BedrijfHomeComponent } from './bedrijf-home/bedrijf-home.component';
+import {BedrijfHomeComponent} from './bedrijf-home/bedrijf-home.component';
+import {BedrijfAanpassenComponent} from './bedrijf-aanpassen/bedrijf-aanpassen.component';
 
 const appRoutes: Routes = [
   {path: 'bedrijf-home', component: BedrijfHomeComponent},
@@ -20,11 +21,12 @@ const appRoutes: Routes = [
   {path: 'makerdetail', component: MakerDetailComponent},
   {path: 'assignmentoverzicht', component: AssignmentOverzichtComponent},
   {path: 'reviews-bedrijf', component: ReviewListComponent},
-  {path: 'schrijf-review-bedrijf', component: ReviewSchrijvenComponent}
+  {path: 'schrijf-review-bedrijf', component: ReviewSchrijvenComponent},
+  {path: 'bedrijf-aanpassen', component: BedrijfAanpassenComponent}
 ];
 
 @NgModule({
-  declarations: [BedrijvenComponent, AssignmentComponent, MakerDetailComponent, AssignmentOverzichtComponent, ReviewSchrijvenComponent, ReviewListComponent, BedrijfHomeComponent],
+  declarations: [BedrijvenComponent, AssignmentComponent, MakerDetailComponent, AssignmentOverzichtComponent, ReviewSchrijvenComponent, ReviewListComponent, BedrijfHomeComponent, BedrijfAanpassenComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
