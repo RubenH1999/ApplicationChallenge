@@ -133,6 +133,8 @@ export class AuthService {
      
   }
 
+  
+
   resetPassword(email: string){
     this.auth.auth.sendPasswordResetEmail(email).then(()=> console.log("email sent"))
     .catch((error) => console.log(error))
@@ -140,6 +142,12 @@ export class AuthService {
 
   logout() {
     return this.auth.auth.signOut();
+  }
+
+  changeEmail(email){
+    this.auth.auth.currentUser.updateEmail(email).then(()=> console.log("email updated"))
+    .catch((error) => console.log(error));
+    
   }
 
 }
