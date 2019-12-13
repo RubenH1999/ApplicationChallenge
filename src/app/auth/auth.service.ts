@@ -29,6 +29,7 @@ export class AuthService {
         this.newUser = user;
         this.ingebruiker = userCredential.user.uid;
         console.log(userCredential);
+        this.currentUser = userCredential.user.uid;
         userCredential.user.updateProfile( {
           displayName: user.firstName + ' ' + user.lastName
         });
@@ -59,6 +60,7 @@ export class AuthService {
         console.log("bedrijf word gepost");
         return this.http.post("https://localhost:44383/api/bedrijf", bedrijf).subscribe(result => {
           console.log("bedrijf posten success");
+          this.router.navigate(['']);
         });
       }
       if(result['rolID'] == 2){
@@ -67,6 +69,7 @@ export class AuthService {
         console.log(maker);
         return this.http.post("https://localhost:44383/api/maker", maker).subscribe(result => {
           console.log("maker posten success");
+          this.router.navigate(['']);
         });
       }
 
@@ -74,17 +77,25 @@ export class AuthService {
   }
 
   getUserState() {
+    
     this.auth.auth.onAuthStateChanged(function(user){
       if(user){
-        this.ingebruiker = user.uid;
-        return(this.ingebruiker);
+        this.currentUser = user.uid;
+        console.log(this.currentUser);
+        localStorage.setItem("authUID" , this.currentUser)
+        return(this.currentUser);
+        
       }else{
 
         console.log("er is geen gebruker in gelogd");
+        this.currentUser = null;
+        return(this.currentUser);
       }
 
     })
+    
   }
+ 
 
   
   login( email: string, password: string) {

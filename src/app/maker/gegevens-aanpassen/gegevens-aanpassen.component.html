@@ -1,43 +1,31 @@
 <div class="container">
     <div class="col-sm-8">
         <div class="row">
-        <form>
+        <form (ngSubmit) = "pasAan()">
             
             <div class="form-group">
                 <label for="Naam">Naam</label>
-                <input type="text" class="form-control" id="Naam" />
-            </div>
-            <div class="form-group">
-                <label for="Email">Email</label>
-                <input type="email" class="form-control" id="Email" />
-            </div>
-            <div class="form-group">
-                <label for="Password">Password</label>
-                <input type="text" class="form-control" id="Password" />
-            </div>
-            <div class="form-group">
-                <label for="GeboorteDatum">Geboorte Datum</label>
-                <input type="date" class="form-control" id="GeboorteDatum" />
-            </div>
+                <input type="text" class="form-control" id="Naam"  name="makerNaam" [(ngModel)] = "maker.naam"/>
+            </div>            
+            
             <div class="form-group">
                 <label for="Biografie">Biografie</label>
-                <input type="text" class="form-control" id="Biografie" />
+                <input type="text" class="form-control" id="Biografie"  name="makerBiografie" [(ngModel)] = "maker.maker.biografie"/>
             </div>
             <div class="form-group">
                 <label for="Naam">Ervaring</label>
-                <input type="text" class="form-control" id="Ervaring" />
+                <input type="text" class="form-control" id="Ervaring"  name="makerErvaring" [(ngModel)] = "maker.maker.ervaring"/>
             </div>
-            <div class="form-group">
-                <label for="Student">Student?</label>
-                <input type="checkbox" class="form-control" id="Student" />
-            </div>
+            
+            
+            
             <div class="form-group">
                 <label for="linkedIn">LinkedIn</label>
-                <input type="text" class="form-control" id="linkedIn" />
+                <input type="text" class="form-control" id="linkedIn" name="makerLinkedin" [(ngModel)] = "maker.maker.linkdin"/>
             </div>
             <div class="form-group">
                 <label for="telefoonNummer">Telefoon nummer</label>
-                <input type="tel" class="form-control" id="telefoonNummer" />
+                <input type="tel" class="form-control" id="telefoonNummer"  name="makerTelefoonNummer" [(ngModel)] = "maker.maker.telefoonNummer"/>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
