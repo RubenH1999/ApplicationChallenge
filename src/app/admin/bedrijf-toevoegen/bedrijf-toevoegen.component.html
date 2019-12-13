@@ -3,6 +3,13 @@
 
  <p>{{ gebruiker | json }}</p>
        <p>{{ bedrijf | json }}</p>
+       <div class="col-12">
+        <div class="row" *ngIf="authError">
+          <div class="col-12 alert alert-danger">
+            {{ authError?.message }}
+          </div>
+        </div>
+      </div>
         <p class="h4 mb-4">Voeg een bedrijf toe:</p>
                <div class="col">
                    <p>naam:
