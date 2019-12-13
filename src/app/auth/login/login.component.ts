@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   authError: any;
   constructor(private auth: AuthService, private account : AccountService, private router : Router) {
-    this.setStorage();
+    
    }
 
   ngOnInit() {
@@ -25,13 +25,8 @@ export class LoginComponent implements OnInit {
     
     
   }
-  setStorage(){
-    this.account.getMakerByUID(localStorage.getItem('authUID')).subscribe(result => {
-      console.log(result);
-      localStorage.setItem('accountID', result['accountID']);
-      
-    })
+  
    
-  }
+  
   
 }

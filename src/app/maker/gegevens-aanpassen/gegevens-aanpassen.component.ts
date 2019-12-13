@@ -19,19 +19,14 @@ export class GegevensAanpassenComponent implements OnInit {
     this._account.getMakerByUID(localStorage.getItem('authUID')).subscribe(result => {
       console.log(result);
       this.account= result;
-      this.id = result['accountID']
-      console.log(this.id);
-      //ophalen maker aan de hand van id
-      this._maker.getMakerByID(this.id).subscribe(result => {
-        this.maker = result;
-        console.log(this.maker);
-      })
     });
+
+    
     
   }
-  //naamgeving front end nog aanpassen
+  
   account : Account;
-  id: any;
+  
   maker: Maker;
   
 

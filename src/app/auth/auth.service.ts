@@ -105,7 +105,7 @@ export class AuthService {
     console.log();
     return this.http.get<Account>("https://localhost:44383/api/account/getbyauthuid/" + authUID).subscribe(result => {
       localStorage.setItem('accountID', result['accountID']);
-      this.router.navigate(['']);
+     
     });
     
   }
@@ -121,6 +121,7 @@ export class AuthService {
           this.currentUser = userCredential.user.uid;
           localStorage.setItem("authUID" , this.currentUser)
           this.getMakerByUID(this.currentUser);
+          this.router.navigate(['']);
           console.log(this.currentUser)
         }
         
