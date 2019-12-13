@@ -1,7 +1,7 @@
 <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
   <div>
     <mat-form-field class="full-width">
-      <mat-label>Kies een bedrijf</mat-label>
+      <mat-label>Kies een maker</mat-label>
       <mat-select formControlName="ontvangerID">
         <mat-option *ngFor="let maker of makers" [value]="maker.account.accountID">
           {{maker.account.naam}}
