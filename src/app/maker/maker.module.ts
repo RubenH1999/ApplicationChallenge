@@ -11,6 +11,7 @@ import {ReviewListComponent} from './review-list/review-list.component';
 import {ReviewSchrijvenComponent} from './review-schrijven/review-schrijven.component';
 import {MatInputModule, MatSelectModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
+import { GegevensAanpassenComponent } from './gegevens-aanpassen/gegevens-aanpassen.component';
 
 const appRoutes: Routes = [
   {path: 'maker-home', component: MakerHomeComponent},
@@ -19,11 +20,12 @@ const appRoutes: Routes = [
   {path: 'assignmentDetail', component: AssignmentDetailComponent},
   {path: 'reviews-maker', component: ReviewListComponent},
   {path: 'schrijf-review-maker', component: ReviewSchrijvenComponent},
+  {path: 'maker-account-settings', component: GegevensAanpassenComponent},
 ];
 
 
 @NgModule({
-  declarations: [MakerHomeComponent, ZoekComponent, AssignmentDetailComponent, BedrijfDetailComponent, ReviewListComponent, ReviewSchrijvenComponent],
+  declarations: [MakerHomeComponent, ZoekComponent, AssignmentDetailComponent, BedrijfDetailComponent, ReviewListComponent, ReviewSchrijvenComponent, GegevensAanpassenComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
