@@ -28,6 +28,12 @@ export class MakerService {
     return this.http.post<Maker>('https://localhost:44383/api/Maker/', maker);
   }
 
+  getMakerByID(id){
+    return this.http.get<Maker>("https://localhost:44383/api/maker/" + id);
+  }
+
+  
+
 
 }
 

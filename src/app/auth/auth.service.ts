@@ -17,6 +17,7 @@ export class AuthService {
   newUser: any;  
   currentUser: any;
   ingebruiker: any;
+  
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
   constructor(private auth: AngularFireAuth, private router: Router, private http: HttpClient) {     
@@ -48,7 +49,7 @@ export class AuthService {
     console.log(bedrijf);
     gebruiker.authUID = this.ingebruiker;
     console.log(gebruiker)
-    return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
+    return this.http.post("https://localhost:44383/api/account", gebruiker).subscribe(result => {
       
       console.log(result['accountID']);
       bedrijf.accountID = result['accountID'];
