@@ -34,8 +34,11 @@ export class GegevensAanpassenComponent implements OnInit {
     
     this._account.updateAccount(this.account);
     this._maker.updateMaker(this.maker);
+    this.auth.changeEmail(this.account.email);
     this.router.navigate(['']);
   }
+
+  
   
   account : Gebruiker;
   
