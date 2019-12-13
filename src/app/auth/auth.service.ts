@@ -46,6 +46,9 @@ export class AuthService {
         this.eventAuthError.next(error);
       });
   }
+  get authenticated(): boolean{
+    return this.auth.authState !== null;
+  }
   postUserData(gebruiker, maker,bedrijf){
     
     console.log(maker);
