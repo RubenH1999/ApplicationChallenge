@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <button mat-button class="btn btn-primary" routerLink="/reviews-bedrijf" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Reviews</button>
+  </div>
+  <div class="row">
+    <button mat-button class="btn btn-primary" routerLink="/bedrijf-assignment-aanmaken" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">assignment aanmaken</button>
+  </div>
+
+  <div class="row">
+    <mat-card class="card" *ngFor="let a of assignments">
+      <mat-card-header>
+        <mat-card-title><b>{{a.titel}}</b></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{a.omschrijving}}</p>
+        <p>{{a.locatie}}</p>
+        <p>{{a.type}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+</div>

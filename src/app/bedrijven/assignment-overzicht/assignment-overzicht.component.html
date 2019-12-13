@@ -1,16 +1,16 @@
-
 <mat-card class="card">
-    <mat-card-header>
-      <mat-card-title><b>Mensen geïnteresseerd in assignment: {{assignments[0].titel}}</b></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <ul>
-                <li *ngFor="let m of makers">{{m.gebruiker.naam}}
-                  <button mat-button color="primary" (click)="makerDetails(m.makerID)">Details</button>
-                  <button mat-button class="accept" (click)="accepteerMaker(m.makerID)">Accepteren</button>
-                  <button mat-button class="weiger" (click)="weigerMaker(m.makerID)">Weigeren</button></li>
-            </ul>
-      
-            
-        </mat-card-content>
-        </mat-card>
+  <mat-card-header>
+    <mat-card-title><b>Mensen geïnteresseerd in assignment: {{assignments[0].titel}}</b></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ul>
+      <li *ngFor="let m of makers">{{m.gebruiker.naam}}
+        <button mat-button color="primary" (click)="makerDetails(m.makerID)">Details</button>
+        <button mat-button class="accept" (click)="accepteerMaker(m.makerID)">Accepteren</button>
+        <button mat-button class="weiger" (click)="weigerMaker(m.makerID)">Weigeren</button>
+      </li>
+    </ul>
+
+
+  </mat-card-content>
+</mat-card>

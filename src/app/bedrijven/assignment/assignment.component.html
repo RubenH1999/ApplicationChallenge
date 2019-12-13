@@ -1,32 +1,25 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="assignmentForm" class="col" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="titel">Titel:</label>
+        <input id="titel" class="form-control" type="text" formControlName="titel" placeholder="Titel" required/>
+      </div>
+      <div class="form-group">
+        <label for="omschrijving">omschrijving:</label>
+        <input id="omschrijving" class="form-control" type="text" formControlName="omschrijving" placeholder="omschrijving" required/>
+      </div>
+      <div class="form-group">
+        <label for="location">locatie:</label>
+        <input id="location" class="form-control" type="text" formControlName="location" placeholder="locatie" required/>
+      </div>
+      <div class="form-group">
+        <label for="type">type:</label>
+        <input id="type" class="form-control" type="text" formControlName="type" placeholder="type" required/>
+      </div>
 
-
-<mat-card class="card">
-    <mat-card-header>
-      <mat-card-title><b>Assignments toevoegen</b></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-            <form (ngSubmit)="assignment()">
-                    <p>Titel:
-                    <input type="text" [(ngModel)]="assignments.titel" name="titel" /></p>
-                    <p>Omschrijving:
-                    <input type="text" [(ngModel)]="assignments.omschrijving" name="omschrijving" /></p>
-                    <p>Tags:</p>
-                    
-                    <p>Locatie: 
-                    <input type="text" [(ngModel)]="assignments.locatie" name="locatie"></p>
-                    <p>Type:
-                    
-                        <mat-form-field>
-                                
-                                <select matNativeControl required>
-                                  <option value="stage">Stage</option>
-                                  <option value="opdracht">Opdracht</option>
-                                </select>
-                              </mat-form-field>
-                              
-                </form>
-                
-    </mat-card-content>
-</mat-card>
-
+      <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+    </form>
+  </div>
+</div>
 

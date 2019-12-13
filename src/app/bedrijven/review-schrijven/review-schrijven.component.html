@@ -3,8 +3,8 @@
     <mat-form-field class="full-width">
       <mat-label>Kies een bedrijf</mat-label>
       <mat-select formControlName="ontvangerID">
-        <mat-option *ngFor="let bedrijf of bedrijven" [value]="bedrijf.account.accountID">
-          {{bedrijf.naam}}
+        <mat-option *ngFor="let maker of makers" [value]="maker.account.accountID">
+          {{maker.account.naam}}
         </mat-option>
       </mat-select>
     </mat-form-field>

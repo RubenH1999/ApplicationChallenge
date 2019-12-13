@@ -1,26 +1,31 @@
 <form #bedrijfForm="ngForm"  (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
 
-        
-        <p>{{ model | json }}</p>
-        <p>{{ modelAccount | json }}</p>
+
+ <p>{{ gebruiker | json }}</p>
+       <p>{{ bedrijf | json }}</p>
         <p class="h4 mb-4">Voeg een bedrijf toe:</p>
-                <div class="col">
-                    <p>naam:
-                    <input type="text" required [(ngModel)]="modelGebruiker.naam"  name="naam" /></p>
+               <div class="col">
+                   <p>naam:
+                  <input type="text" required [(ngModel)]="gebruiker.naam"  name="naam" /></p>
+                  <div class="row">
+                    <div class="col-md-12 mb-2">
+                      <label for="password">Password</label>
+                      <input [(ngModel)]="password" name="password" type="password" class="form-control">
+                    </div>
+                  </div>
                     <p>Email:
-                    <input type="text"  required [(ngModel)]="modelGebruiker.email"  name="email" /></p>
+                    <input type="text"  required [(ngModel)]="gebruiker.email"  name="email" /></p>
                     <p>locatie:
-                    <input type="text"  required [(ngModel)]="model.locatie" name="locatie" /></p>
+                    <input type="text"  required [(ngModel)]="bedrijf.locatie" name="locatie" /></p>
                     <p>Tags:
-                    <input type="text" required [(ngModel)]="model.tags"  name="tags" /></p>
+                    <input type="text" required [(ngModel)]="bedrijf.tags"  name="tags" /></p>
                     <p>biografie:
-                    <input type="text" required [(ngModel)]="model.biografie"  name="biografie" /></p>
+                    <input type="text" required [(ngModel)]="bedrijf.biografie"  name="biografie" /></p>
                     <p>telefoonnummer:
-                    <input type="tel" required [(ngModel)]="model.telefoon"  name="telefoon" /></p>
+                   <input type="tel" required [(ngModel)]="bedrijf.telefoon"  name="telefoon" /></p>
                    
-                </div>
+               </div>
            
-        <button  block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
-                
-        
-    </form>
+       <button  block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
+
+</form>

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Maker } from 'src/app/models/maker.model';
-import { Gebruiker } from 'src/app/models/gebruiker.model';
-
-import { MakerService } from '../services/maker.service';
+import {Component, OnInit} from '@angular/core';
+import {Maker} from 'src/app/models/maker.model';
+import {Gebruiker} from 'src/app/models/gebruiker.model';
+import {MakerService} from 'src/app/services/maker.service';
 
 
 @Component({
@@ -11,25 +10,28 @@ import { MakerService } from '../services/maker.service';
   styleUrls: ['./maker-toevoegen.component.css']
 })
 export class MakerToevoegenComponent implements OnInit {
-  model:Maker=new Maker(0,"","",false,"","","",0)
-  modelGebruiker:Gebruiker=new Gebruiker(0,"","","",1)
-  modelAccount:Gebruiker=new Gebruiker(0,"","","",0)
-  submitted : boolean = false;
+  // model:Maker=new Maker(0,"","",false,"","",0,0)
+  // modelGebruiker:Gebruiker=new Gebruiker(0,"","", '',"",1)
+  // modelAccount:Gebruiker=new Gebruiker(0,"","","", '',0)
 
-  constructor(private _makerService:MakerService) { }
+
+  model: Maker = new Maker(0, '', '', false, '', '', 0, 0);
+  modelGebruiker: Gebruiker = new Gebruiker(0, '', '', '', 1);
+  modelAccount: Gebruiker = new Gebruiker(0, '', '', '', 0);
+
+
+  constructor(private _makerService: MakerService) {
+  }
 
   ngOnInit() {
+
   }
+
   onSubmit() {
-   
+    // console.log(this.model)
+    // console.log(this.modelGebruiker)
+    // this._makerService.addMaker(this.model).subscribe();
 
-    this.submitted = true;
-
-    console.log(this.model)
-    console.log(this.modelGebruiker)
-    this._makerService.addMaker(this.model).subscribe();
-   
-    
 
   }
 

@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {AngularFireModule, FirebaseApp} from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth'
 import { AppRoutingModule } from './app-routing.module';
@@ -20,8 +20,6 @@ import { AdminModule } from './admin/admin.module';
 import { AssignmentService } from './services/assignment.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from './services/account.service';
-import { BedrijfService } from './services/bedrijf.service';
-import { MakerService } from './services/maker.service';
 import { ReviewService } from './services/review.service';
 import { RolService } from './services/rol.service';
 import { StatusService } from './services/status.service';
@@ -29,14 +27,15 @@ import { TagService } from './services/tag.service';
 import { TagassignmentService } from './services/tagassignment.service';
 import { TagbedrijfService } from './services/tagbedrijf.service';
 import { TagmakerService } from './services/tagmaker.service';
-
+import { MakerService } from './services/maker.service';
+import { BedrijfService } from './services/bedrijf.service';
 
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'admin', component: AdminComponent },
+  {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'admin', component: AdminComponent},
 ];
 
 @NgModule({
@@ -45,15 +44,13 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent,
-    
-
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -65,19 +62,20 @@ const appRoutes: Routes = [
     AdminModule
   ],
   providers: [
-    AuthService, 
-    AccountService, 
-    AssignmentService, 
-    BedrijfService, 
-    MakerService, 
-    ReviewService, 
-    RolService, 
-    StatusService, 
-    TagService, 
-    TagassignmentService, 
-    TagbedrijfService, 
+    AuthService,
+    AccountService,
+    AssignmentService,
+    BedrijfService,
+    MakerService,
+    ReviewService,
+    RolService,
+    StatusService,
+    TagService,
+    TagassignmentService,
+    TagbedrijfService,
     TagmakerService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

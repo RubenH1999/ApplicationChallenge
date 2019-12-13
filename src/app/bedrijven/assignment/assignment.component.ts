@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Assignment } from 'src/app/models/assignment.model';
-
+import {Component, OnInit} from '@angular/core';
+import {Assignment} from 'src/app/models/assignment.model';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AssignmentService} from '../../services/assignment.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -9,19 +11,35 @@ import { Assignment } from 'src/app/models/assignment.model';
   styleUrls: ['./assignment.component.css']
 })
 export class AssignmentComponent implements OnInit {
-  assignments: Assignment[] = new Array<Assignment>();
-  types = new Array('Stage', 'Opdracht');
-  autoComplete: string[] = new Array<string>(); 
-  
-  constructor() { }
-  
+
+  assignmentForm = new FormGroup({
+    titel: new FormControl('', Validators.required),
+    omschrijving: new FormControl('', Validators.required),
+    location: new FormControl('', Validators.required),
+    type: new FormControl('', Validators.required),
+    statusID: new FormControl(''),
+    bedrijfID: new FormControl(''),
+  });
+
+  constructor(private assignmentService: AssignmentService, private router: Router) {
+  }
+
   ngOnInit() {
-    this.assignments.push(new Assignment(1,"Taak 1", "eerste taak", "taak", "geel",1,2,3));
-    this.autoComplete = ['Item1', 'item2', 'ok'];
+
   }
-  assignment(){
-    
+
+  onSubmit() {
+    this.assignmentForm.controls.statusID.setValue(1);
+    this.assignmentForm.controls.bedrijfID.setValue(1);
+
+    this.assignmentService.addAssignment(this.assignmentForm.value).subscribe(result => {
+      console.log(result);
+      console.log('assignment gemaakt');
+      if (result.assignmentID) {
+        this.router.navigate(['bedrijf-home']);
+      }
+    });
   }
-  onSubmit
+
 
 }
