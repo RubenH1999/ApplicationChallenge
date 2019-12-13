@@ -13,9 +13,8 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.auth.getUserState().subscribe(user => {
-      this.user = user;
-    })
+    //zo current user opvragen
+    console.log(this.auth.gebAuth);
   }
 
   login(){

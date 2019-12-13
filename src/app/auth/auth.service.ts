@@ -15,7 +15,7 @@ import { Bedrijf } from '../models/bedrijf.model';
 export class AuthService {
   newUser: any;  
   gebAuth: any;
-  
+  ingebruiker: any;
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
   constructor(private auth: AngularFireAuth, private router: Router, private http: HttpClient) {     
@@ -43,6 +43,7 @@ export class AuthService {
     console.log(gebruiker)
     console.log(maker);
     console.log(bedrijf);
+    
     return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
       
       console.log(result['accountID']);
@@ -53,6 +54,7 @@ export class AuthService {
         console.log("bedrijf word gepost");
         return this.postBedrijf(bedrijf).subscribe(result => {
           console.log(bedrijf);
+          this.router.navigate(['']);
         });
       }
       if(result['rolID'] == 2){
@@ -63,7 +65,16 @@ export class AuthService {
   }
 
   getUserState() {
-    return this.auth.authState;
+    this.auth.auth.onAuthStateChanged(function(user){
+      if(user){
+        this.ingebruiker = user.uid;
+        
+      }else{
+
+        console.log("er is geen gebruker in gelogd");
+      }
+
+    })
   }
 
   postBedrijf(bedrijf){
@@ -78,6 +89,9 @@ export class AuthService {
       .then(userCredential => {
         if(userCredential) {
           this.router.navigate(['']);
+          this.gebAuth = userCredential.user.uid;
+          console.log("welloe neef");
+          console.log(this.gebAuth)
         }
       })
   }
