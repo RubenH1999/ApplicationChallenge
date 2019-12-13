@@ -88,7 +88,7 @@ export class AuthService {
         if(userCredential) {
           this.router.navigate(['']);
           this.gebAuth = userCredential.user.uid;
-          console.log("welloe neef");
+          
           console.log(this.gebAuth)
         }
       })
