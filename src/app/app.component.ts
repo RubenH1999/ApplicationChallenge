@@ -10,14 +10,15 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent {
 
   login: boolean;
+  userstate: any;
   title = 'ApplicationChallenge';
 
   constructor(private _authenticateService : AuthService, private router: Router) {
 
     this.login = Boolean(JSON.parse(localStorage.getItem("login")));
-    
+    this.userstate = this._authenticateService.getUserState();
     //bij inloggen wordt login op true gezet in local storage
-    if (this._authenticateService.getUserState() != null) {
+    if (this.userstate != null) {
       localStorage.setItem("login", "true");
       this.login = Boolean(JSON.parse(localStorage.getItem("login")));
     }
