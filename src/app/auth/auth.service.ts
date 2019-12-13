@@ -19,6 +19,7 @@ export class AuthService {
   currentUser: any;
   ingebruiker: any;
   
+  
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
   constructor(private auth: AngularFireAuth, private router: Router, private http: HttpClient) {     
@@ -87,6 +88,7 @@ export class AuthService {
     this.auth.auth.onAuthStateChanged(function(user){
       if(user){
         this.currentUser = user.uid;
+        
         console.log(this.currentUser);
         localStorage.setItem("authUID" , this.currentUser)
         
