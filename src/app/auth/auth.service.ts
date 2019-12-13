@@ -9,6 +9,7 @@ import { Rol } from '../models/rol.model';
 import { Maker } from '../models/maker.model';
 import { Bedrijf } from '../models/bedrijf.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,6 +27,7 @@ export class AuthService {
     this.auth.auth.createUserWithEmailAndPassword( user.email, password)
       .then( userCredential => {
         this.newUser = user;
+        this.ingebruiker = userCredential.user.uid;
         console.log(userCredential);
         userCredential.user.updateProfile( {
           displayName: user.firstName + ' ' + user.lastName
@@ -40,22 +42,21 @@ export class AuthService {
       });
   }
   postUserData(gebruiker, maker,bedrijf){
-    console.log(gebruiker)
+    
     console.log(maker);
     console.log(bedrijf);
-    
+    gebruiker.authUID = this.ingebruiker;
+    console.log(gebruiker)
     return this.http.post("https://localhost:44383/api/accounts", gebruiker).subscribe(result => {
       
       console.log(result['accountID']);
       bedrijf.accountID = result['accountID'];
       
+      console.log(this.ingebruiker);
       console.log(bedrijf);
       if(result['rolID'] == 3){
         console.log("bedrijf word gepost");
-        return this.postBedrijf(bedrijf).subscribe(result => {
-          console.log(bedrijf);
-          this.router.navigate(['']);
-        });
+        return this.http.post("https://localhost:44383/api/bedrijf", bedrijf);
       }
       if(result['rolID'] == 2){
         return this.http.post("https://localhost:44383/api/maker", maker);
@@ -68,7 +69,7 @@ export class AuthService {
     this.auth.auth.onAuthStateChanged(function(user){
       if(user){
         this.ingebruiker = user.uid;
-        
+        return(this.ingebruiker);
       }else{
 
         console.log("er is geen gebruker in gelogd");
@@ -77,10 +78,7 @@ export class AuthService {
     })
   }
 
-  postBedrijf(bedrijf){
-    console.log(bedrijf)
-    return this.http.post("https://localhost:44383/api/bedrijf", bedrijf);
-  }
+  
   login( email: string, password: string) {
     this.auth.auth.signInWithEmailAndPassword(email, password)
       .catch(error => {
@@ -90,7 +88,7 @@ export class AuthService {
         if(userCredential) {
           this.router.navigate(['']);
           this.gebAuth = userCredential.user.uid;
-          console.log("welloe neef");
+          
           console.log(this.gebAuth)
         }
       })

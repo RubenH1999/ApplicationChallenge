@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   gebruiker = new Gebruiker(0, '', '', '', 0);
   maker = new Maker(0, '', '', false, '', '', 0, 0);
-  bedrijf = new Bedrijf(0, '', '', 0, 0);
+  bedrijf = new Bedrijf(0, '', '','', 0, 0);
 
   constructor(private auth: AuthService) {
 
@@ -42,6 +42,6 @@ export class RegisterComponent implements OnInit {
     //user hier aanmaken na subscribe
     console.log(this.gebruiker);
     console.log(this.maker);
-    this.auth.createUser(this.gebruiker, this.password, this.gebruiker, this.bedrijf);
+    this.auth.createUser(this.gebruiker, this.password, this.maker, this.bedrijf);
   }
 }
