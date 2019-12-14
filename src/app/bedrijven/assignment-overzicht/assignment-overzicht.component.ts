@@ -9,6 +9,11 @@ import { BedrijfService } from 'src/app/services/bedrijf.service';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { AssignmentService } from 'src/app/services/assignment.service';
 import { __core_private_testing_placeholder__ } from '@angular/core/testing';
+import { MakerDetailComponent } from '../maker-detail/maker-detail.component';
+import { MatDialog, MatDialogConfig,MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+export interface DialogData{
+  maker;
+}
 
 @Component({
   selector: 'app-assignment-overzicht',
@@ -16,12 +21,11 @@ import { __core_private_testing_placeholder__ } from '@angular/core/testing';
   styleUrls: ['./assignment-overzicht.component.css']
 })
 export class AssignmentOverzichtComponent implements OnInit {
-  assignments: Assignment[] = new Array<Assignment>();
-  makers: Maker[] = new Array<Maker>();
-  gebruikers: Gebruiker[] = new Array<Gebruiker>();
+  
+  
   AssignmentGeintresseerden: GeintereseerdAssignment[];
   Assignment: Assignment;
-  constructor(private router: Router, private _intresse : GeintereseerdAssignmentService, private _bedrijf : BedrijfService, private _assignment : AssignmentService) {
+  constructor(private router: Router, private _intresse : GeintereseerdAssignmentService, private _bedrijf : BedrijfService, private _assignment : AssignmentService,public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -39,9 +43,16 @@ export class AssignmentOverzichtComponent implements OnInit {
     })
 
   }
+  openMakerDetails(m: Maker): void{
+    console.log(m);
+    const dialogRef = this.dialog.open(MakerDetailComponent, {
+      
+      data: {maker: m}
+    });
 
-  makerDetails(makerID: number) {
-    this.router.navigate(['/makerdetail']);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("modal closed");
+    });
   }
 
   weigerMaker(assigmentGID){

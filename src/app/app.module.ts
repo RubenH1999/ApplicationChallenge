@@ -31,7 +31,7 @@ import { MakerService } from './services/maker.service';
 import { BedrijfService } from './services/bedrijf.service';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { GuardGuard } from './auth/guard.guard';
-
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -64,6 +64,7 @@ const appRoutes: Routes = [
     FormsModule,
     BedrijvenModule,
     AdminModule,
+    MatDialogModule,
     
   ],
   providers: [

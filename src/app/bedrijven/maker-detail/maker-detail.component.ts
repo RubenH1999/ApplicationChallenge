@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Assignment } from 'src/app/models/assignment.model';
 import { Maker } from 'src/app/models/maker.model';
 import { Gebruiker } from 'src/app/models/gebruiker.model';
 import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { AssignmentOverzichtComponent, DialogData } from '../assignment-overzicht/assignment-overzicht.component'
 
 @Component({
   selector: 'app-maker-detail',
@@ -10,20 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./maker-detail.component.css']
 })
 export class MakerDetailComponent implements OnInit {
-
-  messageAssignment: string = "Geen geïnteresseerde makers gevonden.";
-  assignments: Assignment[] = new Array<Assignment>();
-  makers: Maker[] = new Array<Maker>();
-  gebruikers: Gebruiker[] = new Array<Gebruiker>();
-  constructor(private router: Router) { }
+  @Input() maker: Maker;
+  
+  constructor(private router: Router,public dialogRef: MatDialogRef<AssignmentOverzichtComponent>,@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
-    this.assignments.push(new Assignment(1,"Taak 1", "eertse taak", "geel", "opdracht", 1, 2, 3));
-    this.gebruikers.push(new Gebruiker(1, "email", "Henry","", 1));
-    this.gebruikers.push(new Gebruiker(2, "email", "Kaat","", 1))
-
-    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", 123456, this.gebruikers[0].gebruikerID));
-    this.makers.push(new Maker(1,"17/05/1957", "Biografie", false, "LinkedIn", "Ervaring", 123456, this.gebruikers[1].gebruikerID));
+    
     
   }
 
