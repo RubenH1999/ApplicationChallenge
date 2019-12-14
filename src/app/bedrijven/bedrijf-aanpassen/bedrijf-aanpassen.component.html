@@ -17,7 +17,18 @@
         <label for="telefoonnummer">Telefoon nummer:</label>
         <input id="telefoonnummer" class="form-control" name="telefoonnummer" type="text" [(ngModel)]="bedrijf.telefoonNummer" required/>
       </div>
-      <button type="submit" class="btn btn-lg btn-warning" (click)="onSubmit()">Submit</button>
+      <div>
+        <label for="tags">Tags:</label>
+        <tag-input [(ngModel)]="tags"
+                  [ngModelOptions]="{standalone: true}"
+                  [addOnBlur]="true"
+                  [clearOnBlur]="true"
+                  [modelAsStrings]="true">
+          <tag-input-dropdown [autocompleteItems]="autoComplete">
+          </tag-input-dropdown>
+        </tag-input>
+      </div>
+      <button type="submit" class="btn btn-lg btn-warning">Submit</button>
     </form>
   </div>
 </div>
