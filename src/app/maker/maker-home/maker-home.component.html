@@ -8,15 +8,15 @@
                     <li *ngFor="let a of assignments">
                         {{a.titel}}
                         <button mat-button color="primary" (click)="details(a.assignmentID)">Details</button>
-                        {{a.status.beschrijving}}
                     </li>
             </ul>
             <p *ngIf="messageAssignment">Geen assignments beschikbaar.</p> 
-            <p><b>Aanbevolen assignments</b></p>
+            <p><b>Top 3 aanbevolen assignments</b></p>
             <ul>
                     <li *ngFor="let aa of aanbevelingen">
                         {{aa.titel}}  
                         <button mat-button color="primary" (click)="details(aa.assignmentID)">Details</button>
+                        {{aa.aanbeveling}} gemeenschappelijke tag(s)!
                     </li>
             </ul>
             <button mat-raised-button color="primary" routerLink="/reviews-maker" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Reviews bekijken</button> 
