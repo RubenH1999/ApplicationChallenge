@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
 
   logout(){
     this.auth.logout();
+    this.router.navigate(['login'])
+    localStorage.clear();
   }
 
 }

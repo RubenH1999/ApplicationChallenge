@@ -29,4 +29,8 @@ export class BedrijfService {
   getBedrijven(): Observable<Bedrijf[]> {
     return this.http.get<Bedrijf[]>('https://localhost:44383/api/Bedrijf');
   }
+
+  getBedrijfByAccountID(id){
+    return this.http.get("https://localhost:44383/api/bedrijf/getbedrijfbyAccountID/" + id);
+  }
 }

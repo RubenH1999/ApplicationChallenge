@@ -30,13 +30,14 @@ import { TagmakerService } from './services/tagmaker.service';
 import { MakerService } from './services/maker.service';
 import { BedrijfService } from './services/bedrijf.service';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { GuardGuard } from './auth/guard.guard';
 
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'admin', component: AdminComponent},
+  {path: 'admin', component: AdminComponent, canActivate:[GuardGuard] },
   {path: 'resetpw', component: ResetPasswordComponent},
 ];
 
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     FormsModule,
     BedrijvenModule,
-    AdminModule
+    AdminModule,
+    
   ],
   providers: [
     AuthService,
@@ -76,7 +78,8 @@ const appRoutes: Routes = [
     TagService,
     TagassignmentService,
     TagbedrijfService,
-    TagmakerService
+    TagmakerService,
+    GuardGuard
   ],
   bootstrap: [AppComponent]
 })
