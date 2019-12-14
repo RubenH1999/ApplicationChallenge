@@ -21,6 +21,12 @@ export class BedrijfService {
     return this.http.get<Bedrijf>('https://localhost:44383/api/bedrijf/' + bedrijfID);
   }
 
+  getBedrijfByAccountID(accountID: number) {
+    return this.http.get<Bedrijf>('https://localhost:44383/api/bedrijf/getBedrijfByAccountID/' + accountID);
+  }
+  updateBedrijf(bedrijfID: number, bedrijf: Bedrijf) {
+    return this.http.put<Bedrijf>('https://localhost:44383/api/Bedrijf/' + bedrijfID, bedrijf);
+  }
   addBedrijf(bedrijf: Bedrijf) {
 
     return this.http.post<Bedrijf>('https://localhost:44383/api/bedrijf', bedrijf);

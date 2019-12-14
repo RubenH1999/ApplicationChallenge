@@ -16,7 +16,7 @@ export class ReviewListComponent implements OnInit {
   constructor(private reviewService: ReviewService) { }
 
   ngOnInit() {
-    this.reviewService.getReviewsWhereVerzenderID(4).subscribe(
+    this.reviewService.getReviewsWhereVerzenderID(+localStorage.getItem('accountID')).subscribe(
       result => {
         this.geschrevenReviews = result;
         console.log(result);
@@ -25,7 +25,7 @@ export class ReviewListComponent implements OnInit {
         }
       });
 
-    this.reviewService.getReviewsWhereOntvangerID(4).subscribe(result => {
+    this.reviewService.getReviewsWhereOntvangerID(+localStorage.getItem('accountID')).subscribe(result => {
       this.ontvangenReviews = result;
       console.log(result);
       if (result.length === 0) {

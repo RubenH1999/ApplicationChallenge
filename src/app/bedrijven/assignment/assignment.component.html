@@ -6,16 +6,27 @@
         <input id="titel" class="form-control" type="text" formControlName="titel" placeholder="Titel" required/>
       </div>
       <div class="form-group">
-        <label for="omschrijving">omschrijving:</label>
+        <label for="omschrijving">Omschrijving:</label>
         <input id="omschrijving" class="form-control" type="text" formControlName="omschrijving" placeholder="omschrijving" required/>
       </div>
       <div class="form-group">
-        <label for="location">locatie:</label>
+        <label for="location">Locatie:</label>
         <input id="location" class="form-control" type="text" formControlName="location" placeholder="locatie" required/>
       </div>
       <div class="form-group">
-        <label for="type">type:</label>
+        <label for="type">Type:</label>
         <input id="type" class="form-control" type="text" formControlName="type" placeholder="type" required/>
+      </div>
+      <div>
+        <label for="tags">Tags:</label>
+        <tag-input [(ngModel)]="tags"
+                  [ngModelOptions]="{standalone: true}"
+                  [addOnBlur]="true"
+                  [clearOnBlur]="true"
+                  [modelAsStrings]="true">
+          <tag-input-dropdown [autocompleteItems]="autoComplete">
+          </tag-input-dropdown>
+        </tag-input>
       </div>
 
       <button type="submit" class="btn btn-lg btn-warning">Submit</button>

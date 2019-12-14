@@ -33,7 +33,7 @@ export class ReviewSchrijvenComponent implements OnInit {
   }
 
   onSubmit() {
-    this.reviewForm.controls.verzenderID.setValue(1);
+    this.reviewForm.controls.verzenderID.setValue(+localStorage.getItem('accountID'));
 
     this.reviewService.addReview(this.reviewForm.value).subscribe( result => {
       console.log('review wegschrijven gelukt');

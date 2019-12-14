@@ -17,7 +17,7 @@ export class MakerHomeComponent implements OnInit {
   constructor(private _assignmentService: AssignmentService, private router: Router) { }
 
   ngOnInit() {
-    this._assignmentService.getAssignmentsWhereGebruikerID(Number(localStorage.getItem("gebruikerId"))).subscribe(
+    this._assignmentService.getAssignmentsWhereGebruikerID(Number(localStorage.getItem("accountID"))).subscribe(
       result => {  
         this.assignments = result;
       },

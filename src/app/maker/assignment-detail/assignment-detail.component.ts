@@ -30,7 +30,7 @@ export class AssignmentDetailComponent implements OnInit {
 
   addInteresse(){
     if (confirm("Bevestig je interesse en het bedrijf zal op de hoogte gebracht worden.")) {
-      this._geinteresseerdassignmentService.addGeintereseerdAssignment(new GeintereseerdAssignment(0, 1, this.assignment.assignmentID));
+      this._geinteresseerdassignmentService.addGeintereseerdAssignment(new GeintereseerdAssignment(0, Number(localStorage.getItem("accountID")), this.assignment.assignmentID)).subscribe();
     }
   }
 

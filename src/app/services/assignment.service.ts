@@ -28,6 +28,6 @@ export class AssignmentService {
   }
 
   addAssignment(assignment: Assignment) {
-    return this.http.post<Assignment>('https://localhost:44383/api/Assignment', assignment);
+    return this.http.post<Assignment>('https://localhost:44383/api/assignment', assignment);
   }
 }
