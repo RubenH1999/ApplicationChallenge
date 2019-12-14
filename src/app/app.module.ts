@@ -34,7 +34,7 @@ import { GuardGuard } from './auth/guard.guard';
 import {MatDialogModule} from '@angular/material/dialog'; 
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, canActivate:[GuardGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'admin', component: AdminComponent, canActivate:[GuardGuard] },
@@ -65,6 +65,7 @@ const appRoutes: Routes = [
     BedrijvenModule,
     AdminModule,
     MatDialogModule,
+    
     
   ],
   providers: [
