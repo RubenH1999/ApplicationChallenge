@@ -67,7 +67,6 @@ export class GegevensAanpassenComponent implements OnInit {
     );
 
     this._tagMakerService.getTagMakersWhereGebruikerID(Number(localStorage.getItem("accountID"))).subscribe(tagmakers => { 
-      console.log(tagmakers);
       tagmakers.forEach(tagmaker => {
         this.tags.push(tagmaker.tag.beschrijving);
       });
