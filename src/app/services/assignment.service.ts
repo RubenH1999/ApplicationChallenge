@@ -20,7 +20,7 @@ export class AssignmentService {
   }
 
   getAssignmentsByBedrijf(bedrijfID: number): Observable<Assignment[]> {
-    return this.http.get<Assignment[]>('https://localhost:44383/api/Assignment/getAssignmentsByBedrijf/' + bedrijfID);
+    return this.http.get<Assignment[]>('https://localhost:44383/api/assignment/getAssignmentsByBedrijf/' + bedrijfID);
   }
 
   getAssignmentsWhereGebruikerID(gebruikerID: number): Observable<Assignment[]> {
