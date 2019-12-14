@@ -1,4 +1,8 @@
 <p>bedrijven</p>
 <ul  *ngFor="let b of bedrijven"  >
-    <li>{{b.locatie}}</li>
+    <li>
+        <a [routerLink] ="['/detailBedrijf/'+(b.bedrijfID)]">{{b.naam}}</a>
+        <input type="button" value="Verwijder" (click)="deleteAccount((b.bedrijfID))"/>
+
+    </li>
 </ul>

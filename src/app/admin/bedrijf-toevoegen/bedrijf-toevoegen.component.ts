@@ -6,6 +6,7 @@ import { BedrijfService } from 'src/app/services/bedrijf.service';
 import { Rol } from 'src/app/models/rol.model';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Maker } from 'src/app/models/maker.model';
+import { Router } from '@angular/router';
 
 
 
@@ -24,7 +25,7 @@ export class BedrijfToevoegenComponent implements OnInit {
 
   submitted: boolean = false;
 
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private router:Router) {
   }
 
   ngOnInit() {
@@ -34,10 +35,12 @@ export class BedrijfToevoegenComponent implements OnInit {
   }
 
   onSubmit() {
+    this.router.navigate(['adminBedrijf']);
     console.log(this.gebruiker);
     console.log(this.bedrijf);
 
     this.auth.createUser(this.gebruiker, this.password, this.maker, this.bedrijf);
+    
 
   }
 
