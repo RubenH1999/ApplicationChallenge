@@ -6,6 +6,9 @@ import {Router} from '@angular/router';
 import { GeintereseerdAssignment } from 'src/app/models/geintereseerd-assignment.model';
 import { GeintereseerdAssignmentService } from 'src/app/services/geintereseerd-assignment.service';
 import { BedrijfService } from 'src/app/services/bedrijf.service';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { AssignmentService } from 'src/app/services/assignment.service';
+import { __core_private_testing_placeholder__ } from '@angular/core/testing';
 
 @Component({
   selector: 'app-assignment-overzicht',
@@ -17,25 +20,21 @@ export class AssignmentOverzichtComponent implements OnInit {
   makers: Maker[] = new Array<Maker>();
   gebruikers: Gebruiker[] = new Array<Gebruiker>();
   AssignmentGeintresseerden: GeintereseerdAssignment[];
-  
-  constructor(private router: Router, private _intresse : GeintereseerdAssignmentService, private _bedrijf : BedrijfService) {
+  Assignment: Assignment;
+  constructor(private router: Router, private _intresse : GeintereseerdAssignmentService, private _bedrijf : BedrijfService, private _assignment : AssignmentService) {
   }
 
   ngOnInit() {
-    //Opvragen assignments met geintreseerden voor het ingelogde bedrijf
-    //modal gebruiken voor de details te tonen van een maker.
-    //Bij weigeren deleten uit db bij aanvaard de Maker ID toevoegen ana de assigments MakerID
-    //status updaten???
-    //this._bedrijf.getBedrijfByAccountID(localStorage.getItem('accountID')).subscribe(result => {
-      //this._intresse.getAssignmentsBedrijfMetIntresse(result['bedrijfID']).subscribe(result =>{
-        //console.log(result);
-      //})
-    //})
-
-    this._bedrijf.getBedrijfByAccountID(3).subscribe(result => {
+    
+    
+    this._bedrijf.getBedrijfByAccountID(JSON.parse(localStorage.getItem('accountID'))).subscribe(result => {
       this._intresse.getAssignmentsBedrijfMetIntresse(result['bedrijfID']).subscribe(result =>{
         console.log(result);
+        
         this.AssignmentGeintresseerden = result;
+        console.log(this.AssignmentGeintresseerden);
+        
+        
       })
     })
 
@@ -45,4 +44,19 @@ export class AssignmentOverzichtComponent implements OnInit {
     this.router.navigate(['/makerdetail']);
   }
 
+  weigerMaker(assigmentGID){
+    console.log(assigmentGID);
+    this._intresse.verwijderGeintresseerde(assigmentGID).subscribe(result => {
+      console.log("maker geweigerd");
+    })
+  }
+
+  accepteerMaker(assignment: Assignment, makerID){
+    console.log(makerID);
+    assignment.makerID = makerID;
+    assignment.statusID = 2;
+    this._assignment.addMakerToAssignment(assignment.assignmentID, assignment).subscribe(result => {
+      console.log("maker aanvaard voor taak");
+    })
+  }
 }

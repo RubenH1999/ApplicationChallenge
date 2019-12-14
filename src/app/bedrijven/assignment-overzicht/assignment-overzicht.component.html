@@ -6,8 +6,8 @@
     <ul>
       <li *ngFor="let g of AssignmentGeintresseerden">{{g.maker.account.naam}}
         <button mat-button color="primary" (click)="makerDetails(m.makerID)">Details</button>
-        <button mat-button class="accept" (click)="accepteerMaker(m.makerID)">Accepteren</button>
-        <button mat-button class="weiger" (click)="weigerMaker(m.makerID)">Weigeren</button>
+        <button mat-button class="accept" (click)="accepteerMaker(g.assignment, g.maker.makerID)">Accepteren</button>
+        <button mat-button class="weiger" (click)="weigerMaker(g.geintereseerdAssignmentID)">Weigeren</button>
       </li>
     </ul>
 

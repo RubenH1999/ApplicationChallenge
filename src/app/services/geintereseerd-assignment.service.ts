@@ -17,4 +17,8 @@ export class GeintereseerdAssignmentService {
   getAssignmentsBedrijfMetIntresse(bedrijfID):Observable<GeintereseerdAssignment[]>{
     return this.http.get<GeintereseerdAssignment[]>("https://localhost:44383/api/geintereseerdAssignment/getAssignmentsbybedrijfwithintresse/" + bedrijfID);
   }
+
+  verwijderGeintresseerde(makerID){
+    return this.http.delete("https://localhost:44383/api/geintereseerdassignment/" + makerID);
+  }
 }
