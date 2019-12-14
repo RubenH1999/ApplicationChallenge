@@ -37,7 +37,7 @@ export class MakerService {
   }
   
   updateMaker(maker){
-    return this.http.put("https://localhost:44383/api/maker/" + maker.makerID, maker).subscribe();
+    return this.http.put("https://localhost:44383/api/maker/" + maker.makerID, maker);
   }
   deleteMaker(makerID: number) {
     return this.http.delete("https://localhost:44383/api/maker/" + makerID);

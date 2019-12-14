@@ -16,7 +16,7 @@ import { BedrijfService } from 'src/app/services/bedrijf.service';
 })
 export class AssignmentComponent implements OnInit {
 
-  autoComplete: string[];
+  autoComplete: string[] = new Array<string>();
   tags: string[];
   tagAssignments: TagAssignment[];
 
@@ -33,7 +33,6 @@ export class AssignmentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.autoComplete = new Array<string>();
     this._tagService.getAllTags().subscribe(
       result => {
         result.forEach(tag => {

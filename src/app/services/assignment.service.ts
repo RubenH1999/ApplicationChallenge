@@ -32,6 +32,6 @@ export class AssignmentService {
   }
 
   addMakerToAssignment(assignmentID, assignment){
-    return this.http.put("https://localhost:44383/api/assignment/" + assignmentID, assignment);
+    return this.http.put('https://localhost:44383/api/assignment/' + assignmentID, assignment);
   }
 }
