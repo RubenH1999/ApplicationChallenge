@@ -26,7 +26,7 @@ export class AdminMakerDetailComponent implements OnInit {
     this.getMaker()
     console.log(this.maker)
   }
-
+ 
   getMaker(){
    
    this._makerService.getMakers().subscribe(
