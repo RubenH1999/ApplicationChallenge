@@ -1,8 +1,7 @@
 <form #bedrijfForm="ngForm"  (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
 
 
- <p>{{ gebruiker | json }}</p>
-       <p>{{ bedrijf | json }}</p>
+
        <div class="col-12">
         <div class="row" *ngIf="authError">
           <div class="col-12 alert alert-danger">
@@ -31,10 +30,10 @@
                     <p>biografie:
                     <input type="text" required [(ngModel)]="bedrijf.biografie"  name="biografie" /></p>
                     <p>telefoonnummer:
-                   <input type="tel" required [(ngModel)]="bedrijf.telefoon"  name="telefoon" /></p>
+                   <input type="tel" required [(ngModel)]="bedrijf.telefoonNummer"  name="telefoon" /></p>
                    
                </div>
            
-       <button  block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
+       <button [routerLink] ="['/adminBedrijf']"  block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
 
 </form>

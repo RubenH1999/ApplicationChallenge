@@ -10,8 +10,7 @@ import { Maker } from 'src/app/models/maker.model';
   styleUrls: ['./admin-maker-detail.component.css']
 })
 export class AdminMakerDetailComponent implements OnInit {
-  maker:Maker[];
-  
+  maker:Maker;
   id=0
   private routeSub: Subscription;
 
@@ -22,19 +21,21 @@ export class AdminMakerDetailComponent implements OnInit {
       this.id=params['id']
      
       });
-    
-    this.getMaker()
-    console.log(this.maker)
+      this._makerService.getMaker(this.id).subscribe(
+        result => {  
+          this.maker = result;  
+        }
+      );
   }
- 
-  getMaker(){
+
+  onSubmit() {
+    this._makerService.updateMakerAdmin(this.maker.makerID, this.maker)
+      console.log('update is succes');
+      this.router.navigate(['adminMaker']);
    
-   this._makerService.getMakers().subscribe(
-      result=>{
-        this.maker=result.filter(x=>x.accountID==this.id)
-        console.log(this.maker)
-      })
 
   }
+ 
+  
 
 }

@@ -35,4 +35,8 @@ export class BedrijfService {
   getBedrijven(): Observable<Bedrijf[]> {
     return this.http.get<Bedrijf[]>('https://localhost:44383/api/Bedrijf');
   }
+
+  deleteBedrijf(bedrijfID: number) {
+    return this.http.delete('https://localhost:44383/api/Bedrijf/' + bedrijfID);
+  }
 }

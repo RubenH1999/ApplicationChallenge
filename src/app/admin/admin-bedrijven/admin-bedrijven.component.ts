@@ -30,6 +30,13 @@ bedrijven:Bedrijf[];
       }
     );
   }
+
+  deleteAccount(id: number) {
+    this._bedrijvenService.deleteBedrijf(id).subscribe( result => {
+
+      this.getBedrijven();
+    })
+  }
   
 
 }

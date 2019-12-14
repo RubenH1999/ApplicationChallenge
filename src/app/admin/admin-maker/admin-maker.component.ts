@@ -12,45 +12,42 @@ import { Gebruiker } from 'src/app/models/gebruiker.model';
 })
 export class AdminMakerComponent implements OnInit {
   maker:Maker[]
-  gebruiker:Gebruiker[]
+  gebruiker:Gebruiker
 
   constructor(private _makerService:MakerService,private _acountService:AccountService) { }
 
   ngOnInit() {
-    //this.getMakers();
-    this.getAccounts();
+    
+    this.getMakers();
+    
+   
     
   }
 
- /* getMakers()
+ getMakers()
   {
     this._makerService.getMakers().subscribe(
       result => {
       this.maker=result
       
+      
      console.log("maker: " + this.maker);
       }
     );
   }
-  */
+  
 
-  getAccounts()
-  {
-    this._acountService.getAccounts().subscribe(
-      result =>
-      {
-          this.gebruiker=result.filter(x=>x.rolID==2)
-      }
-    )
 
-  }
 
-  deleteAccount(id: number) {
-    this._acountService.deleteAccount(id).subscribe( result => {
+  deleteMaker(id: number) {
+    this._makerService.deleteMaker(id).subscribe( result => {
 
-      this.getAccounts();
+      this.getMakers();
     })
   }
+
+ 
+  
 
   
 

@@ -47,17 +47,11 @@ export class AuthService {
         this.eventAuthError.next(error);
       });
   }
-<<<<<<< HEAD
-
-  postUserData(gebruiker, maker, bedrijf) {
-
-=======
   get authenticated(): boolean{
     return this.auth.authState !== null;
   }
   postUserData(gebruiker, maker,bedrijf){
     
->>>>>>> 6da829f4624fa731db2b065f08dc2b29edbd0d2f
     console.log(maker);
     console.log(bedrijf);
     gebruiker.authUID = this.ingebruiker;

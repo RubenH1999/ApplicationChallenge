@@ -1,9 +1,27 @@
-<form (ngSubmit) = "pasAan()">
-<p>Maker DetailPagina</p>
-<p>geboortedaum:{{maker[0].geboorteDatum}}</p>
-<p>biografie:{{maker[0].biografie}}</p>
-<p>Linkdin:{{maker[0].linkdin}}</p>
-<p>Ervaring:{{maker[0].ervaring}}</p>
-<p>telefoonNummer:{{maker[0].telefoonNummer}}</p>
-<p>student:{{maker[0].studentCheck}}</p>
-</form>
+<div class="container">
+    <div class="row">
+      <form class="col" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="geboorteDatum">GeboorteDatum:</label>
+          <input id="geboorteDatum" class="form-control" name="naam" type="text" [(ngModel)]="maker.geboorteDatum" required/>
+        </div>
+        <div class="form-group">
+          <label for="locatie">Locatie:</label>
+          <input id="locatie" class="form-control" name="locatie" type="text" [(ngModel)]="maker.biografie" required/>
+        </div>
+        <div class="form-group">
+          <label for="student">student</label>
+          <input id="student" class="form-control" name="student" type="text" [(ngModel)]="maker.studentCheck" required/>
+        </div>
+        <div class="form-group">
+          <label for="ervaring">ervaring:</label>
+          <input id="ervaring" class="form-control" name="ervaring" type="text" [(ngModel)]="maker.ervaring" required/>
+        </div>
+        <div class="form-group">
+            <label for="telefoonnummer">Telefoon nummer:</label>
+            <input id="telefoonnummer" class="form-control" name="telefoonnummer" type="text" [(ngModel)]="maker.telefoonNummer" required/>
+          </div>
+        <button type="submit" class="btn btn-lg btn-warning" (click)="onSubmit()">Wijzig</button>
+      </form>
+    </div>
+  </div>
