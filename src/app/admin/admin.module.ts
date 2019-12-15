@@ -11,14 +11,15 @@ import { BedrijfToevoegenComponent } from './bedrijf-toevoegen/bedrijf-toevoegen
 import { HttpClientModule } from '@angular/common/http';
 import { AdminMakerDetailComponent } from './admin-maker-detail/admin-maker-detail.component';
 import { AdminBedrijfDetailComponent } from './admin-bedrijf-detail/admin-bedrijf-detail.component';
+import { AdminGuard } from '../auth/admin.guard'
 
 const appRoutes: Routes = [
-  { path: 'adminMaker', component: AdminMakerComponent },
-  { path: 'voegMakerToe', component: MakerToevoegenComponent },
-  { path: 'detailMaker/:id', component: AdminMakerDetailComponent },
-  { path: 'adminBedrijf', component: AdminBedrijvenComponent },
-  { path: 'voegBedrijfToe', component: BedrijfToevoegenComponent },
-  { path: 'detailBedrijf/:id', component: AdminBedrijfDetailComponent },
+  { path: 'adminMaker', component: AdminMakerComponent ,canActivate:[AdminGuard]},
+  { path: 'voegMakerToe', component: MakerToevoegenComponent,canActivate:[AdminGuard] },
+  { path: 'detailMaker/:id', component: AdminMakerDetailComponent,canActivate:[AdminGuard] },
+  { path: 'adminBedrijf', component: AdminBedrijvenComponent ,canActivate:[AdminGuard]},
+  { path: 'voegBedrijfToe', component: BedrijfToevoegenComponent,canActivate:[AdminGuard] },
+  { path: 'detailBedrijf/:id', component: AdminBedrijfDetailComponent,canActivate:[AdminGuard] },
  
 ];
 
@@ -30,6 +31,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     SharedModule,
     
-  ]
+  ], providers: [
+    AdminGuard
+  ],
 })
 export class AdminModule { }
