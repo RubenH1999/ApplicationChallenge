@@ -18,7 +18,7 @@ export class AuthService {
   newUser: any;
   currentUser: any;
   ingebruiker: any;
-
+  rolID: any;
 
   private eventAuthError = new BehaviorSubject<string>('');
   eventAuthError$ = this.eventAuthError.asObservable();
@@ -49,6 +49,10 @@ export class AuthService {
   }
   get authenticated(): boolean{
     return this.auth.authState !== null;
+  }
+  get admin():boolean{
+
+    return false
   }
   postUserData(gebruiker, maker,bedrijf){
     
@@ -113,7 +117,8 @@ export class AuthService {
     console.log();
     return this.http.get<Account>('https://localhost:44383/api/account/getbyauthuid/' + authUID).subscribe(result => {
       localStorage.setItem('accountID', result['accountID']);
-
+      this.rolID = result['rolID'];
+      console.log(this.rolID);
     });
 
   }

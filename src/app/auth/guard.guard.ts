@@ -9,8 +9,17 @@ import { AuthService } from './auth.service';
 export class GuardGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router){}
 
+  isAuthenticated():boolean{
+    if (localStorage.getItem('authID')){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  
   canActivate(): boolean{
-    if(this.auth.authenticated){
+    if(!this.isAuthenticated()){
       console.log('access denied');
       this.router.navigate(['login']);
       return false;
