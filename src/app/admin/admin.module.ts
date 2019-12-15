@@ -11,6 +11,7 @@ import { BedrijfToevoegenComponent } from './bedrijf-toevoegen/bedrijf-toevoegen
 import { HttpClientModule } from '@angular/common/http';
 import { AdminMakerDetailComponent } from './admin-maker-detail/admin-maker-detail.component';
 import { AdminBedrijfDetailComponent } from './admin-bedrijf-detail/admin-bedrijf-detail.component';
+import { AdminGuard } from '../auth/admin.guard'
 import { AdminBedrijfReviewComponent } from './admin-bedrijf-review/admin-bedrijf-review.component';
 import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
 import { MatSelectModule, MatInputModule } from '@angular/material';
@@ -48,6 +49,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatInputModule,
     
-  ]
+  ], providers: [
+    AdminGuard
+  ],
 })
 export class AdminModule { }
