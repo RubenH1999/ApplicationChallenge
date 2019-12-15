@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col">
+      <h3 class="text-center">Geschreven Reviews</h3>
+      <mat-card class="card" *ngIf="geschrevenMSG">
+        <mat-card-header>
+          <mat-card-title><b>Geen reviews gevonden.</b></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Maak assignments zodat bedrijven je kunnen reviewen.</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="card" *ngFor="let r of geschrevenReviews">
+        <mat-card-header>
+          <!--        error niet aantrekken, het werkt! omdat in model fout benaming gebruikt is geeft verzenderAccount en ontvangerAccount een error-->
+          <mat-card-title><b>Van: </b> {{r.verzenderAccount.naam}}</mat-card-title>
+          <mat-card-title><b> Naar: </b> {{r.ontvangerAccount.naam}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{r.beschrijving}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col">
+      <h3 class="text-center">Reviews over mij</h3>
+      <mat-card class="card" *ngIf="verzondenMSG">
+        <mat-card-header>
+          <mat-card-title><b>Geen reviews gevonden.</b></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Maak assignments zodat bedrijven je kunnen reviewen.</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="card" *ngFor="let r of ontvangenReviews">
+        <mat-card-header>
+          <!--        error niet aantrekken, het werkt! omdat in model fout benaming gebruikt is geeft verzenderAccount en ontvangerAccount een error-->
+          <mat-card-title><b>Van: </b> {{r.ontvangerAccount.naam}}</mat-card-title>
+          <mat-card-title><b> Naar: </b> {{r.verzenderAccount.naam}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+        <div class="form-group">
+               
+        <input id="review" class="form-control" name="review" type="text" [(ngModel)]="r.beschrijving" required/>
+        </div>
+        <button type="submit" class="btn btn-lg btn-warning" (click)="onSubmit()">Wijzig</button>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>

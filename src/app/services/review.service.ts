@@ -22,4 +22,8 @@ export class ReviewService {
   addReview(review: Review) {
     return this.http.post<Review>('https://localhost:44383/api/review', review);
   }
+
+  updateReview(reviewID: number, review: Review) {
+    return this.http.put<Review>('https://localhost:44383/api/review/' + reviewID, review);
+  }
 }

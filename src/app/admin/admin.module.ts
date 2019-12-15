@@ -11,6 +11,7 @@ import { BedrijfToevoegenComponent } from './bedrijf-toevoegen/bedrijf-toevoegen
 import { HttpClientModule } from '@angular/common/http';
 import { AdminMakerDetailComponent } from './admin-maker-detail/admin-maker-detail.component';
 import { AdminBedrijfDetailComponent } from './admin-bedrijf-detail/admin-bedrijf-detail.component';
+import { AdminBedrijfReviewComponent } from './admin-bedrijf-review/admin-bedrijf-review.component';
 
 const appRoutes: Routes = [
   { path: 'adminMaker', component: AdminMakerComponent },
@@ -19,11 +20,12 @@ const appRoutes: Routes = [
   { path: 'adminBedrijf', component: AdminBedrijvenComponent },
   { path: 'voegBedrijfToe', component: BedrijfToevoegenComponent },
   { path: 'detailBedrijf/:id', component: AdminBedrijfDetailComponent },
+  { path: 'bedrijfReview/:id', component: AdminBedrijfReviewComponent },
  
 ];
 
 @NgModule({
-  declarations: [AdminMakerComponent,MakerToevoegenComponent,AdminBedrijvenComponent,BedrijfToevoegenComponent, AdminMakerDetailComponent, AdminBedrijfDetailComponent],
+  declarations: [AdminMakerComponent,MakerToevoegenComponent,AdminBedrijvenComponent,BedrijfToevoegenComponent, AdminMakerDetailComponent, AdminBedrijfDetailComponent, AdminBedrijfReviewComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

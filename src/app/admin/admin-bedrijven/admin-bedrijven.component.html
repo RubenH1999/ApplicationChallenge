@@ -2,6 +2,7 @@
 <ul  *ngFor="let b of bedrijven"  >
     <li>
         <a [routerLink] ="['/detailBedrijf/'+(b.bedrijfID)]">{{b.naam}}</a>
+        <input type="button" value="Reviews" [routerLink] ="['/bedrijfReview/'+(b.bedrijfID)]" />
         <input type="button" value="Verwijder" (click)="deleteAccount((b.bedrijfID))"/>
 
     </li>
