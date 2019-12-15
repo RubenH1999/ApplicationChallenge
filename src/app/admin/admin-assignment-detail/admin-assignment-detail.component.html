@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+      <form class="col" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="titel">titel:</label>
+          <input id="titel" class="form-control" name="titel" type="text" [(ngModel)]="assignment.titel" required/>
+        </div>
+        <div class="form-group">
+          <label for="omschrijving">omschrijving:</label>
+          <input id="omschrijving" class="form-control" name="omschrijving" type="text" [(ngModel)]="assignment.omschrijving" required/>
+        </div>
+        <div class="form-group">
+            <label for="locatie">locatie:</label>
+            <input id="locatie" class="form-control" name="locatie" type="text" [(ngModel)]="assignment.location" required/>
+        </div>
+        
+        <div class="form-group">
+          <label for="type">type:</label>
+          <input id="type" class="form-control" name="type" type="text" [(ngModel)]="assignment.type" required/>
+        </div>
+        <button type="submit" class="btn btn-lg btn-warning"  >pas Aan</button>
+      </form>
+    </div>
+  </div>

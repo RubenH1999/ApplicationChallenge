@@ -23,7 +23,16 @@ export class ReviewService {
     return this.http.post<Review>('https://localhost:44383/api/review', review);
   }
 
+  getReview(reviewID: number): Observable<Review> {
+    return this.http.get<Review>('https://localhost:44383/api/review/' + reviewID);
+  }
+
   updateReview(reviewID: number, review: Review) {
     return this.http.put<Review>('https://localhost:44383/api/review/' + reviewID, review);
   }
+
+  deleteReview(reviewID: number) {
+    return this.http.delete('https://localhost:44383/api/review/' + reviewID);
+  }
+  
 }

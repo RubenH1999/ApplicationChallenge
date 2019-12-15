@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Bedrijf } from 'src/app/models/bedrijf.model';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BedrijfService } from 'src/app/services/bedrijf.service';
-import { ReviewService } from 'src/app/services/review.service';
 import { Review } from 'src/app/models/review.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
-  selector: 'app-admin-bedrijf-review',
-  templateUrl: './admin-bedrijf-review.component.html',
-  styleUrls: ['./admin-bedrijf-review.component.css']
+  selector: 'app-admin-maker-review',
+  templateUrl: './admin-maker-review.component.html',
+  styleUrls: ['./admin-maker-review.component.css']
 })
-export class AdminBedrijfReviewComponent implements OnInit {
+export class AdminMakerReviewComponent implements OnInit {
 
   geschrevenReviews: Review[];
   ontvangenReviews: Review[];
@@ -20,8 +17,7 @@ export class AdminBedrijfReviewComponent implements OnInit {
   verzondenMSG: boolean = false;
   id=0
   private routeSub: Subscription;
-  bedrijf: Bedrijf;
-  review:Review
+  
 
 
 
@@ -57,7 +53,7 @@ export class AdminBedrijfReviewComponent implements OnInit {
       this.ngOnInit();
     })
   }
-  
 
+ 
 
 }

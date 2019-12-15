@@ -21,7 +21,6 @@ export class AdminMakerComponent implements OnInit {
     this.getMakers();
     
    
-    
   }
 
  getMakers()

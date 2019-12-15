@@ -1,8 +1,11 @@
 <p>Makers</p>
 <ul *ngFor="let m of maker">
     <li>
-        <a [routerLink] ="['/detailMaker/'+(m.makerID)]"> {{m.accountID}}</a>
+        <a [routerLink] ="['/detailMaker/'+(m.makerID)]"> {{m.makerID}}</a>
+        <input type="button" value="Reviews" [routerLink] ="['/makerReview/'+(m.accountID)]" />
+       
     <input type="button" value="Verwijder" (click)=" deleteMaker((m.makerID))"/>
+
     </li>
 </ul>
 

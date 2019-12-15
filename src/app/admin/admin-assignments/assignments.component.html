@@ -1,0 +1,9 @@
+<p>Opdrachten</p>
+<ul *ngFor="let a of assignments">
+    <li>
+        <a [routerLink] ="['/assignmentsDetail/'+(a.assignmentID)]"> {{a.titel}}</a>
+       
+    <input type="button" value="Verwijder" (click)=" deleteAssignment((a.assignmentID))"/>
+
+    </li>
+</ul>

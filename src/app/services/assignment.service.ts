@@ -34,4 +34,12 @@ export class AssignmentService {
   addMakerToAssignment(assignmentID, assignment){
     return this.http.put('https://localhost:44383/api/assignment/' + assignmentID, assignment);
   }
+
+  deleteAssignment(assignmentID: number) {
+    return this.http.delete('https://localhost:44383/api/assignment/' + assignmentID);
+  }
+  updateAssignment(assignmentID: number, assignment: Assignment) {
+    return this.http.put<Assignment>('https://localhost:44383/api/assignment/' + assignmentID, assignment);
+  }
+
 }
