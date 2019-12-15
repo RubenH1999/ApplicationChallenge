@@ -117,7 +117,7 @@ export class AuthService {
     console.log();
     return this.http.get<Account>('https://localhost:44383/api/account/getbyauthuid/' + authUID).subscribe(result => {
       localStorage.setItem('accountID', result['accountID']);
-      this.rolID = result['rolID'];
+      localStorage.setItem('rolID', result['rolID']);
       console.log(this.rolID);
     });
 
