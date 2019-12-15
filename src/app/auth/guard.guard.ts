@@ -10,7 +10,7 @@ export class GuardGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router){}
 
   isAuthenticated():boolean{
-    if (localStorage.getItem('authID')){
+    if (localStorage.getItem('authUID')){
       return true;
     }
     else{
