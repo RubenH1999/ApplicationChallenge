@@ -16,9 +16,8 @@ export class AppComponent {
   constructor(private _authenticateService : AuthService, private router: Router) {
 
     this.login = Boolean(JSON.parse(localStorage.getItem("login")));
-    this.userstate = this._authenticateService.getUserState();
     //bij inloggen wordt login op true gezet in local storage
-    if (this.userstate != null) {
+    if (localStorage.getItem("accountID") != null) {
       localStorage.setItem("login", "true");
       this.login = Boolean(JSON.parse(localStorage.getItem("login")));
     }
@@ -29,6 +28,7 @@ export class AppComponent {
 
   uitloggen(){
     this._authenticateService.logout();
+    localStorage.removeItem("accountID");
     localStorage.setItem("login", "false");
     this.login = Boolean(JSON.parse(localStorage.getItem("login")));
     this.router.navigate(['/']);

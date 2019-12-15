@@ -130,11 +130,12 @@ export class AuthService {
       })
       .then(userCredential => {
         if (userCredential) {
-
           this.currentUser = userCredential.user.uid;
           localStorage.setItem('authUID', this.currentUser);
           this.getMakerByUID(this.currentUser);
-          this.router.navigate(['']);
+          setTimeout(() => {
+            this.router.navigate(['']);
+          }, 1000);        
           console.log(this.currentUser);
         }
 

@@ -31,7 +31,7 @@ import { MakerService } from './services/maker.service';
 import { BedrijfService } from './services/bedrijf.service';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { GuardGuard } from './auth/guard.guard';
-import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatDialogModule} from '@angular/material/dialog';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate:[GuardGuard]},
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     AdminComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,12 +61,8 @@ const appRoutes: Routes = [
     MakerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    FormsModule,
     BedrijvenModule,
-    AdminModule,
-    MatDialogModule,
-    
-    
+    AdminModule   
   ],
   providers: [
     AuthService,
