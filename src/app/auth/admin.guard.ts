@@ -10,7 +10,7 @@ export class AdminGuard implements CanActivate  {
   isAdmin(): boolean{
     if(JSON.parse(localStorage.getItem('rolID')) == 1)
     {
-      console.log("huh wa");
+      
       return true;
     }else {
       return false;
