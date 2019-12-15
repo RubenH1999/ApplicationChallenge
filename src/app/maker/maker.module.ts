@@ -12,15 +12,16 @@ import {ReviewSchrijvenComponent} from './review-schrijven/review-schrijven.comp
 import {MatInputModule, MatSelectModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import { GegevensAanpassenComponent } from './gegevens-aanpassen/gegevens-aanpassen.component';
+import { GuardGuard } from '../auth/guard.guard';
 
 const appRoutes: Routes = [
-  {path: 'maker-home', component: MakerHomeComponent},
-  {path: 'zoeken', component: ZoekComponent},
-  {path: 'bedrijfDetail', component: BedrijfDetailComponent},
-  {path: 'assignmentDetail', component: AssignmentDetailComponent},
-  {path: 'reviews-maker', component: ReviewListComponent},
-  {path: 'schrijf-review-maker', component: ReviewSchrijvenComponent},
-  {path: 'maker-account-settings', component: GegevensAanpassenComponent},
+  {path: 'maker-home', component: MakerHomeComponent ,canActivate:[GuardGuard] },
+  {path: 'zoeken', component: ZoekComponent ,canActivate:[GuardGuard]},
+  {path: 'bedrijfDetail', component: BedrijfDetailComponent,canActivate:[GuardGuard]},
+  {path: 'assignmentDetail', component: AssignmentDetailComponent,canActivate:[GuardGuard]},
+  {path: 'reviews-maker', component: ReviewListComponent,canActivate:[GuardGuard]},
+  {path: 'schrijf-review-maker', component: ReviewSchrijvenComponent,canActivate:[GuardGuard]},
+  {path: 'maker-account-settings', component: GegevensAanpassenComponent,canActivate:[GuardGuard]},
 ];
 
 

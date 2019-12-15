@@ -30,4 +30,8 @@ export class AssignmentService {
   addAssignment(assignment: Assignment) {
     return this.http.post<Assignment>('https://localhost:44383/api/assignment', assignment);
   }
+
+  addMakerToAssignment(assignmentID, assignment){
+    return this.http.put('https://localhost:44383/api/assignment/' + assignmentID, assignment);
+  }
 }

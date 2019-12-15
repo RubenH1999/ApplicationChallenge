@@ -1,21 +1,5 @@
-<mat-card class="card">
-        <mat-card-header>
-            <mat-card-title><b>{{maker.gebruiker.naam}}</b></mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p><b>Biografie: </b></p>
-            <p>{{maker.biografie}}</p>
-            <p><b>LinkedIn: </b>{{maker.linkedIn}}</p>            
-            <p><b>Ervaring: </b>{{maker.ervaring}}</p>
-            <p><b>Telefoonnummer: </b>{{maker.telefoonnummer}}</p>
-            <p><b>E-mail: </b>{{maker.gebruiker.email}}</p>    
-            <p><b>Tags: </b></p>
-            <ul>
-                <li *ngFor="let t of maker.tagMakers">
-                    {{t.tag.beschrijving}}  
-                </li>
-            </ul>
-            
-        </mat-card-content>
-    </mat-card>
-    
+<h4>Naam: {{data.maker.account.naam}}</h4>
+<p>Biografie: {{data.maker.biografie}}</p>
+<p>Ervaring: {{data.maker.ervaring}}</p>
+<p>Telefoon Nummer: {{data.maker.telefoonNummer}}</p>
+<p>email: {{data.maker.account.email}}</p>   

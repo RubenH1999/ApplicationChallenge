@@ -20,11 +20,9 @@ export class BedrijfHomeComponent implements OnInit {
   ngOnInit() {
     this.bedrijfService.getBedrijfByAccountID(+localStorage.getItem('accountID')).subscribe(result => {
       this.bedrijf = result;
-      console.log(this.bedrijf.bedrijfID);
-    });
-    this.assignmentService.getAssignmentsByBedrijf(this.bedrijf.bedrijfID).subscribe(result => {
-      this.assignments = result;
-      console.log(result);
+      this.assignmentService.getAssignmentsByBedrijf(result.bedrijfID).subscribe(res => {
+        this.assignments = res;
+      });
     });
   }
 

@@ -13,16 +13,17 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule, MatSelectModule} from '@angular/material';
 import {BedrijfHomeComponent} from './bedrijf-home/bedrijf-home.component';
 import {BedrijfAanpassenComponent} from './bedrijf-aanpassen/bedrijf-aanpassen.component';
+import { GuardGuard } from '../auth/guard.guard';
 
 const appRoutes: Routes = [
-  {path: 'bedrijf-home', component: BedrijfHomeComponent},
-  {path: 'bedrijven', component: BedrijvenComponent},
-  {path: 'bedrijf-assignment-aanmaken', component: AssignmentComponent},
-  {path: 'makerdetail', component: MakerDetailComponent},
-  {path: 'assignmentoverzicht', component: AssignmentOverzichtComponent},
-  {path: 'reviews-bedrijf', component: ReviewListComponent},
-  {path: 'schrijf-review-bedrijf', component: ReviewSchrijvenComponent},
-  {path: 'bedrijf-aanpassen', component: BedrijfAanpassenComponent}
+  {path: 'bedrijf-home', component: BedrijfHomeComponent,canActivate:[GuardGuard]},
+  {path: 'bedrijven', component: BedrijvenComponent,canActivate:[GuardGuard]},
+  {path: 'bedrijf-assignment-aanmaken', component: AssignmentComponent,canActivate:[GuardGuard]},
+  {path: 'makerdetail', component: MakerDetailComponent,canActivate:[GuardGuard]},
+  {path: 'assignmentoverzicht', component: AssignmentOverzichtComponent,canActivate:[GuardGuard]},
+  {path: 'reviews-bedrijf', component: ReviewListComponent,canActivate:[GuardGuard]},
+  {path: 'schrijf-review-bedrijf', component: ReviewSchrijvenComponent,canActivate:[GuardGuard]},
+  {path: 'bedrijf-aanpassen', component: BedrijfAanpassenComponent,canActivate:[GuardGuard]}
 ];
 
 @NgModule({
