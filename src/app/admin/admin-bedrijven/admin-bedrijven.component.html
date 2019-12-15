@@ -1,9 +1,18 @@
-<p>bedrijven</p>
-<ul  *ngFor="let b of bedrijven"  >
-    <li>
-        <a [routerLink] ="['/detailBedrijf/'+(b.bedrijfID)]">{{b.naam}}</a>
-        <input type="button" value="Reviews" [routerLink] ="['/bedrijfReview/'+(b.accountID)]" />
-        <input type="button" value="Verwijder" (click)="deleteAccount((b.bedrijfID))"/>
+<h2>Bedrijven:</h2>
 
-    </li>
-</ul>
+<mat-card class="card" *ngFor="let b of bedrijven">
+    <mat-card-header>
+        <mat-card-title> <a [routerLink] ="['/detailBedrijf/'+(b.bedrijfID)]">{{b.naam}}</a></mat-card-title>
+     </mat-card-header>
+    <mat-card-content>
+        <input type="button" class="btn btn-lg btn-warning" value="Reviews" [routerLink] ="['/bedrijfReview/'+(b.accountID)]" />
+        
+        </mat-card-content>
+    <mat-card-content>
+        <input type="button" class="btn btn-lg btn-warning" value="Verwijder" (click)="deleteAccount((b.bedrijfID))"/>
+
+    
+    </mat-card-content>
+
+</mat-card>
+

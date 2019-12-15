@@ -14,13 +14,13 @@ import { AdminBedrijfDetailComponent } from './admin-bedrijf-detail/admin-bedrij
 import { AdminGuard } from '../auth/admin.guard'
 import { AdminBedrijfReviewComponent } from './admin-bedrijf-review/admin-bedrijf-review.component';
 import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
-import { MatSelectModule, MatInputModule } from '@angular/material';
+import { MatSelectModule, MatInputModule, MatListItem } from '@angular/material';
 import { AdminBedrijfReviewDetailComponent } from './admin-bedrijf-review-detail/admin-bedrijf-review-detail.component';
 import { AdminMakerReviewComponent } from './admin-maker-review/admin-maker-review.component';
 import { AdminMakerReviewDetailComponent } from './admin-maker-review-detail/admin-maker-review-detail.component';
 import { AssignmentsComponent } from './admin-assignments/assignments.component';
 import { AdminAssignmentDetailComponent } from './admin-assignment-detail/admin-assignment-detail.component';
-
+import {MatListModule} from '@angular/material/list'
 
 const appRoutes: Routes = [
   { path: 'adminMaker', component: AdminMakerComponent },
@@ -48,6 +48,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatSelectModule,
     MatInputModule,
+    MatListModule
+   
     
   ], providers: [
     AdminGuard

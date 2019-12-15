@@ -1,9 +1,11 @@
-<p>Opdrachten</p>
-<ul *ngFor="let a of assignments">
-    <li>
-        <a [routerLink] ="['/assignmentsDetail/'+(a.assignmentID)]"> {{a.titel}}</a>
-       
-    <input type="button" value="Verwijder" (click)=" deleteAssignment((a.assignmentID))"/>
+<h2>Opdrachten:</h2>
 
-    </li>
-</ul>
+<mat-card class="card" *ngFor="let a of assignments">
+    <mat-card-header>
+        <mat-card-title><a [routerLink] ="['/assignmentsDetail/'+(a.assignmentID)]"> {{a.titel}}</a></mat-card-title>
+     
+    </mat-card-header>
+    <mat-card-content>
+        <input type="button" class="btn btn-lg btn-warning" value="Verwijder" (click)=" deleteAssignment((a.assignmentID))"/>
+    </mat-card-content>
+  </mat-card>

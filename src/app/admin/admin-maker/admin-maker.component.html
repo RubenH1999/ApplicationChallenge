@@ -1,11 +1,15 @@
-<p>Makers</p>
-<ul *ngFor="let m of maker">
-    <li>
-        <a [routerLink] ="['/detailMaker/'+(m.makerID)]"> {{m.makerID}}</a>
-        <input type="button" value="Reviews" [routerLink] ="['/makerReview/'+(m.accountID)]" />
-       
-    <input type="button" value="Verwijder" (click)=" deleteMaker((m.makerID))"/>
+<h2>Makers:</h2>
 
-    </li>
-</ul>
+<mat-card class="card" *ngFor="let m of maker">
+    <mat-card-header>
+        <mat-card-title><a [routerLink] ="['/detailMaker/'+(m.makerID)]"> {{m.makerID}}</a></mat-card-title>
+     </mat-card-header>
+    <mat-card-content>
+        <input type="button" class="btn btn-lg btn-warning" value="Reviews" [routerLink] ="['/makerReview/'+(m.accountID)]" />
+        </mat-card-content>
+    <mat-card-content>
+      <input type="button" class="btn btn-lg btn-warning" value="Verwijder" (click)=" deleteMaker((m.makerID))"/>
+    </mat-card-content>
+
+</mat-card>
 

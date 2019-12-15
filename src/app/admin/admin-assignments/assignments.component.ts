@@ -29,6 +29,7 @@ export class AssignmentsComponent implements OnInit {
       }
     );
   }
+  
   deleteAssignment(id: number) {
     this._assignmentService.deleteAssignment(id).subscribe( result => {
 

@@ -1,3 +1,5 @@
+<div class="container">
+  <div class="row">
 <form #makerForm="ngForm"  (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
         <p>{{ model | json }}</p>
         <p>{{ modelGebruiker | json }}</p>
@@ -41,7 +43,8 @@
           <label>Ervaring</label>
 
           <textarea name="ervaring" cols="40" rows="5" id="textarea2" class="materialize-textarea"
-                    [(ngModel)]="maker.ervaring"></textarea>
+                    [(ngModel)]="maker.ervaring">
+                  </textarea>
         </div>
         <div class="col-md-12 mb-2">
 
@@ -54,8 +57,10 @@
         </div>
       </div>
        
-    <button [routerLink] ="['/adminMaker']" block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
+    <button [routerLink] ="['/adminMaker']" block="true" class="btn btn-lg btn-warning" type="submit" [disabled]="submitted">Voeg toe</button>
             
     
 </form>
+</div>
+</div>
     
